@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/sagarnarkhede/Group_2_Fleet_Managment#readme",
   "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5",
     "nodemon": "^2.0.12"
   }
 }
