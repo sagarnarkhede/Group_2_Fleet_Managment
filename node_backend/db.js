@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/FM_Project', (err) => {
+mongoose.connect("mongodb://localhost:27017/FM_Project", {
+   useNewUrlParser: true,
+   useUnifiedTopology: true
+ })
+
+mongoose.connect('mongodb://localhost:27017/FM_Project', (err) => { 
     if (!err)
         console.log('MongoDB connection succeeded.');
     else
