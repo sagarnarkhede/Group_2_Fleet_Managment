@@ -23,9 +23,6 @@ const bookingSchema = Schema({
         charges:{type:Number},
         pyment_method:{type:String}
     }
-   
-
-    
 })
 
 module.exports = mongoose.model("Booking", bookingSchema);
