@@ -1,0 +1,49 @@
+{
+    "fname" : "Ravi",
+    "mname" : "Kumar",
+    "lname": "bhaisa",
+    "add1": "Pune",
+    "add2": "shivaji nagar",
+    "email": "ravi123@gmail.com",
+    "city" : "Pune",
+    "zip" : 142376,
+    "phone_number" : 02343132243,
+    "mobile_number": 8799005643,
+    "Credit_Card_type" : "master card",
+    "card_number" : 284784,
+    "driving_lic" : "four wheeler",
+    issue_date: "2014-09-01T23:28:56.782Z"
+}
+
+{
+    "fname" : "Ravi",
+    "mname" : "Kumar",
+    "lname": "bhaisa",
+    "email": "ravi123@gmail.com",
+    "phone_number" : 2343132243,
+    "mobile_number": 8799005643,
+    "Credit_Card_type" : "master card",
+    "card_number" : 284784,
+    "driving_lic" : "four wheeler",
+    "issue_date": "2014-09-01T23:28:56.782Z"
+   
+}
+{
+    "fname" : "Ravi",
+    "mname" : "Kumar",
+    "lname": "bhaisa",
+    "email": "ravi123@gmail.com", "phone_number" : 2343132243,
+    "mobile_number": 8799005643,
+    "driving_lic" : "four wheeler",
+    "issue_date": "2014-09-01T23:28:56.782Z",
+    "add1":"jalgaon",
+    "city1":"bhusaval",
+    "state1":"maha",
+    "zip1":1111,
+     "add2":"jalaaagaon",
+    "city2":"bhusaaaaval",
+    "state2":"mahaaaa",
+    "zip2":111154
+  
+   
+}
