@@ -1,49 +1,40 @@
 {
-    "fname" : "Ravi",
-    "mname" : "Kumar",
-    "lname": "bhaisa",
-    "add1": "Pune",
-    "add2": "shivaji nagar",
-    "email": "ravi123@gmail.com",
-    "city" : "Pune",
-    "zip" : 142376,
-    "phone_number" : 02343132243,
-    "mobile_number": 8799005643,
-    "Credit_Card_type" : "master card",
-    "card_number" : 284784,
-    "driving_lic" : "four wheeler",
-    issue_date: "2014-09-01T23:28:56.782Z"
-}
-
-{
-    "fname" : "Ravi",
-    "mname" : "Kumar",
+    "fname" : "sagar",
+    "mname" : "narkhede",
     "lname": "bhaisa",
     "email": "ravi123@gmail.com",
+    "password" : "sagar@123",
     "phone_number" : 2343132243,
-    "mobile_number": 8799005643,
-    "Credit_Card_type" : "master card",
-    "card_number" : 284784,
-    "driving_lic" : "four wheeler",
-    "issue_date": "2014-09-01T23:28:56.782Z"
-   
-}
-{
-    "fname" : "Ravi",
-    "mname" : "Kumar",
-    "lname": "bhaisa",
-    "email": "ravi123@gmail.com", "phone_number" : 2343132243,
     "mobile_number": 8799005643,
     "driving_lic" : "four wheeler",
     "issue_date": "2014-09-01T23:28:56.782Z",
     "add1":"jalgaon",
     "city1":"bhusaval",
     "state1":"maha",
-    "zip1":1111,
-     "add2":"jalaaagaon",
-    "city2":"bhusaaaaval",
-    "state2":"mahaaaa",
-    "zip2":111154
+    "zip1":11115,
+     "add2":"jalgaon",
+    "city2":"bhusaval",
+    "state2":"maha",
+    "zip2":1111,
+    "card_type":"master",
+    "card_number":"125",
+    "booking_id":12344,
+    "booking_date":"2014-09-01T23:28:56.782Z",
+    "Drop_date":"2014-09-01T23:28:56.782Z",
+    "inhand_date":"2014-09-01T23:28:56.782Z",
+    "handover_date":"2014-09-01T23:28:56.782Z",
+    "inhand_center":123,
+    "handover_center":456,
+    "booking_status":"canceled",
+    "inhand_emp": 789,
+    "handover_emp": 987,
+    "vehical_type": "first class", 
+    "vehical_number": 1258, 
+    "vehical_lastcervising_date": "2014-09-01T23:28:56.782Z", 
+    "vehical_desel_level": 98,
+    "invoice_number":123,
+    "charges":955,
+    "pyment_method":"card"
   
    
 }

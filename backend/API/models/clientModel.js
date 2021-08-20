@@ -6,6 +6,7 @@ const clientSchema = Schema({
     mname: { type: String },
     lname: { type: String },
     email: { type: String },
+    password: {type: String},
     phone_number: { type: Number },
     mobile_number: { type: Number },
     driving_lic: { type: String },
