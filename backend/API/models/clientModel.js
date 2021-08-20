@@ -10,7 +10,12 @@ const clientSchema = Schema({
     mobile_number: { type: Number },
     driving_lic: { type: String },
     issue_date: { type: Date },
-    address: []
+    address: [],
+    credit_card:{
+        card_type:{type:String},
+        card_number:{type:Number}
+    },
+    bookings:[]
   
 })
 
