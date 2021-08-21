@@ -1,5 +1,6 @@
 const express = require('express')
 const clientRouter = require('./API/routes/clients')
+const contact_usRouter = require('./API/routes/contact_us')
 
 const app = express();
 const morgan = require('morgan');
@@ -17,8 +18,11 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use("/clients",clientRouter);
-// app.use("/orders",orderRoutes);  
-// app.use("/users",userRoute);  
+app.use("/contact_us", contact_usRouter)
+
+
+
+app.use(express.static('public'));
 
 //cros error {cross origine resourse sharing}
 app.use((req,res,next)=>{
