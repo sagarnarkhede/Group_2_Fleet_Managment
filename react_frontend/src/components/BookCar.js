@@ -1,37 +1,36 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
+import Footer from './Footer'
 
 export default class BookCar extends Component {
     constructor(props) {
         super(props);
-        this.state = { pickupDate: '' };
-        this.state = { dropDate: '' };
-        this.state = { pickupTime: '' };
-        this.state = { dropTime: '' };
-        this.state = { serachAirport: '' };
-        this.state = { selectAirport: '' };
-        this.state = { city: '' };
-        this.state = { state: '' };
+        this.state = { pickupDate: '' ,
+        dropDate: '',
+        pickupTime: '',
+        dropTime: '',
+        searchpickupAirport: '',
+        selectpickupAirport: '',
+        pickupcity: '',
+        pickupstate: '',
+        returncheck : '',
+        searchdropAirport: '',
+        selecdroppAirport: '',
+        dropcity: '',
+        dropstate: '',
+    }
       }
       mySubmitHandler = (event) => {
         event.preventDefault();
-        alert("You are submitting " + this.state.pickupDate);
+        console.log(this.state);
       }
       myChangeHandler = (event) => {
-        this.setState({pickupDate: event.target.pickupDate});
-        this.setState({dropDate: event.target.value});
-        this.setState({pickupTime: event.target.value});
-        this.setState({dropTime: event.target.value});
-        this.setState({serachAirport: event.target.value});
-        this.setState({selectAirport: event.target.value});
-        this.setState({city: event.target.value});
-        this.setState({state: event.target.value});
-        console.log(this.state.pickupDate);
+        this.setState({[event.target.name]: event.target.value });
+        // console.log(this.state);
       }
   
      drop(params) {
-         let value = document.getElementById('returncheck')
-         if(value)
+         if(this.state.returncheck)
          {
          return(
             <div className="row mt-2">
@@ -40,11 +39,17 @@ export default class BookCar extends Component {
                 <div className="row">
                     <div className="col-6">
                         <label className="sublabel">Search AirPort : </label>
-                        <input type="text" className="form-control"></input>
+                        <input type="text" className="form-control" name="searchdropAirport" onChange={this.myChangeHandler}></input>
                     </div>
                     <div className="col-6">
                         <label className="sublabel">Select AirPort : </label>
-                        <input type="text" className="form-control"></input>
+                        <select className="form-control" name="selecdroppAirport" onChange={this.myChangeHandler}>
+                            <option value="volvo">Volvo</option>
+                            <option value="saab">Saab</option>
+                            <option value="mercedes">Mercedes</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                        {/* <input type="text" className="form-control" name="selecdroppAirport" onChange={this.myChangeHandler} ></input> */}
                     </div>
                 </div>
             </div>
@@ -52,22 +57,23 @@ export default class BookCar extends Component {
                 <div className="row">
                     <div className="col-6">
                         <label className="sublabel">City : </label>
-                        <input type="text" className="form-control  "></input>
+                        <input type="text" className="form-control" name="dropcity" onChange={this.myChangeHandler}></input>
                     </div>
                     <div className="col-6">
                         <label className="sublabel">State : </label>
-                        <input type="text" className="form-control col-3"></input>
+                        <input type="text" className="form-control col-3" name="dropstate" onChange={this.myChangeHandler}></input>
                     </div>
                 </div>
 
             </div>
             
         </div>
-
          )
          }
          else{
-             return;
+             return(
+                 <div></div>
+             )
          }
         
     }
@@ -75,18 +81,18 @@ export default class BookCar extends Component {
         return (
             <div>
                 <Nav />
-                <div className="" style={{ margin: "18vh 25%", border: "2px solid black", padding: "50px", borderRadius: "30px" }}>
-                    <form className="form-group">
+               
+                <div className="" style={{ margin: "13vh 15%", border: "2px solid black", padding: "50px", borderRadius: "30px",maxHeight:"100vh" }}>
+                    <form className="form-group" onSubmit={this.mySubmitHandler}>
                         <div className="row">
                             <div className="col-6">
                                 <label >Select Pickup Date : </label>
                                 <input type="date" className="form-control" name="pickupDate" onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label>Select Pickup Date : </label>
+                                <label>Select Drop Date : </label>
                                 <input type="date" className="form-control" name="dropDate" onChange={this.myChangeHandler} ></input>
                             </div>
-
                         </div><br />
                         <div className="row mt-2">
                             <div className="col-6">
@@ -104,11 +110,17 @@ export default class BookCar extends Component {
                                 <div className="row">
                                     <div className="col-6">
                                         <label className="sublabel">Search AirPort : </label>
-                                        <input type="text" className="form-control" name="serachAirport" onChange={this.myChangeHandler}></input>
+                                        <input type="text" className="form-control" name="searchpickupAirport" onChange={this.myChangeHandler}></input>
                                     </div>
                                     <div className="col-6">
                                         <label className="sublabel">Select AirPort : </label>
-                                        <input type="text" className="form-control" name="selectAirport" onChange={this.myChangeHandler}></input>
+                                        <select className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}>
+                                            <option value="volvo">Volvo</option>
+                                            <option value="saab">Saab</option>
+                                            <option value="mercedes">Mercedes</option>
+                                            <option value="audi">Audi</option>
+                                        </select>
+                                        {/* <input type="text" className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}></input> */}
                                     </div>
                                 </div>
                             </div>
@@ -116,11 +128,11 @@ export default class BookCar extends Component {
                                 <div className="row">
                                     <div className="col-6">
                                         <label className="sublabel">City : </label>
-                                        <input type="text" className="form-control" name="city" onChange={this.myChangeHandler}></input>
+                                        <input type="text" className="form-control" name="pickupcity" onChange={this.myChangeHandler}></input>
                                     </div>
                                     <div className="col-6">
                                         <label className="sublabel">State : </label>
-                                        <input type="text" className="form-control col-3" name="state" onChange={this.myChangeHandler}></input>
+                                        <input type="text" className="form-control col-3" name="pickupstate" onChange={this.myChangeHandler}></input>
                                     </div>
                                 </div>
 
@@ -128,34 +140,13 @@ export default class BookCar extends Component {
 
                         </div><br />
                         <label style={{ fontSize: "16px" }}>I May Return Car to Other Location : </label><br />
-                        <input id="returncheck" type="checkbox" value="" name="" onChange={this.myChangeHandler}></input><br />
+                        <input id="returncheck" type="checkbox" value="checked" name="returncheck" onChange={this.myChangeHandler}></input><br />
                         {this.drop()}
                         <br />
                         <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
-
-
-
-
-
-
-
-
-
-
-
                     </form>
-
-
-
-
-
                 </div>
-
-
-
-
-
-
+                <Footer />
             </div>
         )
     }

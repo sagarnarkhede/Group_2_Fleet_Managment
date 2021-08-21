@@ -8,11 +8,15 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BookCar from './components/BookCar';
 import Nav from './components/Nav';
+import SignUp from './components/SignUp';
+import Footer from './components/Footer';
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <BookCar />
+    <SignUp />
+    {/* <Footer /> */}
     {/* <Nav /> */}
     
   </React.StrictMode>,

@@ -4,8 +4,7 @@ export default function Nav() {
     return (
         <div>
           <header id="header" className="fixed-top d-flex align-items-center header-transparent">
-        <div className="container d-flex align-items-center justify-content-between">
-
+            <div className="container d-flex align-items-center justify-content-between">
             <div className="logo">
                 <h1><a href="index.html"><span>India Drive Logo</span></a></h1>
 
@@ -26,7 +25,8 @@ export default function Nav() {
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#team">Team</a></li>
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#pricing">Pricing</a></li>
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#contact">Contact Us</a></li>
-                    <li><a className="nav-link scrollto" href="http://localhost:5555/#contact">Book Now</a></li>
+                    <li><a className="nav-link scrollto" href="#">Book Now</a></li>
+                    <li><a className="nav-link scrollto" href="#">Sign In</a></li>
 
                 </ul>
                 <i className="bi bi-list mobile-nav-toggle"></i>
