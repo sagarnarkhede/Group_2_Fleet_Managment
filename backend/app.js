@@ -1,6 +1,7 @@
 const express = require('express')
 const clientRouter = require('./API/routes/clients')
 const contact_usRouter = require('./API/routes/contact_us')
+const centerRouter = require('./API/routes/centers')
 
 const app = express();
 const morgan = require('morgan');
@@ -18,8 +19,8 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use("/clients",clientRouter);
-app.use("/contact_us", contact_usRouter)
-
+app.use("/contact_us", contact_usRouter);
+app.use("/centers", centerRouter);
 
 
 app.use(express.static('public'));
