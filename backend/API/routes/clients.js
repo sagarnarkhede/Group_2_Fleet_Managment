@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router();
 const controller = require('../controllers/clientController.model')
 
+router.get("/", controller.get_client);
 
 router.post("/", controller.post_client)
 
@@ -16,4 +17,4 @@ router.put("/:clientId/:bookingId", controller.put_booking)
 
 router.delete("/:clientId", controller.delete_client)
 
-module.exports = router;router.get("/", controller.get_client);
+module.exports = router;
