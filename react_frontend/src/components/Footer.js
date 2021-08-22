@@ -26,23 +26,23 @@ export default class componentName extends Component {
                                 <div className="col-lg-4 col-md-6 footer-links">
                                     <h4 style={{textAlign:"center"}}>Useful Links</h4>
                                     <ul>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Modify/Cancel Booking</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Services</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">About us</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Home</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Modify/Cancel Booking</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Terms of service</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Privacy policy</a></li>
                                     </ul>
                                 </div>
 
                                 <div className="col-lg-4 col-md-6 footer-links">
                                     <h4 style={{textAlign:"center"}}>Our Services</h4>
                                     <ul>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="#">Lorem, ipsum.</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
+                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
                                     </ul>
                                 </div>
 
