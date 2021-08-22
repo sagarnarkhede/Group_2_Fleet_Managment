@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom';
+
 export default function Nav() {
     return (
         <div>
@@ -25,12 +25,9 @@ export default function Nav() {
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#team">Team</a></li>
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#pricing">Pricing</a></li>
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#contact">Contact Us</a></li>
-                    <Link to="/BookCar">
                     <li><a className="nav-link scrollto" href="#">Book Now</a></li>
-                    </Link>
-                    <Link to="/SignUp">
                     <li><a className="nav-link scrollto" href="#">Sign In</a></li>
-                    </Link>
+
                 </ul>
                 <i className="bi bi-list mobile-nav-toggle"></i>
             </nav>

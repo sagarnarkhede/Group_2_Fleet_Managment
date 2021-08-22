@@ -10,15 +10,14 @@ import BookCar from './components/BookCar';
 import Nav from './components/Nav';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
-import Rout from './components/Rout';
+
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
-   {/* <BookCar />
+    <BookCar />
     <SignUp />
     {/* <Footer /> */}
     {/* <Nav /> */}
-    <Rout/>
     
   </React.StrictMode>,
   document.getElementById('root')
