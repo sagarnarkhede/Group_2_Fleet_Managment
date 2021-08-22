@@ -10,12 +10,15 @@ import BookCar from './components/BookCar';
 import Nav from './components/Nav';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
+import SignIn from './components/SignIn';
+
 
 ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <BookCar />
     <SignUp />
+    <SignIn />
     {/* <Footer /> */}
     {/* <Nav /> */}
     
