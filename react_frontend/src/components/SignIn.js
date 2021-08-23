@@ -1,31 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
-export default class componentName extends Component {
+class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-        fname: '' ,
-        lname: '',
-        address1: '',
-        address2: '',
         email: '',
-        dateOfBirth: '',
-        city: '',
-        state: '',
-        zip : '',
-        phoneNumber: '',
-        mobileNumber: '',
-        cardType: '',
-        cardNumber: '',
-        dLic: '',
-        IDP: '',
-        DissuedBY: '',
-        Dvalid: '',
-        Pnumber: '',
-        Pvalid: '',
-        PissuedBy: '',
-        Pdate: '',
+        password: '',
        
     }
       }
@@ -43,52 +24,18 @@ export default class componentName extends Component {
         return (
             <div>
                 <Nav />
-               
                 <div className="" style={{ margin: "13vh 15%" }}>
-                    <h2>Sign In Here : </h2><br/>
+                    <h2>Login : </h2><br/>
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{border: "2px solid black",borderRadius: "30px",  padding: "50px"}}>
-                        <div className="row">
-                        <div className="col-3"></div>
-                        <div className="col-6">                                <label >Email : </label>
-                                <input type="email" className="form-control" name="email" onChange={this.myChangeHandler}></input></div>    
-                                
-                            </div>
-                            <div className="col-3"></div>
+                                <label >Email : </label>
+                                <input type="text" className="form-control" name="email" onChange={this.myChangeHandler}></input>
                            
-                        <br />
-                        <div className="row">
-                    
-                        <div className="col-3"></div>
-                        <div className="col-6">                                <label >Password : </label>
-                                <input type="password" className="form-control" name="password" onChange={this.myChangeHandler}></input> 
-                                
-                            </div>
-                            <div className="col-3"></div>
-                            </div>   
-                            
+                                <label>password : </label>
+                                <input type="text" className="form-control" name="password" onChange={this.myChangeHandler} ></input>
                         <br/>
-                        <div className="row">
-                        <div className="col-5"></div>
-                        <div className="col-5">   
-                        <div class="col-sm-offset-2 col-sm-10">
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"/> Keep Signed In</label>
-                                    </div></div>  <br/>                           
-                        <button className="btn btn-success" style={{ textAlign: "center", width:"40%"}}>Sign In</button>
-                        <br/> <br/>
-                        <div class="col-sm-offset-2 col-sm-10">
-                                    <div  >
-                                    <a href="#">Forgot Your password ?</a>
-
-                                    </div></div> 
-
-
-                        </div>    
-                                
-                            
-                            <div className="col-2"></div>
-                            </div>
-                        
+                        <br/>
+                        <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Sign In</button>
+                        <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}}>Sign Up</button>
                     </form>
                 </div>
                 <Footer />
@@ -96,3 +43,5 @@ export default class componentName extends Component {
         )
     }
 }
+
+export default SignIn;

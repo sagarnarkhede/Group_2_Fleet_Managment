@@ -81,7 +81,6 @@ export default class BookCar extends Component {
         return (
             <div>
                 <Nav />
-               
                 <div className="" style={{ margin: "13vh 15%", border: "2px solid black", padding: "50px", borderRadius: "30px",maxHeight:"100vh" }}>
                     <form className="form-group" onSubmit={this.mySubmitHandler}>
                         <div className="row">

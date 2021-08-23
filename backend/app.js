@@ -1,12 +1,14 @@
 const express = require('express')
 const clientRouter = require('./API/routes/clients')
 const contact_usRouter = require('./API/routes/contact_us')
+const centerRouter = require('./API/routes/centers')
+const officeRouter = require('./API/routes/office')
 
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
-
+const cors = require('cors');
 
 mongoose.connect("mongodb+srv://"+process.env.MPNGOUSER+":"+process.env.MPNGOPASS+"@cluster0.hguiz.mongodb.net/test",{
     useNewUrlParser:true,
@@ -18,18 +20,31 @@ app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use("/clients",clientRouter);
-app.use("/contact_us", contact_usRouter)
-
+app.use("/contact_us", contact_usRouter);
+app.use("/centers", centerRouter);
 
 
 app.use(express.static('public'));
+app.use("/office",officeRouter);
+// app.use("/orders",orderRoutes);  
+// app.use("/users",userRoute);  
 
 //cros error {cross origine resourse sharing}
+// app.use((req,res,next)=>{
+//     res.header("Access-Control-Allow-Origin","*");
+//     res.header("Access-Control-Allow-Header",'Origine,X-Requested-Width,Content-Type,Authorization');
+//     if(req.method==="OPTION"){
+//         res.header("Access-Control-Allow-Methode","PUT,POST,PATCH,DELETE,GET");
+//         return res.status(200).json();
+//     }
+//     next();
+// });
+
 app.use((req,res,next)=>{
-res.header("Access-Control-Allow-Orine","*");
+res.header("Access-Control-Allow-Origin","http://localhost:3000");
 res.header("Access-Control-Allow-Header",'Origine','X-Requested-width');
 if(req.method === "OPTION"){
-    res.header("Access-Control-Allow-Methode","PUT,PATCH,OUST,DELETE,GET")
+    res.header("Access-Control-Allow-Methode","PUT,PATCH,POST,DELETE,GET")
     return res.status(200).json();
 }
 next();

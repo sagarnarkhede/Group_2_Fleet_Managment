@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
+import './index.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
-import App from './App';
+// import App from './App'
+
 import reportWebVitals from './reportWebVitals';
 import BookCar from './components/BookCar';
 import Nav from './components/Nav';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
-
 
 ReactDOM.render(
   <React.StrictMode>

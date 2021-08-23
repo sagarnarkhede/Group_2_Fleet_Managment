@@ -47,3 +47,26 @@
         "subject": "asd",
         "message": "qww"
 }
+
+
+{
+    "carname": "sedan ac",
+    "carno": 101,
+    "cartype": "small car"
+    "seat_capacity" : 4,
+    "fuellevel" : 0,
+    "rateperday": 500,
+    "rateperweek": 3500,
+    "ratepermonth": 12500, 
+    "lastservice_date": "2014-09-01T23:28:56.782Z"         
+}
+
+{
+    "centerid": 1,
+    "centername": "Rama Rental service",
+    "state": "Maharastra",
+    "city": "Pune",
+    "zip": 424123,
+    "address": "ganaga park, near to wave park, bhavdhan"
+}
+            
