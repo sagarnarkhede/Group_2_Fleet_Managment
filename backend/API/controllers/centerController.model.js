@@ -55,6 +55,9 @@ exports.post_center = async (req, res, next) => {
             city: req.body.city,
             zip: req.body.zip,
             address: req.body.address,
+            telphone: req.body.telphone,
+            officetime: req.body.officetime,
+            weeklyoff: req.body.weeklyoff,
             cars: [cars]
         })
         const data = await center.save() //save method will save data in database.
@@ -181,6 +184,9 @@ exports.put_center = async (req, res) => {
             city: req.body.city,
             zip: req.body.zip,
             address: req.body.address,
+            telphone: req.body.telphone,
+            officetime: req.body.officetime,
+            weeklyoff: req.body.weeklyoff,
             cars: [cars]
         })
 
@@ -203,7 +209,7 @@ exports.put_center = async (req, res) => {
     }
 }
 
-exports.put_car =  async (req, res) => {
+exports.put_car = async (req, res) => {
     try {
         const center_cars = await Centers.findById(req.params.centerId)
 

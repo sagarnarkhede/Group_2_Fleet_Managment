@@ -9,6 +9,9 @@ const centerdetailsSchema = Schema({
     city: { type: String},
     zip: { type: Number},
     address: { type: String},
+    telphone: { type: Number},
+    officetime: { type:String },
+    weeklyoff: { type: String},
     cars: []
 })
 

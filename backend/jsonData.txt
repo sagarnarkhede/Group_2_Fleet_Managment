@@ -52,7 +52,7 @@
 {
     "carname": "sedan ac",
     "carno": 101,
-    "cartype": "small car"
+    "cartype": "small car",
     "seat_capacity" : 4,
     "fuellevel" : 0,
     "rateperday": 500,
@@ -67,6 +67,9 @@
     "state": "Maharastra",
     "city": "Pune",
     "zip": 424123,
-    "address": "ganaga park, near to wave park, bhavdhan"
+    "address": "ganaga park, near to wave park, bhavdhan",
+    "telphone": 7812747488,
+    "officetime": "Sun 03:00PM-06:00PM; Mon-Fri 07:30AM-07:00PM;" ,
+    "weeklyoff": "Sat 09:30AM-03:00PM"
 }
             
