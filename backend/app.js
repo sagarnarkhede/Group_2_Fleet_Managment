@@ -3,6 +3,7 @@ const clientRouter = require('./API/routes/clients')
 const contact_usRouter = require('./API/routes/contact_us')
 const centerRouter = require('./API/routes/centers')
 const officeRouter = require('./API/routes/office')
+const airportRoutes = require('./API/routes/airports')
 
 const app = express();
 const morgan = require('morgan');
@@ -26,7 +27,7 @@ app.use("/centers", centerRouter);
 
 app.use(express.static('public'));
 app.use("/office",officeRouter);
-// app.use("/orders",orderRoutes);  
+app.use("/airport",airportRoutes);  
 // app.use("/users",userRoute);  
 
 //cros error {cross origine resourse sharing}
