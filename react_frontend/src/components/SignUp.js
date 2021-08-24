@@ -3,7 +3,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 
 export default class componentName extends Component {
-    constructor(props) {
+     constructor(props) {
         super(props);
         this.state = { 
         fname: '' ,

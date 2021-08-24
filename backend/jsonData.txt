@@ -52,7 +52,7 @@
 {
     "carname": "sedan ac",
     "carno": 101,
-    "cartype": "small car"
+    "cartype": "small car",
     "seat_capacity" : 4,
     "fuellevel" : 0,
     "rateperday": 500,
@@ -67,6 +67,55 @@
     "state": "Maharastra",
     "city": "Pune",
     "zip": 424123,
-    "address": "ganaga park, near to wave park, bhavdhan"
+    "address": "ganaga park, near to wave park, bhavdhan",
+    "telphone": 7812747488,
+    "officetime": "Sun 03:00PM-06:00PM; Mon-Fri 07:30AM-07:00PM;" ,
+    "weeklyoff": "Sat 09:30AM-03:00PM"
+}
+
+{
+        "fname": "rrrr",
+      "lname": "NARKHEDE",
+      "email": "sn255075@gmail.com",
+      "date_of_birth": "2021-08-10",
+      "password": "1234",
+      "phone_number": 7350352115,
+      "mobile_number": 7350352115,
+      "address1": "At post badali bk tal dist jalgaon",
+      "address2": ".edfdfsdfsf",
+      "city": "Jalgaon",
+      "state": "Maharashtra",
+      "zip": 425102,
+      "driving_lic": "mji",
+      "IDP": "fsfdscvc",
+      "driving_issued_by": "me",
+      "driving_valid": "2021-08-24T00:00:00.000Z",
+      "passport_number": 123,
+      "passport_valid": "2021-08-26T00:00:00.000Z",
+      "passport_issued_by": "sdfsdfsdfsdfsdf",
+      "passport_date": "2021-08-17"
 }
             
+
+            {
+
+    "booking_id":1111111,
+    "booking_date":"2014-09-01T23:28:56.782Z",
+    "Drop_date":"2014-09-01T23:28:56.782Z",
+    "inhand_date":"2014-09-01T23:28:56.782Z",
+    "handover_date":"2014-09-01T23:28:56.782Z",
+    "inhand_center":123,
+    "handover_center":456,
+    "booking_status":"reject",
+    "inhand_emp": 82,
+    "handover_emp": 987,
+    "vehical_type": "first class", 
+    "vehical_number": 1258, 
+    "vehical_lastcervising_date": "2014-09-01T23:28:56.782Z", 
+    "vehical_desel_level": 98,
+    "invoice_number":123,
+    "charges":955,
+    "pyment_method":"card"
+  
+   
+}

@@ -11,7 +11,14 @@ body {
 img {
     vertical-align: middle;
 }
-
+tr{
+    height: 70px;
+    vertical-align: middle;
+}
+td{
+    font-size: 18px;
+    vertical-align: middle;
+}
 
 /* Slideshow container */
 

@@ -37,20 +37,6 @@ exports.get_client = async (req, res) => {
 
 exports.post_client = async (req, res) => {
     try {
-        const address1 = new Address({
-            _id: mongoose.Types.ObjectId(),
-            add: req.body.add1,
-            city: req.body.city1,
-            state: req.body.state1,
-            zip: req.body.zip1
-        })
-        const address2 = new Address({
-            _id: mongoose.Types.ObjectId(),
-            add: req.body.add2,
-            city: req.body.city2,
-            state: req.body.state2,
-            zip: req.body.zip2
-        })
         const booking = new Booking({
             _id: mongoose.Types.ObjectId(),
             booking_id: req.body.booking_id,
@@ -224,20 +210,6 @@ exports.put_client = async (req, res) => {
     try {
         const client_bookings = await Client.findById(req.params.clientId)
 
-        const address1 = {
-            _id: mongoose.Types.ObjectId(),
-            add: req.body.add1,
-            city: req.body.city1,
-            state: req.body.state1,
-            zip: req.body.zip1
-        }
-        const address2 = {
-            _id: mongoose.Types.ObjectId(),
-            add: req.body.add2,
-            city: req.body.city2,
-            state: req.body.state2,
-            zip: req.body.zip2
-        }
         const client = {
             // _id: mongoose.Types.ObjectId(),
             fname: req.body.fname,
@@ -249,7 +221,11 @@ exports.put_client = async (req, res) => {
             mobile_number: req.body.mobile_number,
             driving_lic: req.body.driving_lic,
             issue_date: req.body.issue_date,
-            address: [address1, address2],
+            address1: req.body.address1,
+            address2: req.body.address2,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
             credit_card: {
                 card_type: req.body.card_type,
                 card_number: req.body.card_number,

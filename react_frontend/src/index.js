@@ -12,6 +12,7 @@ import Nav from './components/Nav';
 import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
+import CarDetails from './components/CarDetails';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
     <BookCar />
     <SignUp />
     <SignIn />
+    <CarDetails/>
     {/* <Footer /> */}
     {/* <Nav /> */}
     
