@@ -13,6 +13,9 @@ import SignUp from './components/SignUp';
 import Footer from './components/Footer';
 import SignIn from './components/SignIn';
 import CarDetails from './components/CarDetails';
+import Forgetpassword from './components/Forgetpassword';
+import Addon from './components/Addon';
+import Location from './components/Location';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,6 +24,9 @@ ReactDOM.render(
     <SignUp />
     <SignIn />
     <CarDetails/>
+    <Forgetpassword />
+    <Addon/>
+    <Location/>
     {/* <Footer /> */}
     {/* <Nav /> */}
     
