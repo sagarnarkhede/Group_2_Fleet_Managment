@@ -15,16 +15,14 @@ const clientSchema = Schema({
     city: { type: String },
     state: { type: String },
     zip: { type: Number },
-    credit_card:{
-        card_type:{type:String},
-        card_number:{type:Number}
-    },
+    card_type:{type:String},
+    card_number:{type:Number},
     driving_lic: { type: String },
     IDP: { type: String },
     driving_issued_by: { type: String },
-    driving_valid: { type: Date },
+    driving_valid: { type: String },
     passport_number: { type: Number },
-    passport_valid: { type: Date },
+    passport_valid: { type: String },
     passport_issued_by: { type: String },
     passport_date: { type: String },
     

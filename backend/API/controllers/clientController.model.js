@@ -76,10 +76,8 @@ exports.post_client = async (req, res) => {
             city: req.body.city,
             state: req.body.state,
             zip: req.body.zip,
-            credit_card: {
-                card_type: req.body.card_type,
-                card_number: req.body.card_number,
-            },
+            card_type: req.body.card_type,
+            card_number: req.body.card_number,
             driving_lic: req.body.driving_lic,
             IDP: req.body.IDP,
             driving_issued_by: req.body.driving_issued_by,
@@ -226,10 +224,8 @@ exports.put_client = async (req, res) => {
             city: req.body.city,
             state: req.body.state,
             zip: req.body.zip,
-            credit_card: {
-                card_type: req.body.card_type,
-                card_number: req.body.card_number,
-            },
+            card_type: req.body.card_type,
+            card_number: req.body.card_number,
             bookings: client_bookings.bookings
         }
         console.log(client);
