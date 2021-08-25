@@ -2,7 +2,21 @@ import React, { Component } from 'react'
 import Footer from './Footer';
 import Nav from './Nav';
 export class CarDetails extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = { 
+        type:''
+       
+    }
+      }
+      mySubmitHandler = (event) => {
+        event.preventDefault();
+        console.log(this.state);
+      }
+      myChangeHandler = (event) => {
+        this.setState({type:event });
+        console.log(this.state);
+      }
     render() {
         return (
             <div>
@@ -13,7 +27,7 @@ export class CarDetails extends Component {
                     <h2>Car Details:</h2><br />
                     <div className="form-group" style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
                      
-                        <table class="table table-striped">
+                        <table class="table table-striped" onSubmit={this.mySubmitHandler}>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -22,7 +36,7 @@ export class CarDetails extends Component {
                                     <th scope="col">Daily Rate</th>
                                     <th scope="col">Weekly Rate</th>
                                     <th scope="col">Monthly Rate</th>
-                                    <th scope="col">Select</th>
+                                    <th scope="col" >Select</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,7 +47,8 @@ export class CarDetails extends Component {
                                     <td>$12.00</td>
                                     <td>$79.00</td>
                                     <td>$310.00</td>
-                                    <td><a href="N.A">N.A</a></td>
+                                    {/* <td onClick={this.myChangeHandler("Small Cars")}>N.A</td> */}
+                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Small Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
@@ -42,7 +57,7 @@ export class CarDetails extends Component {
                                     <td>$18.00</td>
                                     <td>$120.00</td>
                                     <td>$500.00</td>
-                                    <td><a href="N.A">N.A</a></td>
+                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Compact Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
@@ -51,7 +66,7 @@ export class CarDetails extends Component {
                                     <td>$99.99</td>
                                     <td>$999.99</td>
                                     <td>$999.9</td>
-                                    <td><a href="N.A">N.A</a></td>
+                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Intermediate" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
@@ -60,7 +75,7 @@ export class CarDetails extends Component {
                                     <td>$20.00</td>
                                     <td>$99.00</td>
                                     <td>$210.00</td>
-                                    <td><a href="N.A">N.A</a></td>
+                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Sedan" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
@@ -69,7 +84,7 @@ export class CarDetails extends Component {
                                     <td>$15.00</td>
                                     <td>$400.00</td>
                                     <td>$510.00</td>
-                                    <td><a href="N.A">N.A</a></td>
+                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"SUV" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                             </tbody>
                         </table>
