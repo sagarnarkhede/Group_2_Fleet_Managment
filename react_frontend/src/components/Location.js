@@ -1,35 +1,16 @@
-
 import React, { Component } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
+import axios from "./Axios/Axios";
 
 
  
-export default class Forgetpassword extends Component {
+export default class Location extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-        fname: '' ,
-        lname: '',
-        address1: '',
-        address2: '',
-        email: '',
-        dateOfBirth: '',
-        city: '',
-        state: '',
-        zip : '',
-        phoneNumber: '',
-        mobileNumber: '',
-        cardType: '',
-        cardNumber: '',
-        dLic: '',
-        IDP: '',
-        DissuedBY: '',
-        Dvalid: '',
-        Pnumber: '',
-        Pvalid: '',
-        PissuedBy: '',
-        Pdate: '',
+       
+        
        
     }
       }
@@ -42,6 +23,65 @@ export default class Forgetpassword extends Component {
         // console.log(this.state);
       }
   
+
+      getUsersData() {
+        axios
+          .get(`/centers`, {})
+          .then(res => {
+            const data = res.data.data;
+             
+            console.log(data);
+           
+            const users = data.map(u => (
+               
+              <div>
+                 
+                <div className="card"  style = {{width: "40rem"}}>
+                            
+                <div className="card-body">
+                
+                <p>
+                
+                <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                <p class="form-check-label" for="flexRadioDefault1">
+                <h2>{u.address} </h2>   
+                    Contact No:  {u.telphone}<br/>
+                  Office Time: {u.officetime}  <br/>   
+                   Weekly Off:  {u.weeklyoff}               </p>
+              </div></p>
+
+                
+                   
+           
+                
+                
+                 
+
+                </div>   
+                </div>
+              </div>
+    
+            
+            ));
+    
+            
+         
+    
+            this.setState({
+              users  
+            });
+            console.log(users,  "verify")
+          })
+    
+          
+          .catch(error => {
+            console.log(error);
+          });
+      }
+      componentDidMount() {
+        this.getUsersData();
+      }
   
     render() {
         return (
@@ -55,60 +95,7 @@ export default class Forgetpassword extends Component {
                             <h5 className = "loactiontitle"> Your Loaction have matches 3 location, please select one</h5>
                      <div  className="row">
                      <div className="col-6">
-                            <div className="card"  style = {{width: "40rem"}}>
-                            
-                            <div className="card-body">
-                            <h2>Brdford Civil Air Terminial Hanscom Field-BED</h2>
-                            <p>
-                            <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                            <p class="form-check-label" for="flexRadioDefault1">
-                              200 Hanscom Drive, Bedford, MA 01730, USA  <br/>
-                              (1) 781-274-7488 <br/>
-                              Sun 03:00 PM - 06:00 PM; Mon-Fri 8:00 PM - 06:00 PM   <br/>   
-                              sat 09:30AM - 03:00PM                    </p>
-                          </div></p>
-                            
-                            </div>      
-                        </div>
-
-                        <div className="card"  style = {{width: "40rem"}}>
-                            
-                        <div className="card-body">
-                        <h2>Brdford Civil Air Terminial Hanscom Field-BED</h2>
-                        <p>
-                        <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                        <p class="form-check-label" for="flexRadioDefault1">
-                          200 Hanscom Drive, Bedford, MA 01730, USA  <br/>
-                          (1) 781-274-7488 <br/>
-                          Sun 03:00 PM - 06:00 PM; Mon-Fri 8:00 PM - 06:00 PM   <br/>   
-                          sat 09:30AM - 03:00PM                    </p>
-                      </div></p>
-                        
-                        </div>
-      
-                    </div>
-
-
-                    <div className="card"  style = {{width: "40rem"}}>
-                            
-                    <div className="card-body">
-                    <h2>Brdford Civil Air Terminial Hanscom Field-BED</h2>
-                    <p>
-                    <div class="form-check">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
-                    <p class="form-check-label" for="flexRadioDefault1">
-                      200 Hanscom Drive, Bedford, MA 01730, USA  <br/>
-                      (1) 781-274-7488 <br/>
-                      Sun 03:00 PM - 06:00 PM; Mon-Fri 8:00 PM - 06:00 PM   <br/>   
-                      sat 09:30AM - 03:00PM                    </p>
-                  </div></p>
-                    
-                    </div>
-
-                     
-                </div>
+                     {this.state.users}
                 </div>
                      </div> <br/><br/>
                      
