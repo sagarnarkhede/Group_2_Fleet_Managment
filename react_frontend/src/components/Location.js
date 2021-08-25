@@ -2,12 +2,14 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
+import {Switch,Route,Link} from "react-router-dom";
 
 
  
-export default class Forgetpassword extends Component {
+export default class Location extends Component {
     constructor(props) {
         super(props);
+        console.log("location",this.props);
         this.state = { 
         fname: '' ,
         lname: '',
@@ -111,8 +113,9 @@ export default class Forgetpassword extends Component {
                 </div>
                 </div>
                      </div> <br/><br/>
-                     
+                     <Link to={{ pathname: "/cardetail",state:this.state}} >
                      <button className="btn btn-primary" style={{ textAlign: "center", width:"20%", float: "left"}}>Continue Booking</button>
+                     </Link>
                      <button className="btn btn-danger" style={{ textAlign: "center", width:"20%", float: "right"}}>Cancel</button><br/><br/>
                     </form>
                 </div>

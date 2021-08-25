@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
+import {Switch,Route,Link} from "react-router-dom";
 
 export default class componentName extends Component {
      constructor(props) {
@@ -32,6 +33,9 @@ export default class componentName extends Component {
     }
       }
       mySubmitHandler = (event) => {
+          let ob =localStorage.getItem("data")
+          console.log(JSON.parse(ob));
+          
         event.preventDefault();
         console.log(this.state);
       }
@@ -165,8 +169,9 @@ export default class componentName extends Component {
                             </div>
                         </div><br />
 
-
+                        <Link to={{ pathname: "/",state:this.state}} >
                         <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Register</button>
+                        </Link>
                         <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}}>Cancel</button>
                     </form>
                 </div>

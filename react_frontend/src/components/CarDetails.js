@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import Footer from './Footer';
 import Nav from './Nav';
+import {Switch,Route,Link} from "react-router-dom";
+
 export class CarDetails extends Component {
     constructor(props) {
         super(props);
+        console.log("cardetails",this.props);
         this.state = { 
         type:''
        
@@ -90,8 +93,9 @@ export class CarDetails extends Component {
                         </table>
                         <br/>
                         <br/>
-
+                        <Link to={{ pathname: "/addon",state:this.state}} >
                         <button className="btn btn-primary" style={{ textAlign: "center", float: "left" }}>Continue Booking</button>
+                        </Link>
                         <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Cancel</button>
 
                     </div>

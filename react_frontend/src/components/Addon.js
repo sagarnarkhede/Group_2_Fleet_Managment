@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
+import {Switch,Route,Link} from "react-router-dom";
+
 class SignIn extends Component {
     constructor(props) {
         super(props);
+        console.log("addon",this.props);
         this.state = { 
         email: '',
         password: '',
@@ -46,8 +49,9 @@ class SignIn extends Component {
                                 <h6>Please enter no. of seats</h6>
                         <br/>
                         <br/>
+                        <Link to={{ pathname: "/CustomerInfoPage",state:this.state}} >
                                 <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Continue Booking</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Cancel</button>
                                 
                         {/* <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Sign In</button>
