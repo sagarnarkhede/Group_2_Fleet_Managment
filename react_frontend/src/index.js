@@ -16,19 +16,26 @@ import CarDetails from './components/CarDetails';
 import Forgetpassword from './components/Forgetpassword';
 import Addon from './components/Addon';
 import Location from './components/Location';
+import Routes from './components/Routes';
+import CustomerInfoPage from './components/CustomerInfoPage';
+import AppRouter from './components/AppRouter';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <CustomerInfoPage /> */}
     {/* <App /> */}
-    <BookCar />
-    <SignUp />
+ {/* <BookCar />  */}
+      {/* <SignUp />
     <SignIn />
     <CarDetails/>
     <Forgetpassword />
     <Addon/>
     <Location/>
+    <CarDetails/>   */}
     {/* <Footer /> */}
     {/* <Nav /> */}
+    {/* <Routes /> */}
+    <AppRouter />
     
   </React.StrictMode>,
   document.getElementById('root')

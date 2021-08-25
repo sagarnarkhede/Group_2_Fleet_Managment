@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
-
+// eslint-disable-next-line no-unused-vars
+import {Switch,Route,Link} from "react-router-dom";
 export default class BookCar extends Component {
     constructor(props) {
         super(props);
-        this.state = { pickupDate: '' ,
+        console.log("bookcar",this.props);
+        this.state = { 
+        pickupDate: '' ,
         dropDate: '',
         pickupTime: '',
         dropTime: '',
@@ -22,13 +25,17 @@ export default class BookCar extends Component {
       }
       mySubmitHandler = (event) => {
         event.preventDefault();
+       
         console.log(this.state);
       }
       myChangeHandler = (event) => {
         this.setState({[event.target.name]: event.target.value });
         // console.log(this.state);
       }
-  
+  componentDidMount()
+  {
+    var passState = this.setState
+  }
      drop(params) {
          if(this.state.returncheck)
          {
@@ -77,6 +84,7 @@ export default class BookCar extends Component {
          }
         
     }
+    
     render() {
         return (
             <div>
@@ -142,10 +150,15 @@ export default class BookCar extends Component {
                         <input id="returncheck" type="checkbox" value="checked" name="returncheck" onChange={this.myChangeHandler}></input><br />
                         {this.drop()}
                         <br />
+                        
+                        <Link to={{ pathname: "/location",state:this.state}} >
                         <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+                     </Link>
                     </form>
                 </div>
+                
                 <Footer />
+                
             </div>
         )
     }

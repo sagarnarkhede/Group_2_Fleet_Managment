@@ -10,8 +10,11 @@ class SignIn extends Component {
        
     }
       }
+
       mySubmitHandler = (event) => {
+          
         event.preventDefault();
+        sessionStorage.setItem("data",JSON.stringify(this.state))
         console.log(this.state);
       }
       myChangeHandler = (event) => {
