@@ -54,7 +54,11 @@ class CustomerInfoPage extends Component {
                         }
                     }
             }
+            else{
+                alert("invalid Id pass")
+            }
     }).catch((e)=>{
+        alert("invalid Id pass")
         console.log("e",e.message);
     })
     }
