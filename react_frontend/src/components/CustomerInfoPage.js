@@ -40,9 +40,9 @@ class CustomerInfoPage extends Component {
     }
     myLoginHandler = async (event) => {
         event.preventDefault();
-        axios.get('http://localhost:5555/clients')
-        .then((res)=>{       
-            res.data.data.forEach((ele)=>{
+        axios.get('http://localhost:5555/clients/'+this.state.membershipno)
+        .then((res)=>{     
+            let ele = res.data.data  
             if(ele._id == this.state.membershipno && ele.password == this.state.loginpassword){
                     for(let x in this.state){
                         for(let y in ele){
@@ -54,9 +54,9 @@ class CustomerInfoPage extends Component {
                         }
                     }
             }
-        })
+    }).catch((e)=>{
+        console.log("e",e.message);
     })
-        // console.log("state",this.state);
     }
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
