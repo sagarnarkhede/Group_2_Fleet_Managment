@@ -9,7 +9,7 @@ export default class Location extends Component {
     super(props);
     console.log("location", this.props);
     this.state = {
-      data: []
+      address: []
     }
   }
   mySubmitHandler = (event) => {
@@ -27,7 +27,7 @@ export default class Location extends Component {
       .then(res => {
         const data = res.data.data;
         this.setState({
-          data: data
+          address: data
         });
       })
 
@@ -52,7 +52,7 @@ export default class Location extends Component {
             <h5 className="loactiontitle"> Your Loaction have matches 3 location, please select one</h5>
             <div className="row">
               <div className="col-6">
-                {this.state.data.map(u => (
+                {this.state.address.map(u => (
                   <div>
                     <div className="card" style={{ width: "40rem" }}>
                       <div className="card-body">
