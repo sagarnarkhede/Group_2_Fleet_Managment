@@ -9,7 +9,8 @@ export default class Location extends Component {
     super(props);
     console.log("location", this.props);
     this.state = {
-      address: []
+      address: [],
+      selectaddress: []
     }
   }
   mySubmitHandler = (event) => {
@@ -29,18 +30,32 @@ export default class Location extends Component {
         this.setState({
           address: data
         });
+
+       
       })
 
 
       .catch(error => {
         console.log(error);
       });
+     
   }
   componentDidMount() {
     this.getUsersData();
+    
   }
 
+ handleSelect = (id) => {
+    
+   
+   this.setState({
+    selectaddress: id
+   })
+   console.log(this.state.selectaddress, "selet")
+ }
+ 
   render() {
+
     return (
       <div>
         <Nav />
@@ -58,8 +73,9 @@ export default class Location extends Component {
                       <div className="card-body">
                         <p>
                           <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"   key={u._id} onClick={() => this.handleSelect(u)}/>
                             <p class="form-check-label" for="flexRadioDefault1">
+                            
                               <h2>{u.address} </h2>
                               Contact No:  {u.telphone}<br />
                               Office Time: {u.officetime}<br />
@@ -68,13 +84,14 @@ export default class Location extends Component {
                       </div>
                     </div>
                   </div>
+                 
                 ))}
-              </div>
+              </div> 
             </div> <br /><br />
             <Link to={{ pathname: "/cardetail", state: this.state }} >
-              <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }}>Continue Booking</button>
+              <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }} >Continue Booking</button>
             </Link>
-            <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }}>Cancel</button><br /><br />
+            <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }} >Cancel</button><br /><br />
           </form>
         </div>
         <Footer />
