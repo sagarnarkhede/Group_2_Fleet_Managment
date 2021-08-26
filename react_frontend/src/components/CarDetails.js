@@ -20,18 +20,12 @@ export class CarDetails extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
       componentDidMount(){
-        axios.get("http://localhost:5555/centers")
-        .then(async response => {
-           
-            const cars_arr = response.data.data[1];
-            console.log( "cars",cars_arr.cars);
+       const cars_arr = this.props.location.state.selectaddress
+            // console.log( "cars",cars_arr.cars);
             for (var x = 0; x < cars_arr.cars.length; x++) {
-                console.log("car type",cars_arr.cars[x].cartype);
-             
-                if (cars_arr.cars[x].cartype == "small car" ) {
-                    
-                     document.getElementById("smallcar").disabled = false 
-                    
+                // console.log("car type",cars_arr.cars[x].cartype);
+              if (cars_arr.cars[x].cartype == "small car" ) {
+                    document.getElementById("smallcar").disabled = false 
                     } else if(cars_arr.cars[x].cartype == "compact car"){
                     document.getElementById("compcar").disabled = false
                   } else if(cars_arr.cars[x].cartype == "Intermediate car"){
@@ -43,16 +37,9 @@ export class CarDetails extends Component {
                   } 
             
             }
-        })
-        .catch(error => {
-            console.log(error);
-        })
-
-      }
+    }
     
-    
-
-    render() {
+     render() {
         return (
             <div>
                 <Nav />
