@@ -45,11 +45,11 @@ export default class Location extends Component {
     
   }
 
- handleSelect = (id) => {
+ handleSelect = (data) => {
     
    
    this.setState({
-    selectaddress: id
+    selectaddress: data
    })
    console.log(this.state.selectaddress, "selet")
  }
