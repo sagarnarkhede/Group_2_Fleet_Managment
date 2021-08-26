@@ -45,10 +45,10 @@ export default class Location extends Component {
     
   }
 
- handleSelect = (data) => {
+ handleSelect =async (data) => {
     
    
-   this.setState({
+   await this.setState({
     selectaddress: data
    })
    console.log(this.state.selectaddress, "selet")
