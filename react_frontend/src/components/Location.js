@@ -18,36 +18,24 @@ export default class Location extends Component {
     console.log(this.state);
   }
   myChangeHandler = (event) => {
-    // this.setState({[event.target.name]: event.target.value });
-    // console.log(this.state);
+  
   }
 
-  getUsersData() {
-    axios
-      .get(`/centers`, {})
-      .then(res => {
-        const data = res.data.data;
-        this.setState({
-          address: data
-        });
-
-       
-      })
-
-
-      .catch(error => {
-        console.log(error);
-      });
-     
-  }
   componentDidMount() {
-    this.getUsersData();
-    
+    axios
+    .get(`/centers`, {})
+    .then(res => {
+      const data = res.data.data;
+      this.setState({
+        address: data
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
   }
 
  handleSelect =async (data) => {
-    
-   
    await this.setState({
     selectaddress: data
    })
@@ -55,15 +43,12 @@ export default class Location extends Component {
  }
  
   render() {
-
     return (
       <div>
         <Nav />
-
         <div className="" style={{ margin: "13vh 15%" }}>
           <h2>Select Pickup/Return Location :</h2><br />
           <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
-
             <h5 className="loactiontitle"> Your Loaction have matches 3 location, please select one</h5>
             <div className="row">
               <div className="col-6">
@@ -75,7 +60,6 @@ export default class Location extends Component {
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"   key={u._id} onClick={() => this.handleSelect(u)}/>
                             <p class="form-check-label" for="flexRadioDefault1">
-                            
                               <h2>{u.address} </h2>
                               Contact No:  {u.telphone}<br />
                               Office Time: {u.officetime}<br />
@@ -84,7 +68,6 @@ export default class Location extends Component {
                       </div>
                     </div>
                   </div>
-                 
                 ))}
               </div> 
             </div> <br /><br />
