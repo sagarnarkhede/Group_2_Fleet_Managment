@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Footer from './Footer';
 import Nav from './Nav';
 import {Switch,Route,Link} from "react-router-dom";
-
+import axios from 'axios';
 export class CarDetails extends Component {
     constructor(props) {
         super(props);
@@ -16,10 +16,42 @@ export class CarDetails extends Component {
         event.preventDefault();
         console.log(this.state);
       }
-      myChangeHandler = (event) => {
-        this.setState({type:event });
-        console.log(this.state);
+    myChangeHandler = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    }
+      componentDidMount(){
+        axios.get("http://localhost:5555/centers")
+        .then(async response => {
+           
+            const cars_arr = response.data.data[1];
+            console.log( "cars",cars_arr.cars);
+            for (var x = 0; x < cars_arr.cars.length; x++) {
+                console.log("car type",cars_arr.cars[x].cartype);
+             
+                if (cars_arr.cars[x].cartype == "small car" ) {
+                    
+                     document.getElementById("smallcar").disabled = false 
+                    
+                    } else if(cars_arr.cars[x].cartype == "compact car"){
+                    document.getElementById("compcar").disabled = false
+                  } else if(cars_arr.cars[x].cartype == "Intermediate car"){
+                    document.getElementById("intercar").disabled = false
+                  } else if(cars_arr.cars[x].cartype == "sedan"){
+                    document.getElementById("sedan").disabled = false
+                  } else if(cars_arr.cars[x].cartype == "SUV"){
+                    document.getElementById("suv").disabled = false
+                  } 
+            
+            }
+        })
+        .catch(error => {
+            console.log(error);
+        })
+
       }
+    
+    
+
     render() {
         return (
             <div>
@@ -51,7 +83,7 @@ export class CarDetails extends Component {
                                     <td>$79.00</td>
                                     <td>$310.00</td>
                                     {/* <td onClick={this.myChangeHandler("Small Cars")}>N.A</td> */}
-                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Small Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button disabled id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({type:"Small Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
@@ -60,7 +92,7 @@ export class CarDetails extends Component {
                                     <td>$18.00</td>
                                     <td>$120.00</td>
                                     <td>$500.00</td>
-                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Compact Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="compcar" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Compact Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
@@ -69,7 +101,7 @@ export class CarDetails extends Component {
                                     <td>$99.99</td>
                                     <td>$999.99</td>
                                     <td>$999.9</td>
-                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Intermediate" }); console.log(this.state)}} >select</button></td>
+                                    <td><button  id="intercar" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Intermediate" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
@@ -78,7 +110,7 @@ export class CarDetails extends Component {
                                     <td>$20.00</td>
                                     <td>$99.00</td>
                                     <td>$210.00</td>
-                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"Sedan" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="sedan" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Sedan" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
@@ -87,7 +119,7 @@ export class CarDetails extends Component {
                                     <td>$15.00</td>
                                     <td>$400.00</td>
                                     <td>$510.00</td>
-                                    <td><button className="btn btn-primary" onClick={ async() => { await this.setState({type:"SUV" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="suv" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"SUV" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                             </tbody>
                         </table>
