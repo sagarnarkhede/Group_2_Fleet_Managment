@@ -11,41 +11,35 @@ class SignIn extends Component {
             password: '',
         }
     }
-
-    mySubmitHandler = (event) => {
+    mySubmitHandler = async (event) => {
+        let flag = 0;
         event.preventDefault();
         console.log(this.state);
-        axios.get("http://localhost:5555/clients")
+        await axios.get("http://localhost:5555/clients/"+this.state.userid)
             .then(async response => {
                 const client_arr = response.data.data;
-                for (var x = 0; x < client_arr.length; x++) {
-
-                    if (client_arr[x]._id == this.state.userid && client_arr[x].password == this.state.password) {
+                    if (client_arr._id == this.state.userid && client_arr.password == this.state.password) {
                         console.log("clients SignIn sucessfully...");
-                    }
-                }
-                
+                    }                
             })
             .catch(error => {
+                flag = 1;
                 console.log(error);
             })
 
             // office login
-            axios.get("http://localhost:5555/office")
+            if(flag == 1)
+            {
+            axios.get("http://localhost:5555/office/"+this.state.userid)
             .then(async response => {
                 const office_arr = response.data.data;
-               // console.log(office_arr);
-                for (var x = 0; x < office_arr.length; x++) {
-
-                    if (office_arr[x]._id == this.state.userid && office_arr[x].password == this.state.password) {
+                    if (office_arr._id == this.state.userid && office_arr.password == this.state.password) {
                         console.log("Office staff SignIn sucessfully...");
-                    }
-                }
-                
+                    }                
             })
             .catch(error => {
                 console.log(error);
-            })
+            })}
     }
 
     myChangeHandler = (event) => {
