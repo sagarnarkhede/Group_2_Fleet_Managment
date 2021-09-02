@@ -22,17 +22,50 @@ export default class Location extends Component {
   }
 
   componentDidMount() {
-    axios
-    .get(`/centers`, {})
-    .then(res => {
-      const data = res.data.data;
-      this.setState({
-        address: data
-      });
-    })
-    .catch(error => {
-      console.log(error);
-    });
+
+    var a = this.props.location.state.airportdata;      //database data
+    var b = this.props.location.state.selectpickupAirport;  //user selected location
+    var add = [];
+
+    console.log("Array", a.length);
+    for (var x = 0; x < a.length; x++) {
+      if (a[x].airportno == b) {
+        console.log("nearest Center Array :", a[x].nearestcenter.length);
+        for (var y = 0; y < a[x].nearestcenter.length; y++) {
+          var p = a[x].nearestcenter[y];
+          console.log(p);
+          axios.get("http://localhost:5555/centers/" +p)
+            .then(async response => {
+            const Locations = response.data.data;
+              // this.setState({address:Locations});
+              await add.push(Locations)
+              this.setState({address:add})
+              console.log("add",this.state);
+            })
+            .catch(error => {
+              console.log(error.message);
+            })
+        }
+      }
+    }
+
+
+
+
+  //   axios
+  //   .get(`/centers`, {})
+  //   .then(res => {
+  //     const data = res.data.data;
+  //     this.setState({
+  //       address: data
+  //     });
+  //   })
+  //   .catch(error => {
+  //     console.log(error);
+  //   });
+
+
+  
   }
 
  handleSelect =async (data) => {
@@ -49,10 +82,10 @@ export default class Location extends Component {
         <div className="" style={{ margin: "13vh 15%" }}>
           <h2>Select Pickup/Return Location :</h2><br />
           <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
-            <h5 className="loactiontitle"> Your Loaction have matches 3 location, please select one</h5>
+            <h5 className="loactiontitle"> Your Loaction have matches {this.state.address.length} location, please select one</h5>
             <div className="row">
               <div className="col-6">
-                {this.state.address.map(u => (
+                {this.state.address.map((u) => (
                   <div>
                     <div className="card" style={{ width: "40rem" }}>
                       <div className="card-body">
