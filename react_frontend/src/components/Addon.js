@@ -69,7 +69,7 @@ class Addon extends Component {
                                        </div>
                                        <div class="row">
                                      <div class="col">
-                                     <h6>Please enter no. of seats </h6>
+                                     <label>Please enter no. of seats </label>
                                         </div>
                                      <div class="col-8">
                                      <label for="quantity"></label><input type="number" id="quantity" name="quant" min="1" max="4" onClick={ async() => { await this.setState({quant:"quant"}); console.log(this.state)}}></input>
