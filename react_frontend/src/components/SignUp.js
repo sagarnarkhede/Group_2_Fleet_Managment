@@ -6,6 +6,7 @@ import {Switch,Route,Link} from "react-router-dom";
 export default class componentName extends Component {
      constructor(props) {
         super(props);
+        this.handleBack = this.handleBack.bind(this)
         this.state = { 
         fname: '' ,
         lname: '',
@@ -32,6 +33,10 @@ export default class componentName extends Component {
        
     }
       }
+
+      handleBack() {
+        this.props.history.goBack()
+     }
       mySubmitHandler = (event) => {
           let ob =localStorage.getItem("data")
           console.log(JSON.parse(ob));
@@ -172,7 +177,7 @@ export default class componentName extends Component {
                         <Link to={{ pathname: "/",state:this.state}} >
                         <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Register</button>
                         </Link>
-                        <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}}>Cancel</button>
+                        <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}} onClick={this.handleBack}>Back</button>
                     </form>
                 </div>
                 <Footer />

@@ -7,6 +7,7 @@ import { Switch, Route, Link } from "react-router-dom";
 export default class BookCar extends Component {
     constructor(props) {
         super(props);
+        this.handleBack = this.handleBack.bind(this)
         console.log("bookcar", this.props);
         this.state = {
             pickupDate: '',
@@ -30,6 +31,9 @@ export default class BookCar extends Component {
         event.preventDefault();
         console.log(this.state);
     }
+    handleBack() {
+        this.props.history.goBack()
+     }
     componentDidMount() {
         axios.get("http://localhost:5555/airport")
             .then(async response => {
@@ -170,7 +174,8 @@ export default class BookCar extends Component {
 
                         <Link to={{ pathname: "/location", state: this.state }} >
                             <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
-                        </Link>
+                        </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}} onClick={this.handleBack} >Back</button>
                     </form>
                 </div>
 

@@ -7,12 +7,16 @@ import { Switch, Route, Link } from "react-router-dom";
 export default class Location extends Component {
   constructor(props) {
     super(props);
+    this.handleBack = this.handleBack.bind(this)
     console.log("location", this.props);
     this.state = {
       address: [],
       selectaddress: [],       
     }
   }
+  handleBack() {
+    this.props.history.goBack()
+ }
   mySubmitHandler = (event) => {
     event.preventDefault();
     console.log(this.state);
@@ -107,7 +111,7 @@ export default class Location extends Component {
             <Link to={{ pathname: "/cardetail", state: this.state }} >
               <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }} >Continue Booking</button>
             </Link> 
-            <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }} >Cancel</button><br /><br />
+            <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }} onClick={this.handleBack} >Back</button><br /><br />
           </form>
         </div>
         <Footer />

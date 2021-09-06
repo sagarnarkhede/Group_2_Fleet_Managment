@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
 import axios from 'axios'
+import { Link, NavLink } from 'react-router-dom';
 class CustomerInfoPage extends Component {
     constructor(props) {
         super(props);
-        console.log("customer info ",this.props);
+        this.handleBack = this.handleBack.bind(this)
+        console.log("customer info ", this.props);
         this.state = {
             fname: '',
             lname: '',
@@ -34,38 +36,43 @@ class CustomerInfoPage extends Component {
 
         }
     }
+
+    handleBack() {
+        this.props.history.goBack()
+    }
+
     mySubmitHandler = (event) => {
         event.preventDefault();
         console.log(this.state);
     }
     myLoginHandler = async (event) => {
         event.preventDefault();
-        axios.get('http://localhost:5555/clients/'+this.state.membershipno)
-        .then((res)=>{     
-            let ele = res.data.data  
-            if(ele._id == this.state.membershipno && ele.password == this.state.loginpassword){
-                    for(let x in this.state){
-                        for(let y in ele){
-                            if(x == y){
+        axios.get('http://localhost:5555/clients/' + this.state.membershipno)
+            .then((res) => {
+                let ele = res.data.data
+                if (ele._id == this.state.membershipno && ele.password == this.state.loginpassword) {
+                    for (let x in this.state) {
+                        for (let y in ele) {
+                            if (x == y) {
                                 this.setState({
-                                    [x]:ele[y]
+                                    [x]: ele[y]
                                 })
                             }
                         }
                     }
-            }
-            else{
+                }
+                else {
+                    alert("invalid Id pass")
+                }
+            }).catch((e) => {
                 alert("invalid Id pass")
-            }
-    }).catch((e)=>{
-        alert("invalid Id pass")
-        console.log("e",e.message);
-    })
+                console.log("e", e.message);
+            })
     }
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
     }
-    
+
     getLogin() {
         return (
             <React.Fragment>
@@ -91,21 +98,41 @@ class CustomerInfoPage extends Component {
         return (
             <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                 <label>Your Booking : </label>
-                <br/>
-                <br/>
-                <p>Pick-up:Modify</p>
+                <br />
+                <br />
+                <ul>
+                    <li>
+                        Pick-up:<NavLink to="/BookCar" >Modify</NavLink>
+                    </li>
+                    <li>
+                        Pick-up at:<NavLink to="/Location"  >Modify</NavLink>
+                    </li>
+                    <li>
+                        Return:<NavLink to="/BookCar" >Modify</NavLink>
+                    </li>
+                    <li>
+                        Return at:<NavLink to="/Location">Modify</NavLink>
+                    </li>
+                    <li>
+                        Vehicle Selection:<NavLink to="/CarDetails" >Modify</NavLink>
+                    </li>
+                    <li>
+                        Addon:<NavLink to="/Addon" >Modify</NavLink>
+                    </li>
+                </ul>
+                {/* <p>Pick-up:Modify</p>
                     <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
                 <p>Pick-up at:Modify</p>
                     <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
-                <p>Reture:Modify</p>
+                <p>return:Modify</p>
                     <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
                 <p>Return at:Modify</p>
                     <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
                 <p>Vehicle Selection:Modify</p>
                     <p>{this.props.location.state.pickupDate} </p>
                 <p>Rental Ad-Ons: Modify</p>
-                    <p>{this.props.location.state.pickupDate}</p>
-                
+                    <p>{this.props.location.state.pickupDate}</p> */}
+
             </div>
         )
     }
@@ -232,7 +259,7 @@ class CustomerInfoPage extends Component {
 
 
                     <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Register</button>
-                    <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Cancel</button>
+                    <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>Back</button>
                 </form>
             </React.Fragment>
         )

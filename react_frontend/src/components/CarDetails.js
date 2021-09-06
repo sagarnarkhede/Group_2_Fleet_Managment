@@ -6,12 +6,17 @@ import axios from 'axios';
 export class CarDetails extends Component {
     constructor(props) {
         super(props);
+        this.handleBack = this.handleBack.bind(this)
         console.log("cardetails",this.props);
         this.state = { 
         type:''
        
     }
       }
+      handleBack() {
+        this.props.history.goBack()
+     }
+
       mySubmitHandler = (event) => {
         event.preventDefault();
         console.log(this.state);
@@ -115,7 +120,7 @@ export class CarDetails extends Component {
                         <Link to={{ pathname: "/addon",state:this.state}} >
                         <button className="btn btn-primary" style={{ textAlign: "center", float: "left" }}>Continue Booking</button>
                         </Link>
-                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Cancel</button>
+                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>Back</button>
 
                     </div>
                 </div>

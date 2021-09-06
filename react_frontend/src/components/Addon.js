@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
-import {Switch,Route,Link} from "react-router-dom";
+import {Switch, Route, Link} from "react-router-dom";
+
 
 class Addon extends Component {
+
+   
     constructor(props) {
         super(props);
         console.log("addon",this.props);
+       this.handleBack = this.handleBack.bind(this)
         this.state = { 
        nav:"",
        camp:"",
@@ -14,6 +18,11 @@ class Addon extends Component {
        quant:""
     }
       }
+
+      handleBack() {
+         this.props.history.goBack()
+      }
+
       mySubmitHandler = (event) => {
         event.preventDefault();
         console.log(this.state);
@@ -72,8 +81,9 @@ class Addon extends Component {
                         <br/>
                         <Link to={{ pathname: "/CustomerInfoPage",state:this.state}} >
                                 <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Continue Booking</button>
-                                </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Cancel</button>
+                                <button className="btn btn-primary" style={{  textAlign: "center", float: "right", width: "20%"}} onClick={this.handleBack} >Back</button>
+                                </Link>
+                                
                                 
                         {/* <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Sign In</button>
                         <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}}>Sign Up</button> */}
