@@ -1,6 +1,4 @@
-
- 
- import React, { Component } from 'react';
+import React, { Component } from 'react';
  import {   Button } from 'bootstrap'
 
  import Modal from "react-bootstrap/Modal"
@@ -17,13 +15,15 @@
     {console.log(this.props)}
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-          Booking Confirmation Number
+         <label> Booking Confirmation Number: </label>  <input type="text"  name="Booking Number"></input>
+
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <div>
-        <h5>Vechile Registration Number:</h5>
-        <h5>Car Status:</h5>
+        <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number"></input> <a href="/cardetail">Select Car</a>
+       <br/><br/>
+       <label>Car Status</label> <input type="text"  name="Car Status"></input><br/><br></br>
         <p style = {{display: "flex"}}>  <h5>Fuel Status:</h5><span>
         <div style = {{display: "flex"}} >
         <div class="form-check" className = "mr-30">

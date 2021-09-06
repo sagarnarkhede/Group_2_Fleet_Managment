@@ -34,7 +34,8 @@ export default class ModifyandCancel extends Component {
    {console.log(this.props)}
      <Modal.Header closeButton>
        <Modal.Title id="contained-modal-title-vcenter">
-         Booking Confirmation Number
+         <label> Booking Confirmation Number: </label><input type="text"  name="Booking Number"></input>
+
        </Modal.Title>
      </Modal.Header>
      <Modal.Body>
@@ -57,9 +58,9 @@ export default class ModifyandCancel extends Component {
         </div>
         
      </Modal.Body>
-     <Modal.Footer>
+     {/* <Modal.Footer>
        <button className="btn btn-primary" onClick={this.props.onHide } >Close</button>
-     </Modal.Footer>
+     </Modal.Footer> */}
    </Modal>
     );
   }

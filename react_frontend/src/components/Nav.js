@@ -36,7 +36,7 @@ export default function Nav() {
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#pricing">Pricing</a></li>
                     <li><a className="nav-link scrollto" href="http://localhost:5555/#contact">Contact Us</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setModalShow(true)} >Confirm Booking</a></li>
-                    <li><a className="nav-link scrollto"  onClick={() => setModalShow1(true)} >Modify</a></li>
+                    <li><a className="nav-link scrollto"  onClick={() => setModalShow1(true)} >Modify/Cancel</a></li>
                     <li><a className="nav-link scrollto" href="/">Book Now</a></li>
                     <li><a className="nav-link scrollto" href="/signup">Sign up</a></li>
 
