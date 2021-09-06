@@ -24,12 +24,12 @@ export default class Location extends Component {
   componentDidMount() {
 
     var a = this.props.location.state.airportdata;      //database data
-    var b = this.props.location.state.selectpickupAirport;  //user selected location
+    var b = this.props.location.state.searchpickupAirport;  //user selected location
     var add = [];
 
     console.log("Array", a.length);
     for (var x = 0; x < a.length; x++) {
-      if (a[x].airportno == b) {
+      if (a[x].airportname == b) {
         console.log("nearest Center Array :", a[x].nearestcenter.length);
         for (var y = 0; y < a[x].nearestcenter.length; y++) {
           var p = a[x].nearestcenter[y];
