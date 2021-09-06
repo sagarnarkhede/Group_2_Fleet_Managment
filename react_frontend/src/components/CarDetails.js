@@ -22,7 +22,7 @@ export class CarDetails extends Component {
       componentDidMount(){
        const cars_arr = this.props.location.state.selectaddress
             // console.log( "cars",cars_arr.cars);
-            for (var x = 0; x < cars_arr.cars.length; x++) {
+            for (var x = 0; x < cars_arr.cars?.length; x++) {
                 // console.log("car type",cars_arr.cars[x].cartype);
               if (cars_arr.cars[x].cartype == "small car" ) {
                     document.getElementById("smallcar").disabled = false 
