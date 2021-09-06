@@ -9,7 +9,7 @@ import Modal from "react-bootstrap/Modal"
 export default class ModifyandCancel extends Component {
     constructor(props) {
         super(props);
-        console.log("location", this.props);
+        // console.log("location", this.props);
         this.state = {
            showButtons: false
         }
@@ -31,7 +31,7 @@ export default class ModifyandCancel extends Component {
      aria-labelledby="contained-modal-title-vcenter"
      centered
    >
-   {console.log(this.props)}
+   {/* {console.log(this.props)} */}
      <Modal.Header closeButton>
        <Modal.Title id="contained-modal-title-vcenter">
          <label> Booking Confirmation Number: </label><input type="text"  name="Booking Number"></input>

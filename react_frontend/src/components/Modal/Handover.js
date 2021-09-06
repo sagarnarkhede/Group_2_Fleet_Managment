@@ -12,7 +12,7 @@ import React, { Component } from 'react';
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-    {console.log(this.props)}
+    {/* {console.log(this.props)} */}
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
          <label> Booking Confirmation Number: </label>  <input type="text"  name="Booking Number"></input>

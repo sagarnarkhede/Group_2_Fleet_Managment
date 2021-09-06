@@ -10,21 +10,21 @@ import Location from './Location';
 import PNF from './PNF';
 import Addon from './Addon';
 import CustomerInfoPage from './CustomerInfoPage';
+import ConfirmBooking from './ConfirmBooking';
 
 const AppRouter = () => (
   <BrowserRouter>
     
       <Switch>
-        {/* <Route component={UserForm} path="/" exact={true} />*/}
         <Route component={BookCar} exact path="/" />
         <Route component={Location} path="/location" />
         <Route component={Details} path="/details" /> 
         <Route component={Addon} path="/addon" /> 
         <Route component={CustomerInfoPage} path="/CustomerInfoPage" /> 
-       
         <Route component={SignIn} path="/signin" />
         <Route component={SignUp} path="/signup" />
         <Route component={CarDetails} path="/cardetail" />
+        <Route component={ConfirmBooking} path="/confirmbooking" />
         <Route component={PNF} path="*" />
       </Switch>
     

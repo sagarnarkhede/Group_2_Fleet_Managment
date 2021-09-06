@@ -12,6 +12,7 @@ class Addon extends Component {
         console.log("addon",this.props);
        this.handleBack = this.handleBack.bind(this)
         this.state = { 
+           cardetailsState:this.props.location.state,
        nav:"",
        camp:"",
        chSeats:"",

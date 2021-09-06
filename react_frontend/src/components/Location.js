@@ -8,8 +8,9 @@ export default class Location extends Component {
   constructor(props) {
     super(props);
     this.handleBack = this.handleBack.bind(this)
-    console.log("location", this.props);
+    console.log("location", this.props.location.state);
     this.state = {
+      bookingState:this.props.location.state,
       address: [],
       selectaddress: [],       
     }

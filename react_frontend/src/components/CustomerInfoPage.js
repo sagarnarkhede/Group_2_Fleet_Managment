@@ -6,9 +6,11 @@ import { Link, NavLink } from 'react-router-dom';
 class CustomerInfoPage extends Component {
     constructor(props) {
         super(props);
+        var data = this.props.location.state;
         this.handleBack = this.handleBack.bind(this)
         console.log("customer info ", this.props);
         this.state = {
+            _id: '',
             fname: '',
             lname: '',
             email: '',
@@ -32,7 +34,19 @@ class CustomerInfoPage extends Component {
             passport_issued_by: '',
             passport_date: '',
             membershipno: '',
-            loginpassword: ''
+            loginpassword: '',
+
+            pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
+            dropDate: data.cardetailsState.locationState.bookingState.dropDate,
+            pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
+            dropTime: data.cardetailsState.locationState.bookingState.dropTime,
+            selectaddress:data.cardetailsState.locationState.selectaddress.address,
+            cartype:data.cardetailsState.cartype,
+            nav:data.nav,
+            camp:data.camp,
+            chSeats:data.chSeats,
+            quant:data.quant
+
 
         }
     }
@@ -51,6 +65,7 @@ class CustomerInfoPage extends Component {
             .then((res) => {
                 let ele = res.data.data
                 if (ele._id == this.state.membershipno && ele.password == this.state.loginpassword) {
+                    this.setState({_id:ele._id});
                     for (let x in this.state) {
                         for (let y in ele) {
                             if (x == y) {
@@ -98,40 +113,20 @@ class CustomerInfoPage extends Component {
         return (
             <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                 <label>Your Booking : </label>
-                <br />
-                <br />
-                <ul>
-                    <li>
-                        Pick-up:<NavLink to="/BookCar" >Modify</NavLink>
-                    </li>
-                    <li>
-                        Pick-up at:<NavLink to="/Location"  >Modify</NavLink>
-                    </li>
-                    <li>
-                        Return:<NavLink to="/BookCar" >Modify</NavLink>
-                    </li>
-                    <li>
-                        Return at:<NavLink to="/Location">Modify</NavLink>
-                    </li>
-                    <li>
-                        Vehicle Selection:<NavLink to="/CarDetails" >Modify</NavLink>
-                    </li>
-                    <li>
-                        Addon:<NavLink to="/Addon" >Modify</NavLink>
-                    </li>
-                </ul>
-                {/* <p>Pick-up:Modify</p>
-                    <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
-                <p>Pick-up at:Modify</p>
-                    <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
-                <p>return:Modify</p>
-                    <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
-                <p>Return at:Modify</p>
-                    <p>{this.props.location.state.pickupDate} {this.props.location.state.pickupTime}</p>
-                <p>Vehicle Selection:Modify</p>
-                    <p>{this.props.location.state.pickupDate} </p>
-                <p>Rental Ad-Ons: Modify</p>
-                    <p>{this.props.location.state.pickupDate}</p> */}
+                <br/>
+                <br/>
+                <strong>Pick-up: </strong><NavLink to="/BookCar" >Modify</NavLink>
+                    <p>{this.state.pickupDate} {this.state.pickupTime}</p>
+                <strong>Pick-up at: </strong><NavLink to="/Location"  >Modify</NavLink>
+                    <p>{this.state.selectaddress}</p>
+                <strong>Reture: </strong><NavLink to="/BookCar" >Modify</NavLink>
+                    <p>{this.state.dropDate} {this.state.dropTime}</p>
+                <strong>Return at: </strong><NavLink to="/Location">Modify</NavLink>
+                    <p>{this.state.selectaddress}</p>
+                <strong>Vehicle Selection: </strong><NavLink to="/CarDetails" >Modify</NavLink>
+                    <p>{this.state.cartype} </p>
+                <strong>Rental Ad-Ons: </strong><NavLink to="/Addon" >Modify</NavLink>
+                    <p>{this.state.nav},{this.state.camp},{this.state.chSeats},{this.state.quant}</p>
 
             </div>
         )
@@ -257,8 +252,9 @@ class CustomerInfoPage extends Component {
                         </div>
                     </div><br />
 
-
+                    <Link to={{ pathname: "/confirmbooking",state:this.state}} >
                     <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Register</button>
+                    </Link>
                     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>Back</button>
                 </form>
             </React.Fragment>

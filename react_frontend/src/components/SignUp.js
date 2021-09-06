@@ -39,7 +39,7 @@ export default class componentName extends Component {
      }
       mySubmitHandler = (event) => {
           let ob =localStorage.getItem("data")
-          console.log(JSON.parse(ob));
+        //   console.log(JSON.parse(ob));
           
         event.preventDefault();
         console.log(this.state);

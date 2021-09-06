@@ -9,7 +9,8 @@ export class CarDetails extends Component {
         this.handleBack = this.handleBack.bind(this)
         console.log("cardetails",this.props);
         this.state = { 
-        type:''
+            locationState:this.props.location.state,
+        cartype:''
        
     }
       }
@@ -26,6 +27,11 @@ export class CarDetails extends Component {
     }
       componentDidMount(){
        const cars_arr = this.props.location.state.selectaddress
+       document.getElementById("smallcar").disabled = true 
+       document.getElementById("compcar").disabled = true 
+       document.getElementById("intercar").disabled = true 
+       document.getElementById("sedan").disabled = true 
+       document.getElementById("suv").disabled = true 
             // console.log( "cars",cars_arr.cars);
             for (var x = 0; x < cars_arr.cars?.length; x++) {
                 // console.log("car type",cars_arr.cars[x].cartype);
@@ -75,7 +81,7 @@ export class CarDetails extends Component {
                                     <td>$79.00</td>
                                     <td>$310.00</td>
                                     {/* <td onClick={this.myChangeHandler("Small Cars")}>N.A</td> */}
-                                    <td><button disabled id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({type:"Small Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Small Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
@@ -84,7 +90,7 @@ export class CarDetails extends Component {
                                     <td>$18.00</td>
                                     <td>$120.00</td>
                                     <td>$500.00</td>
-                                    <td><button id="compcar" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Compact Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="compcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Compact Cars" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
@@ -93,7 +99,7 @@ export class CarDetails extends Component {
                                     <td>$99.99</td>
                                     <td>$999.99</td>
                                     <td>$999.9</td>
-                                    <td><button  id="intercar" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Intermediate" }); console.log(this.state)}} >select</button></td>
+                                    <td><button  id="intercar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Intermediate" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
@@ -102,7 +108,7 @@ export class CarDetails extends Component {
                                     <td>$20.00</td>
                                     <td>$99.00</td>
                                     <td>$210.00</td>
-                                    <td><button id="sedan" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"Sedan" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="sedan"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Sedan" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
@@ -111,7 +117,7 @@ export class CarDetails extends Component {
                                     <td>$15.00</td>
                                     <td>$400.00</td>
                                     <td>$510.00</td>
-                                    <td><button id="suv" disabled className="btn btn-primary" onClick={ async() => { await this.setState({type:"SUV" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="suv"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"SUV" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                             </tbody>
                         </table>
