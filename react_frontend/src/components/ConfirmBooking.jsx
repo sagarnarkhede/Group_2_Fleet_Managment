@@ -59,10 +59,10 @@ class ConfirmBooking extends Component {
           <div className="row">
             <div className="col-6">
               <div className="row">
-                <div className="col-3">
-                  <label>Pick-up:</label>
+                <div className="col-4">
+                  <label>Pick-up :</label>
                 </div>
-                <div className="col-9">
+                <div className="col-8">
                   <p>
                     {this.state.fdata.pickupDate} {this.state.fdata.pickupTime}
                   </p>
@@ -71,20 +71,20 @@ class ConfirmBooking extends Component {
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-3">
-                  <label>Pick-up at:</label>
+                <div className="col-4">
+                  <label>Pick-up at :</label>
                 </div>
-                <div className="col-9">
+                <div className="col-8">
                   <p>{this.state.fdata.selectaddress}</p>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-3">
-                  <label>Reture:</label>
+                <div className="col-4">
+                  <label>Reture :</label>
                 </div>
-                <div className="col-9">
+                <div className="col-8">
                   <p>
                     {this.state.fdata.dropDate} {this.state.fdata.dropTime}
                   </p>
@@ -93,10 +93,10 @@ class ConfirmBooking extends Component {
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-3">
-                  <label>Return at:</label>
+                <div className="col-4">
+                  <label>Return at :</label>
                 </div>
-                <div className="col-9">
+                <div className="col-8">
                   <p>{this.state.fdata.selectaddress}</p>
                 </div>
               </div>
@@ -104,7 +104,7 @@ class ConfirmBooking extends Component {
             <div className="col-6">
               <div className="row">
                 <div className="col-4">
-                  <label>Vehicle Selection:</label>
+                  <label>Vehicle Selection :</label>
                 </div>
                 <div className="col-8">
                   <p>{this.state.fdata.cartype} </p>
@@ -114,7 +114,7 @@ class ConfirmBooking extends Component {
             <div className="col-6">
               <div className="row">
                 <div className="col-4">
-                  <label>Rental Ad-Ons: </label>
+                  <label>Rental Ad-Ons : </label>
                 </div>
                 <div className="col-8">
                   <p>
