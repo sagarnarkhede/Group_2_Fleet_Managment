@@ -3,7 +3,6 @@ import Nav from './Nav'
 import Footer from './Footer'
 import axios from "./Axios/Axios";
 import { Switch, Route, Link } from "react-router-dom";
-import Handover from './Modal/Handover';
 
 export default class Location extends Component {
   constructor(props) {
@@ -11,9 +10,7 @@ export default class Location extends Component {
     console.log("location", this.props);
     this.state = {
       address: [],
-      selectaddress: [],
-      modalshow: false,
-       
+      selectaddress: [],       
     }
   }
   mySubmitHandler = (event) => {
@@ -37,7 +34,7 @@ export default class Location extends Component {
         for (var y = 0; y < a[x].nearestcenter.length; y++) {
           var p = a[x].nearestcenter[y];
           console.log(p);
-          axios.get("http://localhost:5555/centers/" +p)
+          axios.get("http://localhost:5555/centers/"+p)
             .then(async response => {
             const Locations = response.data.data;
               // this.setState({address:Locations});
@@ -78,31 +75,12 @@ export default class Location extends Component {
    console.log(this.state.selectaddress, "selet")
  }
 
- handleModalOpen = (e) => {
-  
-  this.setState ({
-    modalshow : true
-  })
-  e.preventDefault()
-  console.log("Hii")
- }
- handleModalClose = () => {
-    
-   this.setState ( {
-    modalshow: false
-   })
-   
- }
   render() {
     return (
       <div>
         <Nav />
         <div className="" style={{ margin: "13vh 15%" }}>
           <h2>Select Pickup/Return Location :</h2><br />
-          <Handover 
-            closeModal= {this.handleModalClose}
-            show= {this.state.modalshow}
-          />
           <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
             <h5 className="loactiontitle"> Your Loaction have matches {this.state.address.length} location, please select one</h5>
             <div className="row">
@@ -128,9 +106,7 @@ export default class Location extends Component {
             </div> <br /><br />
             <Link to={{ pathname: "/cardetail", state: this.state }} >
               <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }} >Continue Booking</button>
-            </Link>
-            &nbsp;&nbsp;&nbsp; <br/>
- 
+            </Link> 
             <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }} >Cancel</button><br /><br />
           </form>
         </div>
