@@ -40,10 +40,10 @@ exports.post_client = async (req, res) => {
         const booking = new Booking({
             _id: mongoose.Types.ObjectId(),
             booking_id: req.body.booking_id,
-            booking_date: req.body.booking_date,
-            Drop_date: req.body.Drop_date,
-            inhand_date: req.body.inhand_date,
-            handover_date: req.body.handover_date,
+            pickupDate: req.body.pickupDate,
+            pickupTime: req.body.pickupTime,
+            dropDate: req.body.dropDate,
+            dropTime: req.body.dropTime,
             inhand_center: req.body.inhand_center,
             handover_center: req.body.handover_center,
             booking_status: req.body.booking_status,
@@ -59,6 +59,12 @@ exports.post_client = async (req, res) => {
                 invoice_number: req.body.invoice_number,
                 charges: req.body.charges,
                 pyment_method: req.body.pyment_method
+            },
+            addon:{
+                nav:req.body.nav,
+               camp:req.body.camp,
+               chSeats:req.body.chSeats,
+               quant: req.body.quant
             }
         })
         const client = new Client({
@@ -115,10 +121,10 @@ exports.post_booking = async (req, res) => {
         const booking = new Booking({
             _id: mongoose.Types.ObjectId(),
             booking_id: req.body.booking_id,
-            booking_date: req.body.booking_date,
-            Drop_date: req.body.Drop_date,
-            inhand_date: req.body.inhand_date,
-            handover_date: req.body.handover_date,
+            pickupDate: req.body.pickupDate,
+            pickupTime: req.body.pickupTime,
+            dropDate: req.body.dropDate,
+            dropTime: req.body.dropTime,
             inhand_center: req.body.inhand_center,
             handover_center: req.body.handover_center,
             booking_status: req.body.booking_status,
@@ -134,6 +140,12 @@ exports.post_booking = async (req, res) => {
                 invoice_number: req.body.invoice_number,
                 charges: req.body.charges,
                 pyment_method: req.body.pyment_method
+            },
+             addon:{
+                nav:req.body.nav,
+               camp:req.body.camp,
+               chSeats:req.body.chSeats,
+               quant: req.body.quant
             }
         })
         console.log("booking", booking);
@@ -257,10 +269,10 @@ exports.put_booking = async (req, res) => {
                 const booking = {
                     _id: booking_arr[x]._id,
                     booking_id: req.body.booking_id,
-                    booking_date: req.body.booking_date,
-                    Drop_date: req.body.Drop_date,
-                    inhand_date: req.body.inhand_date,
-                    handover_date: req.body.handover_date,
+                    pickupDate: req.body.pickupDate,
+                    pickupTime: req.body.pickupTime,
+                    dropDate: req.body.dropDate,
+                    dropTime: req.body.dropTime,
                     inhand_center: req.body.inhand_center,
                     handover_center: req.body.handover_center,
                     booking_status: req.body.booking_status,
@@ -276,6 +288,12 @@ exports.put_booking = async (req, res) => {
                         invoice_number: req.body.invoice_number,
                         charges: req.body.charges,
                         pyment_method: req.body.pyment_method
+                    },
+                    addon:{
+                        nav:req.body.nav,
+                       camp:req.body.camp,
+                       chSeats:req.body.chSeats,
+                       quant: req.body.quant
                     }
                 }
                 booking_arr[x] = booking;
