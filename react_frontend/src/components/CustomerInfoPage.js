@@ -126,7 +126,7 @@ class CustomerInfoPage extends Component {
                     <p>{this.state.booking_date} {this.state.pickupTime}</p>
                 <strong>Pick-up at: </strong><NavLink to="/location"  >Modify</NavLink>
                     <p>{this.state.selectaddress}</p>
-                <strong>Reture: </strong><NavLink to="/" >Modify</NavLink>
+                <strong>return: </strong><NavLink to="/" >Modify</NavLink>
                     <p>{this.state.dropDate} {this.state.dropTime}</p>
                 <strong>Return at: </strong><NavLink to="/location">Modify</NavLink>
                     <p>{this.state.selectaddress}</p>

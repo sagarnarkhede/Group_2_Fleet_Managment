@@ -9,19 +9,37 @@ class ConfirmBooking extends Component {
     super(props);
     var data = this.props.location.state;
     console.log("customer info ", data);
-
+   
     this.state = {
-      fdata : data,
+      fdata: data,
     };
   }
-  mySubmitHandler = (event) => {
+  
+    mySubmitHandler = (event) => {
     event.preventDefault();
-    if(this.state.fdata._id == "")
-    {
-        console.log("new post");
+    console.log("Data In State",this.state.fdata);
+    if (this.state.fdata._id == "") {
+      console.log("new post");
+      var url = "http://localhost:5555/clients/"
+      axios.post(url, this.state.fdata)
+        .then(async response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error.message);
+        })
     }
-    else{
-        console.log("existing put");
+    else {
+      console.log("existing put");
+
+      var id =   this.state.fdata._id;
+      axios.put('http://localhost:5555/clients/'+id)
+        .then(async response => {
+          console.log(response);
+        })
+        .catch(error => {
+          console.log(error);
+        })
     }
     console.log(this.state);
   };
@@ -64,10 +82,10 @@ class ConfirmBooking extends Component {
                   <br /><br />
                 </div>
                 <div className="col-4">
-                    <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate}/>
+                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate} />
                 </div>
                 <div className="col-4">
-                    <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime}/>
+                  <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime} />
                 </div>
               </div>
             </div>
@@ -77,7 +95,7 @@ class ConfirmBooking extends Component {
                   <label>Pick-up at :</label>
                 </div>
                 <div className="col-9">
-                <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress}/>
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress} />
                 </div>
               </div>
             </div>
@@ -88,10 +106,10 @@ class ConfirmBooking extends Component {
                   <br /><br />
                 </div>
                 <div className="col-4">
-                    <input type="date" className="form-control" name="" id="" value={this.state.fdata.dropDate}/>
+                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.dropDate} />
                 </div>
                 <div className="col-4">
-                    <input type="time" className="form-control" name="" id="" value={this.state.fdata.dropTime}/>
+                  <input type="time" className="form-control" name="" id="" value={this.state.fdata.dropTime} />
                 </div>
               </div>
             </div>
@@ -101,7 +119,7 @@ class ConfirmBooking extends Component {
                   <label>Return at :</label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress}/>
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress} />
                 </div>
               </div>
             </div>
@@ -111,7 +129,7 @@ class ConfirmBooking extends Component {
                   <label>Vehicle :</label>
                 </div>
                 <div className="col-8">
-                <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype}/>
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype} />
                 </div>
               </div>
             </div>
@@ -121,7 +139,7 @@ class ConfirmBooking extends Component {
                   <label>Ad-Ons : </label>
                 </div>
                 <div className="col-9">
-                <input type="text" name="" id="" className="form-control" value={this.state.fdata.nav +" "+ this.state.fdata.camp +" "+ this.state.fdata.chSeats +" "+ this.state.fdata.quant}/>
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.nav + " " + this.state.fdata.camp + " " + this.state.fdata.chSeats + " " + this.state.fdata.quant} />
                 </div>
               </div>
             </div>
@@ -385,13 +403,13 @@ class ConfirmBooking extends Component {
           </div>
           <br />
 
-          
-            <button
-              className="btn btn-primary"
-              style={{ textAlign: "center", width: "20%" }}
-            >
-              Book Now
-            </button>
+
+          <button
+            className="btn btn-primary"
+            style={{ textAlign: "center", width: "20%" }}
+          >
+            Book Now
+          </button>
           {/* <button
             className="btn btn-primary"
             style={{ textAlign: "center", float: "right", width: "20%" }}
