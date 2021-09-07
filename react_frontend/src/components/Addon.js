@@ -19,6 +19,13 @@ class Addon extends Component {
        quant:0
     }
       }
+      handleClick = (prevState) => {
+         // this.setState({}, () => {
+         //     console.log(this.state.quant)
+         // });
+       }
+      
+
 
       handleBack() {
          this.props.history.goBack()
@@ -72,7 +79,9 @@ class Addon extends Component {
                                      <label>Please enter no. of seats </label>
                                         </div>
                                      <div class="col-8">
-                                     <label for="quantity"></label><input type="number" id="quantity" name="quant" min="1" max="4" onClick={ async() => { await this.setState({quant:0}); console.log(this.state)}}></input>
+                                     
+                                     <label for="quantity"></label><input type="number" id="quantity" name="quant"   min="1" max="4"  onClick= {this.handleClick} ></input>
+                                     
                                         </div>
                                        </div>
                                        </div>

@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 const bookingSchema = Schema({
     _id:Schema.Types.ObjectId,
     booking_id: { type: Number},
-    booking_date: { type: Date },
-    Drop_date: { type: Date},
-    inhand_date: { type: Date},
-    handover_date: { type: Date},
+    pickupDate: { type: String },
+    pickupTime: { type: String},
+    dropDate: {type: String},
+    dropTime: { type: String},
     inhand_center: { type: Number},
     handover_center: { type: Number},
     booking_status: { type: String},
@@ -22,6 +22,12 @@ const bookingSchema = Schema({
         invoice_number:{type:Number},
         charges:{type:Number},
         pyment_method:{type:String}
+    },
+    addon:{
+        nav:{type: String},
+       camp:{type: String},
+       chSeats:{type: String},
+       quant:{type: Number}
     }
 })
 
