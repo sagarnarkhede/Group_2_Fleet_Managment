@@ -1,9 +1,38 @@
 import React, { Component } from 'react';
  import {   Button } from 'bootstrap'
-
+ import axios from 'axios'
  import Modal from "react-bootstrap/Modal"
   
  export default class Handover extends Component {
+  constructor(props) {
+    super(props);
+    // console.log("location", this.props);
+    this.state = {
+       
+       bookings:[],
+       booking_id:""
+    }
+  }
+  myButtonHandler = () => {
+    axios.get("http://localhost:5555/clients/"+this.state.booking_id)
+    .then(async response => {
+      const bookings_arr = response.data.data;
+      this.setState({ bookings: bookings_arr});
+      console.log("hii",this.state);
+
+    })
+      this.setState ({
+        booking_id:""
+
+      })
+}
+  mySubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(this.state);
+  }
+myChangeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+}
    render() {
      return (
         <Modal
@@ -15,13 +44,13 @@ import React, { Component } from 'react';
     {/* {console.log(this.props)} */}
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
-         <label> Booking Confirmation Number: </label>  <input type="text"  name="Booking Number"></input>
-
+        <h2>Handover:</h2>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-      <div>
-        <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number"></input> <a href="/cardetail">Select Car</a>
+      <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
+      <label> Booking Confirmation Number: </label>  <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>  <button type="button" class="btn btn-primary" onClick={this.myButtonHandler}>Search</button><br/><br/>
+      <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number"></input> <a href="/cardetail">Select Car</a>
        <br/><br/>
        <label>Car Status</label> <input type="text"  name="Car Status"></input><br/><br></br>
         <p style = {{display: "flex"}}>  <h5>Fuel Status:</h5><span>
