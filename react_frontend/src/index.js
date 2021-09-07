@@ -7,17 +7,17 @@ import './style.css';
 // import App from './App'
 
 import reportWebVitals from './reportWebVitals';
-import BookCar from './components/BookCar';
-import Nav from './components/Nav';
-import SignUp from './components/SignUp';
-import Footer from './components/Footer';
-import SignIn from './components/SignIn';
-import CarDetails from './components/CarDetails';
-import Forgetpassword from './components/Forgetpassword';
-import Addon from './components/Addon';
-import Location from './components/Location';
-import Routes from './components/Routes';
-import CustomerInfoPage from './components/CustomerInfoPage';
+// import BookCar from './components/BookCar';
+// import Nav from './components/Nav';
+// import SignUp from './components/SignUp';
+// import Footer from './components/Footer';
+// import SignIn from './components/SignIn';
+// import CarDetails from './components/CarDetails';
+// import Forgetpassword from './components/Forgetpassword';
+// import Addon from './components/Addon';
+// import Location from './components/Location';
+// import Routes from './components/Routes';
+// import CustomerInfoPage from './components/CustomerInfoPage';
 import AppRouter from './components/AppRouter';
 
 ReactDOM.render(

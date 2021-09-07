@@ -27,25 +27,29 @@ export default class Location extends Component {
   }
 
   componentDidMount() {
+      try {
+        var a = this.props.location.state.airportdata;      //database data
+        var b = this.props.location.state.searchpickupAirport;  //user selected location
+        var add = [];
+      } catch (error) {
+        console.log(error);
+      }
+    
 
-    var a = this.props.location.state.airportdata;      //database data
-    var b = this.props.location.state.searchpickupAirport;  //user selected location
-    var add = [];
-
-    console.log("Array", a.length);
-    for (var x = 0; x < a.length; x++) {
+    // console.log("Array", a.length);
+    for (var x = 0; x < a?.length; x++) {
       if (a[x].airportname == b) {
-        console.log("nearest Center Array :", a[x].nearestcenter.length);
-        for (var y = 0; y < a[x].nearestcenter.length; y++) {
+        // console.log("nearest Center Array :", a[x].nearestcenter.length);
+        for (var y = 0; y < a[x].nearestcenter?.length; y++) {
           var p = a[x].nearestcenter[y];
-          console.log(p);
+          // console.log(p);
           axios.get("http://localhost:5555/centers/"+p)
             .then(async response => {
             const Locations = response.data.data;
               // this.setState({address:Locations});
               await add.push(Locations)
               this.setState({address:add})
-              console.log("add",this.state);
+              // console.log("add",this.state);
             })
             .catch(error => {
               console.log(error.message);
@@ -112,7 +116,7 @@ export default class Location extends Component {
             <Link to={{ pathname: "/cardetail", state: this.state }} >
               <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }} >Continue Booking</button>
             </Link> 
-            <button className="btn btn-danger" style={{ textAlign: "center", width: "20%", float: "right" }} onClick={this.handleBack} >Back</button><br /><br />
+            <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "right" }} onClick={this.handleBack} >Back</button><br /><br />
           </form>
         </div>
         <Footer />

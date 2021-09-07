@@ -20,6 +20,9 @@ td{
     vertical-align: middle;
 }
 
+.compHeading{
+    font-weight: 550;
+}
 /* Slideshow container */
 
 .slideshow-container {

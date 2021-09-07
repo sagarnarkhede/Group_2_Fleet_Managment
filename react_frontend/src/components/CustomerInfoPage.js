@@ -6,7 +6,6 @@ import { Link, NavLink } from 'react-router-dom';
 class CustomerInfoPage extends Component {
     constructor(props) {
         super(props);
-        var data = this.props.location.state;
         this.handleBack = this.handleBack.bind(this)
         console.log("customer info ", this.props);
         this.state = {
@@ -35,8 +34,19 @@ class CustomerInfoPage extends Component {
             passport_date: '',
             membershipno: '',
             loginpassword: '',
+            amount: 0
+        }
+    }
 
-            pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
+    handleBack() {
+        this.props.history.goBack()
+    }
+
+    componentDidMount(){
+        var data = this.props.location.state;
+        try{
+        this.setState({
+            booking_date: data.cardetailsState.locationState.bookingState.pickupDate,
             dropDate: data.cardetailsState.locationState.bookingState.dropDate,
             pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
             dropTime: data.cardetailsState.locationState.bookingState.dropTime,
@@ -46,15 +56,12 @@ class CustomerInfoPage extends Component {
             camp:data.camp,
             chSeats:data.chSeats,
             quant:data.quant
-
-
+        })}
+        catch(e)
+        {
+           console.log(e); 
         }
     }
-
-    handleBack() {
-        this.props.history.goBack()
-    }
-
     mySubmitHandler = (event) => {
         event.preventDefault();
         console.log(this.state);
@@ -115,17 +122,17 @@ class CustomerInfoPage extends Component {
                 <label>Your Booking : </label>
                 <br/>
                 <br/>
-                <strong>Pick-up: </strong><NavLink to="/BookCar" >Modify</NavLink>
-                    <p>{this.state.pickupDate} {this.state.pickupTime}</p>
-                <strong>Pick-up at: </strong><NavLink to="/Location"  >Modify</NavLink>
+                <strong>Pick-up: </strong><NavLink to="/" >Modify</NavLink>
+                    <p>{this.state.booking_date} {this.state.pickupTime}</p>
+                <strong>Pick-up at: </strong><NavLink to="/location"  >Modify</NavLink>
                     <p>{this.state.selectaddress}</p>
-                <strong>Reture: </strong><NavLink to="/BookCar" >Modify</NavLink>
+                <strong>Reture: </strong><NavLink to="/" >Modify</NavLink>
                     <p>{this.state.dropDate} {this.state.dropTime}</p>
-                <strong>Return at: </strong><NavLink to="/Location">Modify</NavLink>
+                <strong>Return at: </strong><NavLink to="/location">Modify</NavLink>
                     <p>{this.state.selectaddress}</p>
-                <strong>Vehicle Selection: </strong><NavLink to="/CarDetails" >Modify</NavLink>
+                <strong>Vehicle Selection: </strong><NavLink to="/cardetail" >Modify</NavLink>
                     <p>{this.state.cartype} </p>
-                <strong>Rental Ad-Ons: </strong><NavLink to="/Addon" >Modify</NavLink>
+                <strong>Rental Ad-Ons: </strong><NavLink to="/addon" >Modify</NavLink>
                     <p>{this.state.nav},{this.state.camp},{this.state.chSeats},{this.state.quant}</p>
 
             </div>

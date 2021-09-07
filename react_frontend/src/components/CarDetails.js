@@ -26,14 +26,19 @@ export class CarDetails extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
       componentDidMount(){
-       const cars_arr = this.props.location.state.selectaddress
+          try {
+            var  cars_arr = this.props.location.state.selectaddress
+
+          } catch (error) {
+              
+          }
        document.getElementById("smallcar").disabled = true 
        document.getElementById("compcar").disabled = true 
        document.getElementById("intercar").disabled = true 
        document.getElementById("sedan").disabled = true 
        document.getElementById("suv").disabled = true 
             // console.log( "cars",cars_arr.cars);
-            for (var x = 0; x < cars_arr.cars?.length; x++) {
+            for (var x = 0; x < cars_arr?.cars?.length; x++) {
                 // console.log("car type",cars_arr.cars[x].cartype);
               if (cars_arr.cars[x].cartype == "small car" ) {
                     document.getElementById("smallcar").disabled = false 

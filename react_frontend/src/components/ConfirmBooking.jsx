@@ -18,10 +18,10 @@ class ConfirmBooking extends Component {
     event.preventDefault();
     if(this.state.fdata._id == "")
     {
-        console.log("new");
+        console.log("new post");
     }
     else{
-        console.log("existing");
+        console.log("existing put");
     }
     console.log(this.state);
   };
@@ -59,68 +59,69 @@ class ConfirmBooking extends Component {
           <div className="row">
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                   <label>Pick-up :</label>
+                  <br /><br />
                 </div>
-                <div className="col-8">
-                  <p>
-                    {this.state.fdata.pickupDate} {this.state.fdata.pickupTime}
-                  </p>
+                <div className="col-4">
+                    <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate}/>
+                </div>
+                <div className="col-4">
+                    <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime}/>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                   <label>Pick-up at :</label>
                 </div>
-                <div className="col-8">
-                  <p>{this.state.fdata.selectaddress}</p>
+                <div className="col-9">
+                <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress}/>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                   <label>Reture :</label>
+                  <br /><br />
                 </div>
-                <div className="col-8">
-                  <p>
-                    {this.state.fdata.dropDate} {this.state.fdata.dropTime}
-                  </p>
+                <div className="col-4">
+                    <input type="date" className="form-control" name="" id="" value={this.state.fdata.dropDate}/>
+                </div>
+                <div className="col-4">
+                    <input type="time" className="form-control" name="" id="" value={this.state.fdata.dropTime}/>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
+                <div className="col-3">
                   <label>Return at :</label>
                 </div>
-                <div className="col-8">
-                  <p>{this.state.fdata.selectaddress}</p>
+                <div className="col-9">
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress}/>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
-                  <label>Vehicle Selection :</label>
+                <div className="col-3">
+                  <label>Vehicle :</label>
                 </div>
                 <div className="col-8">
-                  <p>{this.state.fdata.cartype} </p>
+                <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype}/>
                 </div>
               </div>
             </div>
             <div className="col-6">
               <div className="row">
-                <div className="col-4">
-                  <label>Rental Ad-Ons : </label>
+                <div className="col-3">
+                  <label>Ad-Ons : </label>
                 </div>
-                <div className="col-8">
-                  <p>
-                    {this.state.fdata.nav},{this.state.fdata.camp},{this.state.fdata.chSeats},
-                    {this.state.fdata.quant}
-                  </p>
+                <div className="col-9">
+                <input type="text" name="" id="" className="form-control" value={this.state.fdata.nav +" "+ this.state.fdata.camp +" "+ this.state.fdata.chSeats +" "+ this.state.fdata.quant}/>
                 </div>
               </div>
             </div>
@@ -180,12 +181,12 @@ class ConfirmBooking extends Component {
               ></input>
             </div>
             <div className="col-6">
-              <label>password : </label>
+              <label>Estimated Amt : </label>
               <input
                 type="text"
                 className="form-control"
-                name="password"
-                value={this.state.fdata.password}
+                name="amount"
+                value={this.state.fdata.amount}
                 onChange={this.myChangeHandler}
               ></input>
             </div>
@@ -405,8 +406,8 @@ class ConfirmBooking extends Component {
     return (
       <div>
         <Nav />
-        <div className="" style={{ margin: "13vh 5%" }}>
-          <h2>Confirm Your Booking : </h2>
+        <div className="" style={{ margin: "13vh 10%" }}>
+          <h1 className="compHeading">Confirm Your Booking : </h1>
           <br />
           {this.getForm()}
         </div>
