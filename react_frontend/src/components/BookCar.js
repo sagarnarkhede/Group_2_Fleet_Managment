@@ -125,7 +125,7 @@ export default class BookCar extends Component {
                                 <input type="time" className="form-control" name="pickupTime" onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label>Select Pickup Time : </label>
+                                <label>Select Drop Time : </label>
                                 <input type="time" className="form-control" name="dropTime" onChange={this.myChangeHandler}></input>
                             </div>
                         </div><br />
