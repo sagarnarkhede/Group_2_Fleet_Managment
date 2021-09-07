@@ -19,10 +19,10 @@
     "card_type":"master",
     "card_number":"125",
     "booking_id":12344,
-    "booking_date":"2014-09-01T23:28:56.782Z",
-    "Drop_date":"2014-09-01T23:28:56.782Z",
-    "inhand_date":"2014-09-01T23:28:56.782Z",
-    "handover_date":"2014-09-01T23:28:56.782Z",
+    "pickupDate": "12/02/2021",
+    "pickupTime": "12:00",
+    "dropDate": "14/02/2021",
+    "dropTime": "01:15",
     "inhand_center":123,
     "handover_center":456,
     "booking_status":"canceled",
@@ -35,7 +35,10 @@
     "invoice_number":123,
     "charges":955,
     "pyment_method":"card"
-  
+    "nav":"Gps nav",
+    "camp":"Camping Kit",
+    "chSeats":"Child seat",
+    "quant":2
    
 }
 
