@@ -33,7 +33,7 @@ class ConfirmBooking extends Component {
       console.log("existing put");
 
       var id =   this.state.fdata._id;
-      axios.put('http://localhost:5555/clients/'+id)
+      axios.put('http://localhost:5555/clients/'+id, this.state.fdata)
         .then(async response => {
           console.log(response);
         })
@@ -82,7 +82,7 @@ class ConfirmBooking extends Component {
                   <br /><br />
                 </div>
                 <div className="col-4">
-                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.booking_date} />
+                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate} />
                 </div>
                 <div className="col-4">
                   <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime} />
