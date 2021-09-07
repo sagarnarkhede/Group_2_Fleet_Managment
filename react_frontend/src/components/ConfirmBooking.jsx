@@ -82,7 +82,7 @@ class ConfirmBooking extends Component {
                   <br /><br />
                 </div>
                 <div className="col-4">
-                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate} />
+                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.booking_date} />
                 </div>
                 <div className="col-4">
                   <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime} />
