@@ -6,6 +6,14 @@ const officeRouter = require('./API/routes/office')
 const airportRoutes = require('./API/routes/airports')
 
 const app = express();
+const cors = require('cors');
+var corsOptions = {
+    origin: 'http://localhost:3000',
+    optionsSuccessStatus: 200, // For legacy browser support
+    methods: "GET, PUT, POST, DELETE"
+}
+app.use(cors(corsOptions))
+
 const morgan = require('morgan');
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -24,7 +32,7 @@ app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header("Access-Control-Allow-Header",'Origine','X-Requested-width');
     if(req.method === "OPTION"){
-        res.header("Access-Control-Allow-Methode","PUT,PATCH,POST,DELETE,GET")
+        res.header("Access-Control-Allow-Method","PUT,PATCH,POST,DELETE,GET")
         return res.status(200).json();
     }
     next();
