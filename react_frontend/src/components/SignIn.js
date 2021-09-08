@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
 import axios from 'axios'
-import { ModalBody } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +18,10 @@ class SignIn extends Component {
         await axios.get("http://localhost:5555/clients/"+this.state.userid)
             .then(async response => {
                 const client_arr = response.data.data;
-                    if (client_arr._id == this.state.userid && client_arr.password == this.state.password) {
+                    if (client_arr._id === this.state.userid && client_arr.password === this.state.password) {
                         console.log("clients SignIn sucessfully...");
                         sessionStorage.setItem("user",this.state.userid)
+                        this.props.history.push("/")
                     }
                     else{
                         console.log("invalid Login details...");
@@ -32,18 +33,21 @@ class SignIn extends Component {
             })
 
             // office login
-            if(flag == 1)
-            {
-            axios.get("http://localhost:5555/office/"+this.state.userid)
-            .then(async response => {
-                const office_arr = response.data.data;
-                    if (office_arr._id == this.state.userid && office_arr.password == this.state.password) {
-                        console.log("Office staff SignIn sucessfully...");
-                    }                
-            })
-            .catch(error => {
-                console.log(error);
-            })}
+        //     if(flag === 1)
+        //     {
+        //     axios.get("http://localhost:5555/office/"+this.state.userid)
+        //     .then(async response => {
+        //         const office_arr = response.data.data;
+        //             if (office_arr._id == this.state.userid && office_arr.password == this.state.password) {
+        //                 console.log("Office staff SignIn sucessfully...");
+        //                 sessionStorage.setItem("admin",this.state.userid)
+        //                 this.props.history.push("/")
+        //             }                
+        //     })
+        //     .catch(error => {
+        //         console.log(error);
+        //     })
+        // }
     }
 
     myChangeHandler = (event) => {
@@ -59,13 +63,14 @@ class SignIn extends Component {
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                         <label >UserId : </label>
                         <input type="text" className="form-control" name="userid" onChange={this.myChangeHandler}></input>
-
                         <label>password : </label>
                         <input type="text" className="form-control" name="password" onChange={this.myChangeHandler} ></input>
                         <br />
                         <br />
+                        {/* <Link to={{ pathname: "/"}} > */}
                         <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Sign In</button>
-                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Sign Up</button>
+                        {/* </Link> */}
+                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Back</button>
                     </form>
                 </div>
                 <Footer />

@@ -11,12 +11,14 @@ import PNF from './PNF';
 import Addon from './Addon';
 import CustomerInfoPage from './CustomerInfoPage';
 import ConfirmBooking from './ConfirmBooking';
+import Home from './Home';
 
 const AppRouter = () => (
   <BrowserRouter>
     
       <Switch>
-        <Route component={BookCar} exact path="/" />
+        <Route component={Home} exact path="/" />
+        <Route component={BookCar} path="/bookcar" />
         <Route component={Location} path="/location" />
         <Route component={Details} path="/details" /> 
         <Route component={Addon} path="/addon" /> 

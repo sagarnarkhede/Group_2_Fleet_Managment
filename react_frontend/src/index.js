@@ -19,6 +19,7 @@ import reportWebVitals from './reportWebVitals';
 // import Routes from './components/Routes';
 // import CustomerInfoPage from './components/CustomerInfoPage';
 import AppRouter from './components/AppRouter';
+import Home from './components/Home.jsx';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -36,6 +37,7 @@ ReactDOM.render(
     {/* <Nav /> */}
     {/* <Routes /> */}
     <AppRouter />
+    {/* <Home /> */}
     
   </React.StrictMode>,
   document.getElementById('root')
