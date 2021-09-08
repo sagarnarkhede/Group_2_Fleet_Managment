@@ -95,7 +95,7 @@ class ConfirmBooking extends Component {
                   <label>Pick-up at :</label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress} />
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.inhand_center} />
                 </div>
               </div>
             </div>
@@ -119,7 +119,7 @@ class ConfirmBooking extends Component {
                   <label>Return at :</label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.selectaddress} />
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.handover_center} />
                 </div>
               </div>
             </div>

@@ -50,7 +50,8 @@ class CustomerInfoPage extends Component {
             dropDate: data.cardetailsState.locationState.bookingState.dropDate,
             pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
             dropTime: data.cardetailsState.locationState.bookingState.dropTime,
-            selectaddress:data.cardetailsState.locationState.selectaddress.address,
+            inhand_center:data.cardetailsState.locationState.selectaddress.address,
+            handover_center:data.cardetailsState.locationState.selectaddress.address,
             cartype:data.cardetailsState.cartype,
             nav:data.nav,
             camp:data.camp,
@@ -125,11 +126,11 @@ class CustomerInfoPage extends Component {
                 <strong>Pick-up: </strong><NavLink to="/bookcar" >Modify</NavLink>
                     <p>{this.state.booking_date} {this.state.pickupTime}</p>
                 <strong>Pick-up at: </strong><NavLink to="/location">Modify</NavLink>
-                    <p>{this.state.selectaddress}</p>
+                    <p>{this.state.inhand_center}</p>
                 <strong>Return: </strong><NavLink to="/bookcar" >Modify</NavLink>
                     <p>{this.state.dropDate} {this.state.dropTime}</p>
                 <strong>Return at: </strong><NavLink to="/location">Modify</NavLink>
-                    <p>{this.state.selectaddress}</p>
+                    <p>{this.state.handover_center}</p>
                 <strong>Vehicle Selection: </strong><NavLink to="/cardetail" >Modify</NavLink>
                     <p>{this.state.cartype} </p>
                 <strong>Rental Ad-Ons: </strong><NavLink to="/addon" >Modify</NavLink>
