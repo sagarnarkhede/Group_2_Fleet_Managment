@@ -122,3 +122,29 @@
   
    
 }
+
+
+
+    "fname": "Bhavesh",
+    "mname": "Prakash",
+    "lname": "Bonde",
+    "email":"bondebhavesh2014@gmail.com",
+    "date_of_birth": "1998-11-03",
+    "password": "B12@123",
+   "phone_number":7768828895,
+   "mobile_number":7767546786,
+    "address1": "shrihari nagar bhusawal",
+   "address2": "datta colony bhusawal dis jalgaon",
+   "city": "jalgaon",
+    "state": "Maharastra",
+    "zip": 425201,
+    "card_type":"Aadhar",
+    "card_number":12345678,
+    "driving_lic": "1234568765",
+    "IDP": "8765465",
+    "driving_issued_by":"RTO",
+   "driving_valid": "2026-06-08",
+    "passport_number": "65743667",
+    "passport_valid": "2025-04-07",
+    "passport_issued_by":"Indian Govt",
+    "passport_date": "2020-08-09"
