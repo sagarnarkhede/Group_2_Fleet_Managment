@@ -21,7 +21,7 @@ export default class ModifyandCancel extends Component {
           ele.bookings.forEach((x)=>{
             if(x._id == this.state.booking_id)
             {
-              console.log("booking",x);
+             // console.log("booking",x);
             }
           })
         })
@@ -33,7 +33,7 @@ export default class ModifyandCancel extends Component {
     }
     mySubmitHandler = (event) => {
       event.preventDefault();
-      console.log(this.state);
+      //console.log(this.state);
     }
   myChangeHandler = (event) => {
       this.setState({ [event.target.name]: event.target.value });
@@ -43,7 +43,7 @@ componentDidMount(){
         .then(async response => {
           const client_arr = response.data.data;
           this.setState({ client_data: client_arr});
-          console.log("hii",this.state);
+          //console.log("hii",this.state);
 
         })
 
