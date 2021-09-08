@@ -18,9 +18,9 @@ class ConfirmBooking extends Component {
     mySubmitHandler = (event) => {
     event.preventDefault();
     console.log("Data In State",this.state.fdata);
+    var url = "http://localhost:5555/clients/"
     if (this.state.fdata._id == "") {
       console.log("new post");
-      var url = "http://localhost:5555/clients/"
       axios.post(url, this.state.fdata)
         .then(async response => {
           console.log(response);
@@ -33,7 +33,7 @@ class ConfirmBooking extends Component {
       console.log("existing put");
 
       var id =   this.state.fdata._id;
-      axios.put('http://localhost:5555/clients/'+id, this.state.fdata)
+      axios.post(url +id, this.state.fdata)
         .then(async response => {
           console.log(response);
         })

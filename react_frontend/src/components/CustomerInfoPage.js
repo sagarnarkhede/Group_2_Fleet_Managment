@@ -46,10 +46,12 @@ class CustomerInfoPage extends Component {
         var data = this.props.location.state;
         try{
         this.setState({
-            booking_date: data.cardetailsState.locationState.bookingState.pickupDate,
+            pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
             dropDate: data.cardetailsState.locationState.bookingState.dropDate,
             pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
             dropTime: data.cardetailsState.locationState.bookingState.dropTime,
+            handover_center: data.cardetailsState.locationState.bookingState.handover_center,
+            inhand_center: data.cardetailsState.locationState.bookingState.inhand_center,
             selectaddress:data.cardetailsState.locationState.selectaddress.address,
             cartype:data.cardetailsState.cartype,
             nav:data.nav,
@@ -93,6 +95,8 @@ class CustomerInfoPage extends Component {
     }
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
+        var a = this.props.location.state
+        console.log("Updated Data", a);
     }
 
     getLogin() {
@@ -122,8 +126,8 @@ class CustomerInfoPage extends Component {
                 <label>Your Booking : </label>
                 <br/>
                 <br/>
-                <strong>Pick-up: </strong><NavLink to="/bookcar" >Modify</NavLink>
-                    <p>{this.state.booking_date} {this.state.pickupTime}</p>
+                <strong>Pick-up: </strong><NavLink to="/bookcar" onUpdate={this.props.location.state} >Modify</NavLink>
+                    <p>{this.state.pickupTime} {this.state.pickupTime}</p>
                 <strong>Pick-up at: </strong><NavLink to="/location">Modify</NavLink>
                     <p>{this.state.selectaddress}</p>
                 <strong>Return: </strong><NavLink to="/bookcar" >Modify</NavLink>
