@@ -34,6 +34,7 @@ class CustomerInfoPage extends Component {
             passport_date: '',
             membershipno: '',
             loginpassword: '',
+            booking_status: '',
             amount: 0
         }
     }
@@ -55,6 +56,9 @@ class CustomerInfoPage extends Component {
             inhand_center: data.cardetailsState.locationState.selectaddress.centername,
             selectaddress:data.cardetailsState.locationState.selectaddress.address,
             cartype:data.cardetailsState.cartype,
+            rateperday: data.cardetailsState.locationState.selectaddress.cars.rateperday,
+            ratepermonth: data.cardetailsState.locationState.selectaddress.cars.ratepermonth,
+            rateperweek: data.cardetailsState.locationState.selectaddress.cars.rateperweek,
             nav:data.nav,
             camp:data.camp,
             chSeats:data.chSeats,
@@ -94,10 +98,10 @@ class CustomerInfoPage extends Component {
                 console.log("e", e.message);
             })
     }
+    
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
-        var a = this.props.location.state
-        console.log("Updated Data", a);
+        
     }
 
     getLogin() {
