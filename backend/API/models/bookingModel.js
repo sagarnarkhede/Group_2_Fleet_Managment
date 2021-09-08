@@ -7,8 +7,8 @@ const bookingSchema = Schema({
     pickupTime: { type: String},
     dropDate: {type: String},
     dropTime: { type: String},
-    inhand_center: { type: Number},  // *
-    handover_center: { type: Number},  // *
+    inhand_center: { type: String},  // *
+    handover_center: { type: String},  // *
     booking_status: { type: String},   // *
     inhand_emp: { type: Number},  
     handover_emp: { type: Number},

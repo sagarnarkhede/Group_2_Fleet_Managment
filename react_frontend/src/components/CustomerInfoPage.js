@@ -44,14 +44,15 @@ class CustomerInfoPage extends Component {
 
     componentDidMount(){
         var data = this.props.location.state;
+        console.log("Customer Info", data)
         try{
         this.setState({
             pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
             dropDate: data.cardetailsState.locationState.bookingState.dropDate,
             pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
             dropTime: data.cardetailsState.locationState.bookingState.dropTime,
-            handover_center: data.cardetailsState.locationState.bookingState.handover_center,
-            inhand_center: data.cardetailsState.locationState.bookingState.inhand_center,
+            handover_center: data.cardetailsState.locationState.selectaddress.centername,
+            inhand_center: data.cardetailsState.locationState.selectaddress.centername,
             selectaddress:data.cardetailsState.locationState.selectaddress.address,
             cartype:data.cardetailsState.cartype,
             nav:data.nav,
