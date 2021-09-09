@@ -20,7 +20,7 @@ const bookingSchema = Schema({
     },
     invoice:{
         invoice_number:{type:Number},
-        charges:{type:Number},   // *
+        amount:{type:Number},   // *
         pyment_method:{type:String}
     },
     addon:{

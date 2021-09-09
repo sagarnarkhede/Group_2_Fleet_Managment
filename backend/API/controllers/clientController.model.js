@@ -57,7 +57,7 @@ exports.post_client = async (req, res) => {
             },
             invoice: {
                 invoice_number: req.body.invoice_number,
-                charges: req.body.charges,
+                amount: req.body.amount,
                 pyment_method: req.body.pyment_method
             },
             addon:{
@@ -138,7 +138,7 @@ exports.post_booking = async (req, res) => {
             },
             invoice: {
                 invoice_number: req.body.invoice_number,
-                charges: req.body.charges,
+                amount: req.body.amount,
                 pyment_method: req.body.pyment_method
             },
              addon:{
@@ -286,7 +286,7 @@ exports.put_booking = async (req, res) => {
                     },
                     invoice: {
                         invoice_number: req.body.invoice_number,
-                        charges: req.body.charges,
+                        amount: req.body.amount,
                         pyment_method: req.body.pyment_method
                     },
                     addon:{
