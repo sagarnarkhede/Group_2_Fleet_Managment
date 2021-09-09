@@ -50,7 +50,7 @@ class CustomerInfoPage extends Component {
         var carType = data.cardetailsState.cartype
         console.log("Car Type", carType);
         var carArr = data.cardetailsState.locationState.selectaddress.cars
-// Total no of days Calculation.
+            // Total no of days Calculation.
             const date1 = new Date(data.cardetailsState.locationState.bookingState.pickupDate)
             const date2 = new Date(data.cardetailsState.locationState.bookingState.dropDate)
             const oneDay = 1000 * 60 * 60 * 24;  //milliseconnd in on day.
