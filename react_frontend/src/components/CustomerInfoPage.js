@@ -35,7 +35,7 @@ class CustomerInfoPage extends Component {
             membershipno: '',
             loginpassword: '',
             booking_status: '',
-            amount: 0
+            amount: ''
         }
     }
 
@@ -43,30 +43,152 @@ class CustomerInfoPage extends Component {
         this.props.history.goBack()
     }
 
-    componentDidMount(){
+    componentDidMount() {
         var data = this.props.location.state;
         console.log("Customer Info", data)
-        try{
-        this.setState({
-            pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
-            dropDate: data.cardetailsState.locationState.bookingState.dropDate,
-            pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
-            dropTime: data.cardetailsState.locationState.bookingState.dropTime,
-            handover_center: data.cardetailsState.locationState.selectaddress.centername,
-            inhand_center: data.cardetailsState.locationState.selectaddress.centername,
-            selectaddress:data.cardetailsState.locationState.selectaddress.address,
-            cartype:data.cardetailsState.cartype,
-            rateperday: data.cardetailsState.locationState.selectaddress.cars.rateperday,
-            ratepermonth: data.cardetailsState.locationState.selectaddress.cars.ratepermonth,
-            rateperweek: data.cardetailsState.locationState.selectaddress.cars.rateperweek,
-            nav:data.nav,
-            camp:data.camp,
-            chSeats:data.chSeats,
-            quant:data.quant
-        })}
-        catch(e)
-        {
-           console.log(e); 
+
+        var carType = data.cardetailsState.cartype
+        console.log("Car Type", carType);
+        var carArr = data.cardetailsState.locationState.selectaddress.cars
+// Total no of days Calculation.
+            const date1 = new Date(data.cardetailsState.locationState.bookingState.pickupDate)
+            const date2 = new Date(data.cardetailsState.locationState.bookingState.dropDate)
+            const oneDay = 1000 * 60 * 60 * 24;  //milliseconnd in on day.
+            // Calculating the time difference between two dates
+            const diffInTime = date2.getTime() - date1.getTime();
+            // Calculating the no. of days between two dates
+            const Days = Math.round(diffInTime /oneDay);
+
+            // Calcutions of Addon Amount
+                var qty = data.quant;
+                if(data.nav != null && data.camp != null && data.chSeats){
+                    var addonAMT =  ((10*Days) + (30*Days) + (qty*15*Days));
+                    console.log("Addon Amount: "+addonAMT)
+                }else if( data.nav != null && data.camp != null){
+                    var addonAMT =  ((10*Days) + (30*Days));
+                    console.log("Addon Amount: "+addonAMT)
+                }else if (data.nav != null ){
+                    var addonAMT =  (10*Days);
+                    console.log("Addon Amount: "+addonAMT)
+                }
+
+        for (var i = 0; i < carArr.length; i++) {
+            
+            console.log("Pickupdate" + date1, "Dropdate" + date2, "Journey Total days" + Days);
+
+            if (carArr[i].cartype == "small car" && carType == "small car") {
+               //Logic For Total Invoice Amount.
+                if(Days >= 1 || Days < 7 ){
+                    var rateperDay = carArr[i].rateperday;
+                    var Amount = ((rateperDay*Days) + addonAMT);
+                    console.log("Total Amount: "+Amount);
+                }else if(Days == 7 || Days < 31 ){
+                    var rateperWeek = carArr[i].rateperweek;
+                    const W = Math.round(Days/7);
+                    var Amount = ((rateperWeek*W) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }else if(Days == 31 || Days > 31){
+                    var rateperMonth = carArr[i].ratepermonth;
+                    const M = Math.round(Days/31); 
+                    var Amount = ((rateperMonth*M) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }
+            }
+            else if (carArr[i].cartype == "compact car" && carType == "compact car") {
+               //Logic For Total Invoice Amount.
+               if(Days >= 1 || Days < 7 ){
+                var rateperDay = carArr[i].rateperday;
+                var Amount = ((rateperDay*Days) + addonAMT);
+                console.log("Total Amount: "+Amount);
+            }else if(Days == 7 || Days < 31 ){
+                var rateperWeek = carArr[i].rateperweek;
+                const W = Math.round(Days/7);
+                var Amount = ((rateperWeek*W) + addonAMT);
+                console.log("Total Amount: "+Amount); 
+            }else if(Days == 31 || Days > 31){
+                var rateperMonth = carArr[i].ratepermonth;
+                const M = Math.round(Days/31); 
+                var Amount = ((rateperMonth*M) + addonAMT);
+                console.log("Total Amount: "+Amount); 
+            }
+            }
+            else if (carArr[i].cartype == "Intermediate car" && carType == "Intermediate car") {
+                //Logic For Total Invoice Amount.
+                if(Days >= 1 || Days < 7 ){
+                    var rateperDay = carArr[i].rateperday;
+                    var Amount = ((rateperDay*Days) + addonAMT);
+                    console.log("Total Amount: "+Amount);
+                }else if(Days == 7 || Days < 31 ){
+                    var rateperWeek = carArr[i].rateperweek;
+                    const W = Math.round(Days/7);
+                    var Amount = ((rateperWeek*W) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }else if(Days == 31 || Days > 31){
+                    var rateperMonth = carArr[i].ratepermonth;
+                    const M = Math.round(Days/31); 
+                    var Amount = ((rateperMonth*M) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }
+            }
+            else if (carArr[i].cartype == "sedan" && carType == "sedan") {
+                //Logic For Total Invoice Amount.
+                if(Days >= 1 || Days < 7 ){
+                    var rateperDay = carArr[i].rateperday;
+                    var Amount = ((rateperDay*Days) + addonAMT);
+                    console.log("Total Amount: "+Amount);
+                }else if(Days == 7 || Days < 31 ){
+                    var rateperWeek = carArr[i].rateperweek;
+                    const W = Math.round(Days/7);
+                    var Amount = ((rateperWeek*W) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }else if(Days == 31 || Days > 31){
+                    var rateperMonth = carArr[i].ratepermonth;
+                    const M = Math.round(Days/31); 
+                   var Amount = ((rateperMonth*M) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }
+            }
+            else if (carArr[i].cartype == "SUV" && carType == "SUV") {
+                //Logic For Total Invoice Amount.
+                if(Days >= 1 || Days < 7 ){
+                    var rateperDay = carArr[i].rateperday;
+                    var Amount = ((rateperDay*Days) + addonAMT);
+                    console.log("Total Amount: "+Amount);
+                }else if(Days == 7 || Days < 31 ){
+                    var rateperWeek = carArr[i].rateperweek;
+                    const W = Math.round(Days/7);
+                    var Amount = ((rateperWeek*W) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                }else if(Days == 31 || Days > 31){
+                    var rateperMonth = carArr[i].ratepermonth;
+                    const M = Math.round(Days/31); 
+                    var Amount = ((rateperMonth*M) + addonAMT);
+                    console.log("Total Amount: "+Amount); 
+                } 
+            }
+            this.setState({
+                amount: Amount
+            })
+        }
+        try {
+            
+            this.setState({
+                pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
+                dropDate: data.cardetailsState.locationState.bookingState.dropDate,
+                pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
+                dropTime: data.cardetailsState.locationState.bookingState.dropTime,
+                handover_center: data.cardetailsState.locationState.selectaddress.centername,
+                inhand_center: data.cardetailsState.locationState.selectaddress.centername,
+                selectaddress: data.cardetailsState.locationState.selectaddress.address,
+                cartype: data.cardetailsState.cartype,
+                nav: data.nav,
+                camp: data.camp,
+                chSeats: data.chSeats,
+                quant: data.quant
+            })
+        }
+        catch (e) {
+            console.log(e);
         }
     }
     mySubmitHandler = (event) => {
@@ -79,7 +201,7 @@ class CustomerInfoPage extends Component {
             .then((res) => {
                 let ele = res.data.data
                 if (ele._id == this.state.membershipno && ele.password == this.state.loginpassword) {
-                    this.setState({_id:ele._id});
+                    this.setState({ _id: ele._id });
                     for (let x in this.state) {
                         for (let y in ele) {
                             if (x == y) {
@@ -98,10 +220,10 @@ class CustomerInfoPage extends Component {
                 console.log("e", e.message);
             })
     }
-    
+
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
-        
+
     }
 
     getLogin() {
@@ -129,20 +251,20 @@ class CustomerInfoPage extends Component {
         return (
             <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                 <label>Your Booking : </label>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <strong>Pick-up: </strong><NavLink to="/bookcar" onUpdate={this.props.location.state} >Modify</NavLink>
-                    <p>{this.state.pickupTime} {this.state.pickupTime}</p>
+                <p>{this.state.pickupTime} {this.state.pickupTime}</p>
                 <strong>Pick-up at: </strong><NavLink to="/location">Modify</NavLink>
-                    <p>{this.state.inhand_center}</p>
+                <p>{this.state.inhand_center}</p>
                 <strong>Return: </strong><NavLink to="/bookcar" >Modify</NavLink>
-                    <p>{this.state.dropDate} {this.state.dropTime}</p>
+                <p>{this.state.dropDate} {this.state.dropTime}</p>
                 <strong>Return at: </strong><NavLink to="/location">Modify</NavLink>
-                    <p>{this.state.handover_center}</p>
+                <p>{this.state.handover_center}</p>
                 <strong>Vehicle Selection: </strong><NavLink to="/cardetail" >Modify</NavLink>
-                    <p>{this.state.cartype} </p>
+                <p>{this.state.cartype} </p>
                 <strong>Rental Ad-Ons: </strong><NavLink to="/addon" >Modify</NavLink>
-                    <p>{this.state.nav},{this.state.camp},{this.state.chSeats},{this.state.quant}</p>
+                <p>{this.state.nav},{this.state.camp},{this.state.chSeats},{this.state.quant}</p>
 
             </div>
         )
@@ -268,8 +390,8 @@ class CustomerInfoPage extends Component {
                         </div>
                     </div><br />
 
-                    <Link to={{ pathname: "/confirmbooking",state:this.state}} >
-                    <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Register</button>
+                    <Link to={{ pathname: "/confirmbooking", state: this.state }} >
+                        <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Register</button>
                     </Link>
                     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>Back</button>
                 </form>

@@ -16,7 +16,7 @@ class Addon extends Component {
        nav:"",
        camp:"",
        chSeats:"",
-       quant:0
+       quant:2
     }
       }
       handleClick = (prevState) => {

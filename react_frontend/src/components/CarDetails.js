@@ -80,7 +80,7 @@ export class CarDetails extends Component {
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Small Cars</td>
+                                    <td>small car</td>
                                     <td>Chevrolet Aveo or similar</td>
                                     <td>$12.00</td>
                                     <td>$79.00</td>
@@ -90,7 +90,7 @@ export class CarDetails extends Component {
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
-                                    <td>Compact Cars</td>
+                                    <td>compact car</td>
                                     <td>Chevrolet Cobalt or similar</td>
                                     <td>$18.00</td>
                                     <td>$120.00</td>
@@ -99,7 +99,7 @@ export class CarDetails extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Intermediate car</td>
+                                    <td>intermediate car</td>
                                     <td>Pontiac G-6 or similar</td>
                                     <td>$99.99</td>
                                     <td>$999.99</td>
@@ -108,7 +108,7 @@ export class CarDetails extends Component {
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Sedan</td>
+                                    <td>sedan</td>
                                     <td>Chevrolet Monte Carlo or similar</td>
                                     <td>$20.00</td>
                                     <td>$99.00</td>
