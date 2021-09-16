@@ -21,7 +21,7 @@ export default class ModifyandCancel extends Component {
           ele.bookings.forEach((x)=>{
             if(x._id == this.state.booking_id)
             {
-             // console.log("booking",x);
+             console.log("booking",ele);
             }
           })
         })
