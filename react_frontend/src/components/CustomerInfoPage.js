@@ -34,7 +34,7 @@ class CustomerInfoPage extends Component {
             passport_date: '',
             membershipno: '',
             loginpassword: '',
-            booking_status: '',
+            booking_status: 'booked',
             amount: '',
             invoice_number:''
         }

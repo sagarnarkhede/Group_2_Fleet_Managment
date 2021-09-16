@@ -80,40 +80,40 @@ export class CarDetails extends Component {
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>small car</td>
+                                    <td>Small Car</td>
                                     <td>Chevrolet Aveo or similar</td>
                                     <td>$12.00</td>
                                     <td>$79.00</td>
                                     <td>$310.00</td>
                                     {/* <td onClick={this.myChangeHandler("Small Cars")}>N.A</td> */}
-                                    <td><button id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Small Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"small car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                 <th scope="row">2</th>
-                                    <td>compact car</td>
+                                    <td>Compact Car</td>
                                     <td>Chevrolet Cobalt or similar</td>
                                     <td>$18.00</td>
                                     <td>$120.00</td>
                                     <td>$500.00</td>
-                                    <td><button id="compcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Compact Cars" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="compcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"compact car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>intermediate car</td>
+                                    <td>Intermediate Car</td>
                                     <td>Pontiac G-6 or similar</td>
                                     <td>$99.99</td>
                                     <td>$999.99</td>
                                     <td>$999.9</td>
-                                    <td><button  id="intercar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Intermediate" }); console.log(this.state)}} >select</button></td>
+                                    <td><button  id="intercar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"intermediate car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>sedan</td>
+                                    <td>Sedan</td>
                                     <td>Chevrolet Monte Carlo or similar</td>
                                     <td>$20.00</td>
                                     <td>$99.00</td>
                                     <td>$210.00</td>
-                                    <td><button id="sedan"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"Sedan" }); console.log(this.state)}} >select</button></td>
+                                    <td><button id="sedan"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"sedan" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
