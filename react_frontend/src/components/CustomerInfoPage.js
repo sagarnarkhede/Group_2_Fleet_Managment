@@ -35,7 +35,8 @@ class CustomerInfoPage extends Component {
             membershipno: '',
             loginpassword: '',
             booking_status: '',
-            amount: ''
+            amount: '',
+            invoice_number:''
         }
     }
 
@@ -166,12 +167,17 @@ class CustomerInfoPage extends Component {
                     console.log("Total Amount: "+Amount); 
                 } 
             }
+            //Invoice Number Generation.
+            var min = 10000;
+            var max = 99999;
+            var num = Math.floor(Math.random() * (max - min + 1)) + min;
+            
             this.setState({
-                amount: Amount
+                amount: Amount,
+                invoice_number: num
             })
         }
         try {
-            
             this.setState({
                 pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
                 dropDate: data.cardetailsState.locationState.bookingState.dropDate,
