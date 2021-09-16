@@ -168,8 +168,8 @@ class CustomerInfoPage extends Component {
                 } 
             }
             //Invoice Number Generation.
-            var min = 10000;
-            var max = 99999;
+            var min = 1000000000;
+            var max = 9999999999;
             var num = Math.floor(Math.random() * (max - min + 1)) + min;
             
             this.setState({
