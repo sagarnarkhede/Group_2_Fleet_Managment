@@ -8,7 +8,8 @@ class ConfirmBooking extends Component {
   constructor(props) {
     super(props);
     var data = this.props.location.state;
-    console.log("customer info ", data);
+    sessionStorage.clear();
+    console.log("confirmbooking info ", data);
    
     this.state = {
       fdata: data,
@@ -32,7 +33,7 @@ class ConfirmBooking extends Component {
     else {
       console.log("existing put");
 
-      var id =   this.state.fdata._id;
+      var id = this.state.fdata._id;
       axios.post(url +id, this.state.fdata)
         .then(async response => {
           console.log(response);
@@ -62,15 +63,7 @@ class ConfirmBooking extends Component {
   getForm() {
     return (
       <React.Fragment>
-        <form
-          className="form-group"
-          onSubmit={this.mySubmitHandler}
-          style={{
-            border: "2px solid black",
-            borderRadius: "30px",
-            padding: "50px",
-          }}
-        >
+        <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
           <label>Your Booking : </label>
           <br />
           <br />
@@ -148,13 +141,7 @@ class ConfirmBooking extends Component {
           <div className="row">
             <div className="col-6">
               <label>First Name : </label>
-              <input
-                type="text"
-                className="form-control"
-                name="fname"
-                value={this.state.fdata.fname}
-                onChange={this.myChangeHandler}
-              ></input>
+              <input type="text" className="form-control" name="fname" value={this.state.fdata.fname} onChange={this.myChangeHandler}></input>
             </div>
             <div className="col-6">
               <label>Last Name : </label>
@@ -410,7 +397,7 @@ class ConfirmBooking extends Component {
           >
             Book Now
           </button>
-          <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.state.fdata,url:"confirmbooking"} }} > <button
+          <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.props.location.state,url:"confirmbooking"} }} > <button
             className="btn btn-primary"
             style={{ textAlign: "center", float: "right", width: "20%" }}
           >
@@ -420,6 +407,7 @@ class ConfirmBooking extends Component {
       </React.Fragment>
     );
   }
+  
   render() {
     return (
       <div>

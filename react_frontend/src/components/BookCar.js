@@ -77,13 +77,21 @@ export default class BookCar extends Component {
             })
     }
 
-    myChangeHandler = (event) => {
-        this.setState({ [event.target.name]: event.target.value });
+    myChangeHandler = async (event) => {
+        await this.setState({ [event.target.name]: event.target.value });
         console.log(this.state)    
+        console.log(event)    
+        if(this.state.selectpickupAirport != "")
+        {
+            this.state.airportdata.forEach((ele)=>{
+                if(ele.airportno == this.state.selectpickupAirport)
+                {
+                    this.setState({searchpickupAirport:ele.airportname})
+                    console.log(this.state.searchpickupAirport);
+                }
+            })
+        }
         
-    }
-    onUpdate(){
-
     }
     drop(params) {
         if (this.state.returncheck) {
@@ -186,7 +194,7 @@ export default class BookCar extends Component {
 
     }
     getcontinewbtn(){
-        if(this.props.location?.state.url == "custemerinfo")
+        if(this.props.location?.state?.url == "custemerinfo")
         {
             var updatedData = this.props.location?.state.data;
             updatedData.cardetailsState.locationState.bookingState = this.state;
@@ -237,15 +245,15 @@ export default class BookCar extends Component {
                                     <div className="row">
                                         <div className="col-6">
                                             <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>Search AirPort : </label>
-                                            <input type="text" className="form-control" name="searchpickupAirport" onChange={this.myChangeHandler}></input>
+                                            <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} onChange={this.myChangeHandler}></input>
                                         </div>
                                         <div className="col-6">
                                             <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}>
-                                            <option value="-1">Select Airport</option>
+                                            <option value="-1" >Select Airport</option>
                                                     {this.state?.airportdata.map((w) => {
                                                         return (
-                                                            <option value={w._id}>{w.airportno}</option>
+                                                            <option value={w.airportno}>{w.airportno}</option>
                                                         )
                 
                                                     })}

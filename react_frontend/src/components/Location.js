@@ -45,6 +45,7 @@ export default class Location extends Component {
   }
 
   componentDidMount() {
+    if(this.props.location.state.searchpickupAirport != ""){
       try {
         var a = this.props.location.state.airportdata;      //database data
         var b = this.props.location.state.searchpickupAirport;  //user selected location
@@ -52,8 +53,6 @@ export default class Location extends Component {
       } catch (error) {
         console.log(error);
       }
-    
-
     // console.log("Array", a.length);
     for (var x = 0; x < a?.length; x++) {
       if (a[x].airportname == b) {
@@ -76,7 +75,32 @@ export default class Location extends Component {
       }
     }
   }
-
+  else{
+    try {
+      var a = this.props.location.state.pickupcity;      //database data
+      //var b = this.props.location.state.searchpickupAirport;  //user selected location
+      var add = [];
+    } catch (error) {
+      console.log(error);
+    }
+    axios.get("http://localhost:5555/centers/")
+          .then(async response => {
+          const Locations = response.data.data;
+          //console.log("add",Locations);
+          Locations.forEach(async(ele)=>{
+            if(ele.city == a){
+              await add.push(ele)
+              this.setState({address:add})
+              console.log("add",add);
+            }
+          })
+         
+          })
+          .catch(error => {
+            console.log(error.message);
+          })
+  }
+  }
  handleSelect =async (data) => {
    await this.setState({
     selectaddress: data
