@@ -2,10 +2,12 @@ import React from 'react'
 import Handover from './Modal/Handover';
 import ModifyandCancel from '../components/Modal/ModifyandCancel'
 import { Link } from 'react-router-dom';
+import Return from './Modal/Return';
 
 
 export default function Nav(props) {
     const [modalShow, setModalShow] = React.useState(false);
+    const [returnmodalShow, setreturnModalShow] = React.useState(false);
     const [modalShow1, setModalShow1] = React.useState(false);
     const [isuser, setUser] = React.useState(sessionStorage.getItem("staff"))
 
@@ -18,7 +20,7 @@ export default function Nav(props) {
                     <li><a className="nav-link scrollto" href="/staffbookcar">Booking</a></li>
                     <li><a className="nav-link scrollto" >Cancellation</a></li>
                     <li><a className="nav-link scrollto" onClick={() => setModalShow(true)}>Hand-over</a></li>
-                    <li><a className="nav-link scrollto" >Return</a></li>
+                    <li><a className="nav-link scrollto" onClick={() => setreturnModalShow(true)}>Return</a></li>
                     <li><a className="nav-link scrollto" onClick={()=> {sessionStorage.clear();setUser("");}}>Log Out</a></li>
                 </React.Fragment>)
             }
@@ -53,7 +55,8 @@ export default function Nav(props) {
                     <Handover  show={modalShow}
                     onHide={() => setModalShow(false)} />
                     <ModifyandCancel  show={modalShow1}
-                    onHide={() => setModalShow1(false)} /> 
+                    onHide={() => setModalShow1(false)} />
+                    <Return show={returnmodalShow} onHide={() => setreturnModalShow(false)}/>  
             </div>
             <nav id="navbar" className="navbar">
                 <ul>

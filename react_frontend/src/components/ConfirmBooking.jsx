@@ -7,15 +7,51 @@ import { Switch, Route, Link } from "react-router-dom";
 class ConfirmBooking extends Component {
   constructor(props) {
     super(props);
-    var data = this.props.location.state;
-    sessionStorage.clear();
-    console.log("confirmbooking info ", data);
-   
-    this.state = {
-      fdata: data,
-    };
+    console.log("confirmbooking info ", this.props.location.state);
+    sessionStorage.removeItem("userdata"); 
+   this.getState();
   }
-  
+
+  getState()
+  {
+    var data = this.props.location.state;
+ 
+    if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return")
+    {
+      var ob = data.data;
+      
+      for(let x in ob.bookings[0])
+      {
+        if(typeof ob.bookings[0][x] == "string"){
+          //console.log(ob.bookings[0][x]);
+         ob[x]=ob.bookings[0][x]
+        }
+        else if(typeof ob.bookings[0][x] == "object"){
+          for(let y in ob.bookings[0][x])
+          {
+            // console.log("y",y+":"+ob.bookings[0][x][y]);
+            ob[y]=ob.bookings[0][x][y]
+          }
+         }
+      }
+      console.log("ob",ob);
+    return(
+      this.state = {
+        fdata: ob,
+        send:{},
+      }
+    )
+    }
+    else{
+      return(
+        this.state = {
+          fdata: data,
+          send:this.props.location.state
+        }
+      )
+    }
+  }
+ 
     mySubmitHandler = (event) => {
     event.preventDefault();
     console.log("Data In State",this.state.fdata);
@@ -48,7 +84,119 @@ class ConfirmBooking extends Component {
   myChangeHandler = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
+  componentDidMount(){
+    if(this.props.location.state?.url == "modify" ){
+    var data = this.props.location.state.data;
+    data.fullData={
+      camp: data.camp,
+      nav: data.nav,
+      chSeats: data.chSeats,
+      quant: data.quant
+    }
+    data.fullData.cardetailsState = {
+      cartype:data.vehical_type,
+      locationState:{
+        bookingState:{
+          dropDate: data.dropDate,
+          dropTime: data.dropTime,
+          dropcity: data.dropcity,
+          dropstate: data.dropstate,
+          pickupDate: data.pickupDate,
+          pickupTime: data.pickupTime,
+          pickupcity: data.pickupcity,
+          pickupstate: data.pickupstate,
+          returncheck: data.returncheck,
+          searchdropAirport: data.searchdropAirport,
+          searchpickupAirport: data.searchpickupAirport,
+          selectdroppAirport: data.selectdroppAirport,
+          selectpickupAirport: data.selectpickupAirport
+        },
+        selectaddress:{
+          address: data.inhand_center,
+          cars:  [],
+          centerid: data.centerid,
+          centername: data.inhand_center,
+          city: data.city,
+          officetime: data.officetime,
+          state: data.state,
+          telphone: data.telphone,
+          weeklyoff: data.weeklyoff,
+          zip: data.zip
+        }
 
+      }
+    }
+    this.setState({send:data})
+    // this.props.location.state=data
+    // console.log("datac",this.props.location.state);
+
+  }}
+  cancelBooking= (event)=>{
+    event.preventDefault();
+    var ob = this.state.fdata.bookings[0]
+    ob.booking_status="canceled"
+    axios.put("http://localhost:5555/clients/"+this.props.location.state.clientid+"/"+this.props.location.state.bookingid,ob)
+          .then(async response => {
+          const booking = response.data.data;
+          console.log("bookingdata",booking);
+          })
+          .catch(error => {
+            console.log(error.message);
+          })
+          console.log("cancelstate",ob);
+  }
+  getBtn()
+  {
+    //console.log("d",this.props.location.state);
+    if(this.props.location.state.url == "return"){
+      return(
+        <React.Fragment>
+      <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Return</button>
+      <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Back</button>
+        </React.Fragment>
+      )
+    }
+    else if(this.props.location.state.url == "modify"){
+      return(
+        <React.Fragment>
+      <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.state.send,url:"confirmbooking"} }} > 
+      <button
+              className="btn btn-primary"
+              style={{ textAlign: "center", width: "20%" }}
+            >
+              Modify
+            </button></Link>
+            <button
+              className="btn btn-primary"
+              style={{ textAlign: "center", float: "right", width: "20%" }}
+              onClick={this.cancelBooking}
+            >
+              Cancel Booking
+            </button>
+            </React.Fragment>
+      )
+    }
+    else{
+    return(
+      <React.Fragment>
+    <button
+            className="btn btn-primary"
+            style={{ textAlign: "center", width: "20%" }}
+          >
+            Book Now
+          </button>
+          <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.state.send,url:"confirmbooking"} }} > 
+          <button
+            className="btn btn-primary"
+            style={{ textAlign: "center", float: "right", width: "20%" }}
+          >
+            Modify
+          </button></Link>
+          </React.Fragment>
+    )
+    }
+  }
+  
   getBookingDetails() {
     return (
       <div
@@ -122,7 +270,7 @@ class ConfirmBooking extends Component {
                   <label>Vehicle :</label>
                 </div>
                 <div className="col-8">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype} />
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.vehical_type} />
                 </div>
               </div>
             </div>
@@ -391,18 +539,7 @@ class ConfirmBooking extends Component {
           <br />
 
 
-          <button
-            className="btn btn-primary"
-            style={{ textAlign: "center", width: "20%" }}
-          >
-            Book Now
-          </button>
-          <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.props.location.state,url:"confirmbooking"} }} > <button
-            className="btn btn-primary"
-            style={{ textAlign: "center", float: "right", width: "20%" }}
-          >
-            Modify
-          </button></Link>
+          {this.getBtn()}
         </form>
       </React.Fragment>
     );
