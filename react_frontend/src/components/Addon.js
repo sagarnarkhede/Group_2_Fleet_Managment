@@ -2,31 +2,46 @@ import React, { Component } from 'react';
 import Nav from './Nav'
 import Footer from './Footer'
 import {Switch, Route, Link} from "react-router-dom";
-
-
-class Addon extends Component {
-
-   
+class Addon extends Component {   
     constructor(props) {
         super(props);
         console.log("addon",this.props);
        this.handleBack = this.handleBack.bind(this)
-        this.state = { 
-           cardetailsState:this.props.location.state,
+       this.getStates()
+      }
+      getStates()
+  {
+    if(this.props.location.state.url == "custemerinfo")
+    {
+      var data = this.props.location.state.data  //addon is not working bcz of checkboxes
+      console.log("data",data);
+      return(
+        this.state = {
+         cardetailsState:data.cardetailsState,
+         nav:data.nav,
+         camp:data.comp,
+         chSeats:data.chSeats,
+         quant:data.quant  
+        }
+      )
+    }
+    else{
+      return( 
+        this.state = {
+         cardetailsState:this.props.location.state,
        nav:"",
        camp:"",
        chSeats:"",
-       quant:2
+       quant:2  
+      })
     }
-      }
+  }
       handleClick = (prevState) => {
          // this.setState({}, () => {
          //     console.log(this.state.quant)
          // });
        }
       
-
-
       handleBack() {
          this.props.history.goBack()
       }
@@ -39,8 +54,25 @@ class Addon extends Component {
         this.setState({[event.target.name]: event.target.value });
         // console.log(this.state);
       }
-  
-  
+      getcontinewbtn(){
+         if(this.props.location?.state.url == "custemerinfo")
+         {
+             var updatedData = this.props.location?.state.data;
+             updatedData = this.state;
+             //this.props.location.state.data?.cardetailsState?.locationState.bookingState
+             return(
+             <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
+                 <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+             </Link>
+             )
+         }
+         else{
+         return(
+             <Link to={{ pathname: "/CustomerInfoPage", state: this.state }} >
+                 <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+             </Link>)
+       }
+       }
     render() {
         return (
             <div>
@@ -89,10 +121,9 @@ class Addon extends Component {
                                    
                         <br/>
                         <br/>
-                        <Link to={{ pathname: "/CustomerInfoPage",state:this.state}} >
-                                <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Continue Booking</button>
+                       {this.getcontinewbtn()}
                                 <button className="btn btn-primary" style={{  textAlign: "center", float: "right", width: "20%"}} onClick={this.handleBack} >Back</button>
-                                </Link>
+                               
                                 
                                 
                         {/* <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Sign In</button>

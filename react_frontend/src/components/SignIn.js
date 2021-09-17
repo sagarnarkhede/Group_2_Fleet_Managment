@@ -33,21 +33,21 @@ class SignIn extends Component {
             })
 
             // office login
-        //     if(flag === 1)
-        //     {
-        //     axios.get("http://localhost:5555/office/"+this.state.userid)
-        //     .then(async response => {
-        //         const office_arr = response.data.data;
-        //             if (office_arr._id == this.state.userid && office_arr.password == this.state.password) {
-        //                 console.log("Office staff SignIn sucessfully...");
-        //                 sessionStorage.setItem("admin",this.state.userid)
-        //                 this.props.history.push("/")
-        //             }                
-        //     })
-        //     .catch(error => {
-        //         console.log(error);
-        //     })
-        // }
+            if(flag === 1)
+            {
+            axios.get("http://localhost:5555/office/"+this.state.userid)
+            .then(async response => {
+                const office_arr = response.data.data;
+                    if (office_arr._id == this.state.userid && office_arr.password == this.state.password) {
+                        console.log("Office staff SignIn sucessfully...");
+                        sessionStorage.setItem("staff",this.state.userid)
+                        this.props.history.push("/")
+                    }                
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        }
     }
 
     myChangeHandler = (event) => {

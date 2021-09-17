@@ -18,7 +18,7 @@ import React, { Component } from 'react';
     .then(async response => {
       const bookings_arr = response.data.data;
       this.setState({ bookings: bookings_arr});
-      //console.log("hii",this.state);
+      console.log("hii",this.state);
 
     })
       this.setState ({

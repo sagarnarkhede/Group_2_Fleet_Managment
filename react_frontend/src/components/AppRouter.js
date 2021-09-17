@@ -12,14 +12,22 @@ import Addon from './Addon';
 import CustomerInfoPage from './CustomerInfoPage';
 import ConfirmBooking from './ConfirmBooking';
 import Home from './Home';
+import StaffBookCar from './StaffBookCar';
+import StaffBookLocation from './StaffBookLocation';
+// import Ip from './ip';
+// import Op from './op';
 
 const AppRouter = () => (
   <BrowserRouter>
     
       <Switch>
+        {/* <Route component={Ip} exact path="/" />
+        <Route component={Op} exact path="/op" /> */}
         <Route component={Home} exact path="/" />
         <Route component={BookCar} path="/bookcar" />
+        <Route component={StaffBookCar} path="/staffbookcar" />
         <Route component={Location} path="/location" />
+        <Route component={StaffBookLocation} path="/StaffBookLocation" />
         <Route component={Details} path="/details" /> 
         <Route component={Addon} path="/addon" /> 
         <Route component={CustomerInfoPage} path="/CustomerInfoPage" /> 

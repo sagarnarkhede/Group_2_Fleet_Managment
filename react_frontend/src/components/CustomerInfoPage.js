@@ -47,8 +47,8 @@ class CustomerInfoPage extends Component {
     componentDidMount() {
         var data = this.props.location.state;
         console.log("Customer Info", data)
-
-        var carType = data.cardetailsState.cartype
+    try{
+        var carType = data?.cardetailsState.cartype
         console.log("Car Type", carType);
         var carArr = data.cardetailsState.locationState.selectaddress.cars
             // Total no of days Calculation.
@@ -73,7 +73,7 @@ class CustomerInfoPage extends Component {
                     console.log("Addon Amount: "+addonAMT)
                 }
 
-        for (var i = 0; i < carArr.length; i++) {
+        for (var i = 0; i < carArr?.length; i++) {
             
             console.log("Pickupdate" + date1, "Dropdate" + date2, "Journey Total days" + Days);
 
@@ -177,6 +177,45 @@ class CustomerInfoPage extends Component {
                 invoice_number: num
             })
         }
+    }
+    catch(e)
+    {
+        console.log(e);
+    }
+
+        if(data.url == "confirmbooking")
+            {
+                try {
+                    for (let x in this.state) {
+                        for (let y in data.data) {
+                            if (x == y) {
+                                this.setState({
+                                    [x]: data.data[y]
+                                })
+                            }
+                        }
+                    }
+                    this.setState({
+                        pickupDate: data.data.pickupDate,
+                        dropDate: data.data.dropDate,
+                        pickupTime: data.data.pickupTime,
+                        dropTime: data.data.dropTime,
+                        handover_center: data.data.centername,
+                        inhand_center: data.data.centername,
+                        selectaddress: data.data.address,
+                        cartype: data.data.cartype,
+                        nav: data.data.nav,
+                        camp: data.data.camp,
+                        chSeats: data.data.chSeats,
+                        quant: data.data.quant
+                    })
+                }
+                catch (e) {
+                    console.log(e);
+                }
+
+            }
+        else{
         try {
             this.setState({
                 pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
@@ -196,6 +235,7 @@ class CustomerInfoPage extends Component {
         catch (e) {
             console.log(e);
         }
+    }
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
@@ -259,17 +299,17 @@ class CustomerInfoPage extends Component {
                 <label>Your Booking : </label>
                 <br />
                 <br />
-                <strong>Pick-up: </strong><NavLink to="/bookcar" onUpdate={this.props.location.state} >Modify</NavLink>
-                <p>{this.state.pickupTime} {this.state.pickupTime}</p>
-                <strong>Pick-up at: </strong><NavLink to="/location">Modify</NavLink>
+                <strong>Pick-up: </strong><Link to={{ pathname: "/bookcar", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
+                <p>{this.state.pickupDate} {this.state.pickupTime}</p>
+                <strong>Pick-up at: </strong><Link to={{ pathname: "/location", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
                 <p>{this.state.inhand_center}</p>
-                <strong>Return: </strong><NavLink to="/bookcar" >Modify</NavLink>
+                <strong>Return: </strong><Link to={{ pathname: "/bookcar", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
                 <p>{this.state.dropDate} {this.state.dropTime}</p>
-                <strong>Return at: </strong><NavLink to="/location">Modify</NavLink>
+                <strong>Return at: </strong><Link to={{ pathname: "/location", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
                 <p>{this.state.handover_center}</p>
-                <strong>Vehicle Selection: </strong><NavLink to="/cardetail" >Modify</NavLink>
+                <strong>Vehicle Selection: </strong><Link to={{ pathname: "/cardetail", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
                 <p>{this.state.cartype} </p>
-                <strong>Rental Ad-Ons: </strong><NavLink to="/addon" >Modify</NavLink>
+                <strong>Rental Ad-Ons: </strong><Link to={{ pathname: "/addon", state: {data:this.props.location.state,url:"custemerinfo"} }} >Modify</Link>
                 <p>{this.state.nav},{this.state.camp},{this.state.chSeats},{this.state.quant}</p>
 
             </div>

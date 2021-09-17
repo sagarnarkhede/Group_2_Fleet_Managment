@@ -1,12 +1,13 @@
 import React from 'react'
 import Handover from './Modal/Handover';
 import ModifyandCancel from '../components/Modal/ModifyandCancel'
+import { Link } from 'react-router-dom';
 
 
 export default function Nav(props) {
     const [modalShow, setModalShow] = React.useState(false);
     const [modalShow1, setModalShow1] = React.useState(false);
-    const [isuser, setUser] = React.useState(sessionStorage.getItem("user"))
+    const [isuser, setUser] = React.useState(sessionStorage.getItem("staff"))
 
 
    function isclientlogin(){
@@ -14,9 +15,9 @@ export default function Nav(props) {
             {
                 return(
                 <React.Fragment>
-                    <li><a className="nav-link scrollto"  onClick={() => setModalShow(true)} >Booking</a></li>
+                    <li><a className="nav-link scrollto" href="/staffbookcar">Booking</a></li>
                     <li><a className="nav-link scrollto" >Cancellation</a></li>
-                    <li><a className="nav-link scrollto" >Hand-over</a></li>
+                    <li><a className="nav-link scrollto" onClick={() => setModalShow(true)}>Hand-over</a></li>
                     <li><a className="nav-link scrollto" >Return</a></li>
                     <li><a className="nav-link scrollto" onClick={()=> {sessionStorage.clear();setUser("");}}>Log Out</a></li>
                 </React.Fragment>)

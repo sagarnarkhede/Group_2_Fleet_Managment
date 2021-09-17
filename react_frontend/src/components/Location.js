@@ -8,11 +8,29 @@ export default class Location extends Component {
   constructor(props) {
     super(props);
     this.handleBack = this.handleBack.bind(this)
-    console.log("location", this.props.location.state);
-    this.state = {
-      bookingState:this.props.location.state,
-      address: [],
-      selectaddress: [],       
+    console.log("location", this.props);
+   this.getStates();
+  }
+  getStates()
+  {
+    if(this.props.location.state.url == "custemerinfo")
+    {
+      var data = this.props.location.state.data?.cardetailsState?.locationState
+      return(
+        this.state = {
+          bookingState:data.bookingState,
+          address: data.address,
+          selectaddress: [],       
+        }
+      )
+    }
+    else{
+      return( 
+        this.state = {
+        bookingState:this.props.location.state,
+        address: [],
+        selectaddress: [],       
+      })
     }
   }
   handleBack() {
@@ -57,24 +75,6 @@ export default class Location extends Component {
         }
       }
     }
-
-
-
-
-  //   axios
-  //   .get(`/centers`, {})
-  //   .then(res => {
-  //     const data = res.data.data;
-  //     this.setState({
-  //       address: data
-  //     });
-  //   })
-  //   .catch(error => {
-  //     console.log(error);
-  //   });
-
-
-  
   }
 
  handleSelect =async (data) => {
@@ -84,6 +84,25 @@ export default class Location extends Component {
    console.log(this.state.selectaddress, "selet")
  }
 
+ getcontinewbtn(){
+  if(this.props.location?.state.url == "custemerinfo")
+  {
+      var updatedData = this.props.location?.state.data;
+      updatedData.cardetailsState.locationState = this.state;
+      //this.props.location.state.data?.cardetailsState?.locationState.bookingState
+      return(
+      <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
+          <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+      </Link>
+      )
+  }
+  else{
+  return(
+      <Link to={{ pathname: "/cardetail", state: this.state }} >
+          <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+      </Link>)
+}
+}
   render() {
     return (
       <div>
@@ -113,9 +132,7 @@ export default class Location extends Component {
                 ))}
               </div> 
             </div> <br /><br />
-            <Link to={{ pathname: "/cardetail", state: this.state }} >
-              <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "left" }} >Continue Booking</button>
-            </Link> 
+            {this.getcontinewbtn()}
             <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "right" }} onClick={this.handleBack} >Back</button><br /><br />
           </form>
         </div>

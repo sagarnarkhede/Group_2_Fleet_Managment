@@ -8,12 +8,30 @@ export class CarDetails extends Component {
         super(props);
         this.handleBack = this.handleBack.bind(this)
         console.log("cardetails",this.props);
-        this.state = { 
-            locationState:this.props.location.state,
-        cartype:''
-       
-    }
+        this.getStates();
       }
+      getStates()
+  {
+    if(this.props.location.state.url == "custemerinfo")
+    {
+      var data = this.props.location.state.data?.cardetailsState
+      return(
+        this.state = {
+            locationState:data.locationState,
+            cartype:''
+               
+        }
+      )
+    }
+    else{
+      return( 
+        this.state = {
+            locationState:this.props.location.state,
+            cartype:''
+                 
+      })
+    }
+  }
       handleBack() {
         this.props.history.goBack()
      }
@@ -27,7 +45,7 @@ export class CarDetails extends Component {
     }
       componentDidMount(){
           try {
-            var  cars_arr = this.props.location.state.selectaddress
+            var  cars_arr = this.props.location.state.data?.cardetailsState.locationState.selectaddress ??  this.props.location.state.selectaddress
 
           } catch (error) {
               
@@ -54,7 +72,25 @@ export class CarDetails extends Component {
             
             }
     }
-    
+    getcontinewbtn(){
+        if(this.props.location?.state.url == "custemerinfo")
+        {
+            var updatedData = this.props.location?.state.data;
+            updatedData.cardetailsState = this.state;
+            //this.props.location.state.data?.cardetailsState?.locationState.bookingState
+            return(
+            <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
+                <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+            </Link>
+            )
+        }
+        else{
+        return(
+            <Link to={{ pathname: "/addon",state:this.state}} >
+            <button className="btn btn-primary" style={{ textAlign: "center", float: "left" }}>Continue Booking</button>
+            </Link>)
+      }
+      }
      render() {
         return (
             <div>
@@ -80,7 +116,7 @@ export class CarDetails extends Component {
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Small Car</td>
+                                    <td>Small car</td>
                                     <td>Chevrolet Aveo or similar</td>
                                     <td>$12.00</td>
                                     <td>$79.00</td>
@@ -128,9 +164,8 @@ export class CarDetails extends Component {
                         </table>
                         <br/>
                         <br/>
-                        <Link to={{ pathname: "/addon",state:this.state}} >
-                        <button className="btn btn-primary" style={{ textAlign: "center", float: "left" }}>Continue Booking</button>
-                        </Link>
+                        
+                        {this.getcontinewbtn()}
                         <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>Back</button>
 
                     </div>

@@ -410,12 +410,12 @@ class ConfirmBooking extends Component {
           >
             Book Now
           </button>
-          {/* <button
+          <Link to={{ pathname: "/CustomerInfoPage", state: {data:this.state.fdata,url:"confirmbooking"} }} > <button
             className="btn btn-primary"
             style={{ textAlign: "center", float: "right", width: "20%" }}
           >
-            Back
-          </button> */}
+            Modify
+          </button></Link>
         </form>
       </React.Fragment>
     );
