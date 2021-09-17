@@ -50,7 +50,7 @@ exports.post_client = async (req, res) => {
             inhand_emp: req.body.inhand_emp,
             handover_emp: req.body.handover_emp,
             vehical_details: {
-                vehical_type: req.body.cartype,
+                cartype: req.body.cartype,
                 vehical_number: req.body.vehical_number,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
                 vehical_desel_level: req.body.vehical_desel_level
@@ -131,7 +131,7 @@ exports.post_booking = async (req, res) => {
             inhand_emp: req.body.inhand_emp,
             handover_emp: req.body.handover_emp,
             vehical_details: {
-                vehical_type: req.body.cartype,
+                cartype: req.body.cartype,
                 vehical_number: req.body.vehical_number,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
                 vehical_desel_level: req.body.vehical_desel_level
@@ -279,7 +279,7 @@ exports.put_booking = async (req, res) => {
                     inhand_emp: req.body.inhand_emp,
                     handover_emp: req.body.handover_emp,
                     vehical_details: {
-                        vehical_type: req.body.cartype,
+                        cartype: req.body.cartype,
                         vehical_number: req.body.vehical_number,
                         vehical_lastcervising_date: req.body.vehical_lastcervising_date,
                         vehical_desel_level: req.body.vehical_desel_level

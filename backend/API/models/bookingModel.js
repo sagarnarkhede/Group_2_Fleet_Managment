@@ -13,7 +13,7 @@ const bookingSchema = Schema({
     inhand_emp: { type: Number},  
     handover_emp: { type: Number},
     vehical_details: { 
-       vehical_type: {type: String},  // *
+       cartype: {type: String},  // *
        vehical_number: {type: Number}, 
        vehical_lastcervising_date: {type: Date}, 
        vehical_desel_level: {type: Number}, 

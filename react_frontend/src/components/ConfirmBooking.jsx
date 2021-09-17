@@ -94,7 +94,7 @@ class ConfirmBooking extends Component {
       quant: data.quant
     }
     data.fullData.cardetailsState = {
-      cartype:data.vehical_type,
+      cartype:data.cartype,
       locationState:{
         bookingState:{
           dropDate: data.dropDate,
@@ -135,6 +135,14 @@ class ConfirmBooking extends Component {
     event.preventDefault();
     var ob = this.state.fdata.bookings[0]
     ob.booking_status="canceled"
+    ob.cartype=this.state.fdata.bookings[0].vehical_details?.cartype
+    ob.invoice_number=this.state.fdata.bookings[0].invoice?.invoice_number
+    ob.amount=this.state.fdata.bookings[0].invoice?.amount
+    ob.nav=this.state.fdata.bookings[0].addon?.nav
+    ob.camp=this.state.fdata.bookings[0].addon?.camp
+    ob.chSeats=this.state.fdata.bookings[0].addon?.chSeats
+    ob.quant=this.state.fdata.bookings[0].addon?.quant
+
     axios.put("http://localhost:5555/clients/"+this.props.location.state.clientid+"/"+this.props.location.state.bookingid,ob)
           .then(async response => {
           const booking = response.data.data;
@@ -270,7 +278,7 @@ class ConfirmBooking extends Component {
                   <label>Vehicle :</label>
                 </div>
                 <div className="col-8">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.vehical_type} />
+                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype} />
                 </div>
               </div>
             </div>
