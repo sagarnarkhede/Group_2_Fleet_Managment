@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 const clientSchema = Schema({
     _id:Schema.Types.ObjectId,
     fname: { type: String },
-    mname: { type: String },
     lname: { type: String },
     email: { type: String },
     date_of_birth: { type: String },

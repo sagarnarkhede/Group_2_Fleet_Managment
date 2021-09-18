@@ -70,7 +70,6 @@ exports.post_client = async (req, res) => {
         const client = new Client({
             _id: mongoose.Types.ObjectId(),
             fname: req.body.fname,
-            mname: req.body.mname,
             lname: req.body.lname,
             email: req.body.email,
             date_of_birth: req.body.date_of_birth,
@@ -394,7 +393,6 @@ exports.put_client = async (req, res) => {
         const client = {
             // _id: mongoose.Types.ObjectId(),
             fname: req.body.fname,
-            mname: req.body.mname,
             lname: req.body.lname,
             email: req.body.email,
             password: req.body.password,
