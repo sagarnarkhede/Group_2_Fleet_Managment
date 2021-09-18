@@ -102,7 +102,8 @@ exports.post_client = async (req, res) => {
             message: null,
             error: null
         })
-        // Send Mail code
+        
+        // // Send Mail code
         const nodemailer = require('nodemailer');
         var transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -162,7 +163,7 @@ exports.post_client = async (req, res) => {
                   </tr>
                    <tr>
                     <td>Total Amount :  </td>
-                    <td>${data.invoice.amount}</td>
+                    <td>${data.bookings[0].invoice.amount}</td>
                   </tr>
                 </tbody>
               </table>
@@ -258,7 +259,7 @@ exports.post_booking = async (req, res) => {
             });
 
             var mailOptions = {
-                from: 'rahulwarke554@gmail.com',
+                from: user,
                 to: data.email,
                 subject: 'Booking Confirm',
                 html: `
