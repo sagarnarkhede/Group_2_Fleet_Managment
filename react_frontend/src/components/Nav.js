@@ -22,6 +22,7 @@ export default function Nav(props) {
                 return(
                 <React.Fragment>
                     <li><a className="nav-link scrollto" href="/staffbookcar">Booking</a></li>
+                    <li><a className="nav-link scrollto"  onClick={() => setModalShow1(true)} >Modify/Cancel</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setcancellationModalShow(true)}>Cancellation</a></li>
                     <li><a className="nav-link scrollto" onClick={() => setModalShow(true)}>Hand-over</a></li>
                     <li><a className="nav-link scrollto" onClick={() => setreturnModalShow(true)}>Return</a></li>

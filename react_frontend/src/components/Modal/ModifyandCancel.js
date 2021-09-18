@@ -48,7 +48,19 @@ componentDidMount(){
         })
 
 }
+getbtn()
+{
+  
+  if(this.state.booking_id != ""){
+    console.log("bid",this.state);
+  return(<Link to={{ pathname: "/confirmbooking", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"cancelbooking"} }} >
+  <button type="button" class="btn btn-primary">Search</button>
+  </Link>  )}
+  else{
+    return(<button type="button" class="btn btn-primary" onClick={()=>alert("invalid")}>Search</button>)
+  }
 
+}
   render() {
     return (
       
@@ -68,9 +80,7 @@ componentDidMount(){
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
      <label> Booking Confirmation Number: </label><input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
-     <Link to={{ pathname: "/confirmbooking", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"modify"} }} >
-       <button type="button" class="btn btn-primary">Search</button>
-       </Link>  
+     {this.getbtn()}  
       </div><br/><br/>
       {this.state.showButtons && <div class="form-group">
                 <button class="btn btn-primary" style = {{float: "center"}}
