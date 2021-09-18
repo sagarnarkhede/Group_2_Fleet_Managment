@@ -109,7 +109,7 @@
     "handover_date":"2014-09-01T23:28:56.782Z",
     "inhand_center":123,
     "handover_center":456,
-    "booking_status":"reject",
+    "booking_status":"booked",
     "inhand_emp": 82,
     "handover_emp": 987,
     "cartype": "first class", 

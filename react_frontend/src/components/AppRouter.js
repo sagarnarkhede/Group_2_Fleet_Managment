@@ -14,6 +14,7 @@ import ConfirmBooking from './ConfirmBooking';
 import Home from './Home';
 import StaffBookCar from './StaffBookCar';
 import StaffBookLocation from './StaffBookLocation';
+import PrintInvoice from './PrintInvoice';
 // import Ip from './ip';
 // import Op from './op';
 
@@ -35,6 +36,7 @@ const AppRouter = () => (
         <Route component={SignUp} path="/signup" />
         <Route component={CarDetails} path="/cardetail" />
         <Route component={ConfirmBooking} path="/confirmbooking" />
+        <Route component={PrintInvoice} path="/printInvoice" />
         <Route component={PNF} path="*" />
       </Switch>
     

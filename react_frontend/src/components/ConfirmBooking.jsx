@@ -16,7 +16,7 @@ class ConfirmBooking extends Component {
   {
     var data = this.props.location.state;
  
-    if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return")
+    if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking")
     {
       var ob = data.data;
       
@@ -161,6 +161,19 @@ class ConfirmBooking extends Component {
         <React.Fragment>
       <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Return</button>
       <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Back</button>
+        </React.Fragment>
+      )
+    }
+    else  if(this.props.location.state.url == "cancelbooking"){
+      return(
+        <React.Fragment>
+     <button
+              className="btn btn-primary"
+              style={{ textAlign: "center", float: "center", width: "20%" }}
+              onClick={this.cancelBooking}
+            >
+              Cancel Booking
+            </button>
         </React.Fragment>
       )
     }
