@@ -60,11 +60,11 @@ exports.post_client = async (req, res) => {
                 amount: req.body.amount,
                 pyment_method: req.body.card_type
             },
-            addon:{
-                nav:req.body.nav,
-               camp:req.body.camp,
-               chSeats:req.body.chSeats,
-               quant: req.body.quant
+            addon: {
+                nav: req.body.nav,
+                camp: req.body.camp,
+                chSeats: req.body.chSeats,
+                quant: req.body.quant
             }
         })
         const client = new Client({
@@ -103,6 +103,91 @@ exports.post_client = async (req, res) => {
             message: null,
             error: null
         })
+        // Send Mail code
+        const nodemailer = require('nodemailer');
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: 'rahulwarke554@gmail.com',
+                pass: 'euxyjzopjtjwxzry'
+            }
+        });
+
+        var mailOptions = {
+            from: 'rahulwarke554@gmail.com',
+            to: data.email,
+            subject: 'Booking Confirm',
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <body>
+            <h1>Welcome To Rapid Rental!!</h1>
+            <div class="container">
+              <p>Hello,</p>
+              <p>
+               mr. ${data.fname} ${data.lname},
+              </p> 
+              </br>
+              <p>your Booking Number is: ${data.bookings[0]._id}</ p>           
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Your Booking Detail are : </th>
+                  </tr>
+                </thead>
+                </br>
+                <tbody>
+                  <tr>
+                    <td>Pick up Date :</td>
+                    <td>${data.bookings[0].pickupDate}</td>
+                  </tr>
+                 
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${data.bookings[0].pickupTime}</td>
+                  </tr>
+                  <tr>
+                    <td>Drop Date :</td>
+                    <td>${data.bookings[0].dropDate}</td>
+                  </tr>
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${data.bookings[0].dropTime}</td>
+                  </tr>
+                   <tr>
+                    <td>Center no : </td>
+                    <td>${data.bookings[0].inhand_center}</td>
+                  </tr> <tr>
+                    <td>Booking Status : </td>
+                    <td>${data.bookings[0].booking_status}</td>
+                  </tr>
+                   <tr>
+                    <td>Total Amount :  </td>
+                    <td>${data.invoice.amount}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Happy jouney !!</pr>
+              <h4>Custmer Contact:-  </h4>
+              <p>
+              phone:- +919834302938</p>
+              <p>
+              email id:- abc@gmail.com
+              </p>
+            </div>
+            </body>
+            </html>
+            `
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent sucessfully: ' + info.response);
+            }
+        });
+
     }
     catch (err) {
         res.status(500).json({
@@ -141,11 +226,11 @@ exports.post_booking = async (req, res) => {
                 amount: req.body.amount,
                 pyment_method: req.body.card_type
             },
-             addon:{
-                nav:req.body.nav,
-               camp:req.body.camp,
-               chSeats:req.body.chSeats,
-               quant: req.body.quant
+            addon: {
+                nav: req.body.nav,
+                camp: req.body.camp,
+                chSeats: req.body.chSeats,
+                quant: req.body.quant
             }
         })
         console.log("booking", booking);
@@ -160,7 +245,93 @@ exports.post_booking = async (req, res) => {
                 data: data1,
                 message: null,
                 error: null
-            })
+            }) 
+            var user= process.env.AUTHSENDERMAIL;
+            var pass= process.env.AUTHSENDERPASS
+           // Send Mail code
+            const nodemailer = require('nodemailer');
+            var transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: user,
+                    pass: pass
+                }
+            });
+
+            var mailOptions = {
+                from: 'rahulwarke554@gmail.com',
+                to: data.email,
+                subject: 'Booking Confirm',
+                html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <body>
+            <h1>Welcome To Rapid Rental!!</h1>
+            <div class="container">
+              <p>Hello,</p>
+              <p>
+               mr. ${data.fname} ${data.lname},
+              </p> 
+              </br>
+              <p>your Booking Number is: ${booking._id}</ p>           
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Your Booking Detail are : </th>
+                  </tr>
+                </thead>
+                </br>
+                <tbody>
+                  <tr>
+                    <td>Pick up Date :</td>
+                    <td>${booking.pickupDate}</td>
+                  </tr>
+                 
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${booking.pickupTime}</td>
+                  </tr>
+                  <tr>
+                    <td>Drop Date :</td>
+                    <td>${booking.dropDate}</td>
+                  </tr>
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${booking.dropTime}</td>
+                  </tr>
+                   <tr>
+                    <td>Center no : </td>
+                    <td>${booking.inhand_center}</td>
+                  </tr> <tr>
+                    <td>Booking Status : </td>
+                    <td>${booking.booking_status}</td>
+                  </tr>
+                   <tr>
+                    <td>Total Amount :  </td>
+                    <td>${booking.invoice.amount}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Happy jouney !!</pr>
+              <h4>Custmer Contact:-  </h4>
+              <p>
+              phone:- +919834302938</p>
+              <p>
+              email id:- abc@gmail.com
+              </p>
+            </div>
+            </body>
+            </html>
+            `
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log('Email sent sucessfully: ' + info.response);
+                }
+            });
         } else {
             res.status(404).json({
                 code: 0,
@@ -289,24 +460,23 @@ exports.put_booking = async (req, res) => {
                         amount: req.body.amount,
                         pyment_method: req.body.card_type
                     },
-                    addon:{
-                        nav:req.body.nav,
-                       camp:req.body.camp,
-                       chSeats:req.body.chSeats,
-                       quant: req.body.quant
+                    addon: {
+                        nav: req.body.nav,
+                        camp: req.body.camp,
+                        chSeats: req.body.chSeats,
+                        quant: req.body.quant
                     }
                 }
                 booking_arr[x] = booking;
                 break;
             }
         }
-        if(x == booking_arr.length)
-        {
+        if (x == booking_arr.length) {
             throw new Error("invalid Booking Id");
         }
-        
 
-        const data =await Client.findByIdAndUpdate(req.params.clientId,client_bookings,{new:true,runValidators:true})
+
+        const data = await Client.findByIdAndUpdate(req.params.clientId, client_bookings, { new: true, runValidators: true })
         res.status(200).json({
             code: 1,
             data: data,
