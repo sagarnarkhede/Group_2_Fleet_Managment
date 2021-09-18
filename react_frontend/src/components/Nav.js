@@ -17,7 +17,7 @@ export default function Nav(props) {
     const [areyousuremodalShow, setareyousureModalShow] = React.useState(false);
     const [invalidbookmodalShow, setinvalidboookModalShow] = React.useState(false);
     const [invalidpassmodalShow, setinvalidpassModalShow] = React.useState(false);
-    const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
+    // const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
     const [modalShow, setModalShow] = React.useState(false);
     const [returnmodalShow, setreturnModalShow] = React.useState(false);
     const [cancellationmodalShow, setcancellationModalShow] = React.useState(false);
@@ -32,7 +32,7 @@ export default function Nav(props) {
             {
                 return(
                 <React.Fragment>
-                    <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li>
+                    {/* <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li> */}
                     <li><a className="nav-link scrollto"  onClick={() => setinvalidpassModalShow(true)}>InvalidIdPass</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setinvalidboookModalShow(true)}>InvalidBookId</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setareyousureModalShow(true)}>AreYouSurePop</a></li>
