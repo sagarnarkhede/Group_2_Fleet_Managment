@@ -137,8 +137,8 @@ class Home extends Component {
                                                 </div>
                                                 <h3>Easy to Book and Cancel</h3>
                                                 <p>When you choose us for your cab booking requirements, we offer you premium services, and most importantly, high reliability.</p>
-                                                <a href="" data-target="#servicemodel1" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a href="" data-target="#servicemodel1" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -152,8 +152,8 @@ class Home extends Component {
                                                 </div>
                                                 <h3>Rent by the Hour, Day, Week, or Month</h3>
                                                 <p>you could have our rental service anytime on an hourly basis, on a weekly or monthly basis...</p>
-                                                <a href="" data-target="#servicemodel2" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a href="" data-target="#servicemodel2" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -167,8 +167,8 @@ class Home extends Component {
                                                 </div>
                                                 <h3>Located in Your Neighbourhood or Near Your Office</h3>
                                                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, soluta!</p>
-                                                <a href="" data-target="#servicemodel3" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a href="" data-target="#servicemodel3" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -182,8 +182,8 @@ class Home extends Component {
 
                                                 <h3>Range of Cars: Luxury, Sedan</h3>
                                                 <p>We are having varities of car accordingly your requirements such as small car,campact car intermediate car,sedan cars,SUV cars</p>
-                                                <a href="" data-target="#servicemodel4" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a href="" data-target="#servicemodel4" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -198,8 +198,8 @@ class Home extends Component {
                                                 </div>
                                                 <h3>Book weeks or minutes before pick-up</h3>
                                                 <p>You could book our cars accordingly your needs like book before a day, week, month of your pickup day..</p>
-                                                <a data-target="#servicemodel5" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a data-target="#servicemodel5" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -214,8 +214,8 @@ class Home extends Component {
                                                 </div>
                                                 <h3>Our Cars Have All-India Permits</h3>
                                                 <p>We have all india permits for our car rental service so that you can enjoy every bit of your journey..</p>
-                                                <a href="" data-target="#servicemodel6" class="read-more"
-                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a>
+                                                {/* <a href="" data-target="#servicemodel6" class="read-more"
+                                                    data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
                                         </div>
 
@@ -296,101 +296,6 @@ class Home extends Component {
                     {/* <!-- End Details Section -->
 
 
-        <!-- ======= Testimonials Section ======= --> */}
-                    <section id="testimonials">
-                        <div class=" container section-title" data-aos="fade-up">
-                            <h2>Testimonials</h2>
-                            <p>What they are Saying about Us</p>
-                        </div>
-
-                        <div id="testimonials" class="testimonials">
-                            <div class="container">
-
-                                <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
-                                    <div class="swiper-wrapper">
-
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-item">
-                                                <img src="assets/img/testimonials/sagar.jpg" class="testimonial-img" alt="" />
-                                                <h3>Sagar S Narkhede</h3>
-                                                <h4>Fullstack Developer</h4>
-                                                <p>
-                                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Lorem ipsum dolor sit,
-                                                    amet consectetur adipisicing elit. Illo blanditiis non eius sapiente alias
-                                                    aliquid labore temporibus suscipit eveniet expedita.
-                                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* <!-- End testimonial item --> */}
-
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-item">
-                                                <img src="assets/img/testimonials/sagar.jpg" class="testimonial-img" alt="" />
-                                                <h3>Sagar S Narkhede</h3>
-                                                <h4>Fullstack Developer</h4>
-                                                <p>
-                                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Lorem ipsum dolor sit,
-                                                    amet consectetur adipisicing elit. Illo blanditiis non eius sapiente alias
-                                                    aliquid labore temporibus suscipit eveniet expedita.
-                                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* <!-- End testimonial item --> */}
-
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-item">
-                                                <img src="assets/img/testimonials/sagar.jpg" class="testimonial-img" alt="" />
-                                                <h3>Sagar S Narkhede</h3>
-                                                <h4>Fullstack Developer</h4>
-                                                <p>
-                                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Lorem ipsum dolor sit,
-                                                    amet consectetur adipisicing elit. Illo blanditiis non eius sapiente alias
-                                                    aliquid labore temporibus suscipit eveniet expedita.
-                                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* <!-- End testimonial item --> */}
-
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-item">
-                                                <img src="assets/img/testimonials/sagar.jpg" class="testimonial-img" alt="" />
-                                                <h3>Sagar S Narkhede</h3>
-                                                <h4>Fullstack Developer</h4>
-                                                <p>
-                                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Lorem ipsum dolor sit,
-                                                    amet consectetur adipisicing elit. Illo blanditiis non eius sapiente alias
-                                                    aliquid labore temporibus suscipit eveniet expedita.
-                                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* <!-- End testimonial item --> */}
-
-                                        <div class="swiper-slide">
-                                            <div class="testimonial-item">
-                                                <img src="assets/img/testimonials/sagar.jpg" class="testimonial-img" alt="" />
-                                                <h3>Sagar S Narkhede</h3>
-                                                <h4>Fullstack Developer</h4>
-                                                <p>
-                                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i> Lorem ipsum dolor sit,
-                                                    amet consectetur adipisicing elit. Illo blanditiis non eius sapiente alias
-                                                    aliquid labore temporibus suscipit eveniet expedita.
-                                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        {/* <!-- End testimonial item --> */}
-
-                                    </div>
-                                    <div class="swiper-pagination"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    {/* <!-- End Testimonials Section -->
 
         <!-- ======= Team Section ======= --> */}
                     <section id="team" class="team">

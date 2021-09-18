@@ -38,7 +38,7 @@ app.use((req,res,next)=>{
     next();
     })
     
-app.use(express.static('public'));
+//app.use(express.static('public'));
 app.use("/clients",clientRouter);
 app.use("/contact_us", contact_usRouter);
 app.use("/centers", centerRouter);
