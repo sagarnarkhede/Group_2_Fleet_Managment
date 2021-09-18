@@ -3,7 +3,6 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
-import ReactToPrint from "react-to-print";
 class PrintInvoice extends Component {
   constructor(props) {
     super(props);
