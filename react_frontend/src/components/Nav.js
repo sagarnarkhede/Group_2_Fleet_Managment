@@ -9,7 +9,7 @@ import FailPop from './Modal/FailPop';
 import AreYouSurePop from './Modal/AreYouSurePop';
 import InvalidBookId from './Modal/InvalidBookIdPop';
 import InvalidIdPass from './Modal/InvalidIdPass';
-import BookingSuccesful from './Modal/BookingSuccesful';
+// import BookingSuccesful from './Modal/BookingSuccesful';
 
 export default function Nav(props) {
     const [testmodalShow, setsuccessModalShow] = React.useState(false);
@@ -101,7 +101,7 @@ export default function Nav(props) {
                     <FailPop show={failmodalShow} onHide={() => setfailModalShow(false)}/> 
                     <AreYouSurePop show={areyousuremodalShow} onHide={() => setareyousureModalShow(false)}/>
                     <InvalidBookId show={invalidbookmodalShow} onHide={() => setinvalidboookModalShow(false)}/> 
-                    <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>  
+                    {/* <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>   */}
                     <InvalidIdPass show={invalidpassmodalShow} onHide={() => setinvalidpassModalShow(false)}/>  
             </div>
             <nav id="navbar" className="navbar">
