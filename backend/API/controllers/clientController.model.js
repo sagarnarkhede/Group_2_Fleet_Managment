@@ -105,16 +105,18 @@ exports.post_client = async (req, res) => {
         
         // // Send Mail code
         const nodemailer = require('nodemailer');
+        var user= process.env.AUTHSENDERMAIL;
+        var pass= process.env.AUTHSENDERPASS
         var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'rahulwarke554@gmail.com',
-                pass: 'euxyjzopjtjwxzry'
+                user: user,
+                pass: pass
             }
         });
 
         var mailOptions = {
-            from: 'rahulwarke554@gmail.com',
+            from: user,
             to: data.email,
             subject: 'Booking Confirm',
             html: `
@@ -172,7 +174,7 @@ exports.post_client = async (req, res) => {
               <p>
               phone:- +919834302938</p>
               <p>
-              email id:- abc@gmail.com
+              email id:- rapidrental@gmail.com
               </p>
             </div>
             </body>
