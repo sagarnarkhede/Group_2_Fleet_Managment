@@ -6,7 +6,7 @@ import { Switch, Route, Link } from "react-router-dom";
 class PrintInvoice extends Component {
   constructor(props) {
     super(props);
-    //console.log("PrintInvoice info ", this.props.location.state);
+    console.log("PrintInvoice info ", this.props.location.state);
     //sessionStorage.removeItem("userdata"); 
    this.getState();
   }
@@ -148,6 +148,12 @@ class PrintInvoice extends Component {
     );
   }
   getForm() {
+    var valuecss ={
+      marginLeft:"10px",
+      fontSize:"18px",
+      fontWeight:500,
+      color:"black"
+    }
     return (
       <React.Fragment>
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
@@ -161,12 +167,12 @@ class PrintInvoice extends Component {
                   <label>Pick-up :</label>
                   <br /><br />
                 </div>
-                <div className="col-4">
-                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.pickupDate} />
+                <div className="col-8">
+                <label style={valuecss}>{this.state.fdata.pickupDate} at {this.state.fdata.pickupTime}</label>
                 </div>
-                <div className="col-4">
-                  <input type="time" className="form-control" name="" id="" value={this.state.fdata.pickupTime} />
-                </div>
+                {/* <div className="col-4">
+                <label style={valuecss}></label>
+                </div> */}
               </div>
             </div>
             <div className="col-6">
@@ -175,7 +181,7 @@ class PrintInvoice extends Component {
                   <label>Pick-up at :</label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.inhand_center} />
+                <label style={valuecss}>{this.state.fdata.inhand_center}</label>
                 </div>
               </div>
             </div>
@@ -185,12 +191,12 @@ class PrintInvoice extends Component {
                   <label>Reture :</label>
                   <br /><br />
                 </div>
-                <div className="col-4">
-                  <input type="date" className="form-control" name="" id="" value={this.state.fdata.dropDate} />
+                <div className="col-8">
+                <label style={valuecss}>{this.state.fdata.dropDate} at {this.state.fdata.dropTime}</label>
                 </div>
-                <div className="col-4">
-                  <input type="time" className="form-control" name="" id="" value={this.state.fdata.dropTime} />
-                </div>
+                {/* <div className="col-4">
+                <label style={valuecss}></label>
+                </div> */}
               </div>
             </div>
             <div className="col-6">
@@ -199,7 +205,7 @@ class PrintInvoice extends Component {
                   <label>Return at :</label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.handover_center} />
+                <label style={valuecss}>{this.state.fdata.handover_center} </label>
                 </div>
               </div>
             </div>
@@ -209,7 +215,7 @@ class PrintInvoice extends Component {
                   <label>Vehicle :</label>
                 </div>
                 <div className="col-8">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.cartype} />
+                <label style={valuecss}>{this.state.fdata.cartype} </label>
                 </div>
               </div>
             </div>
@@ -219,7 +225,7 @@ class PrintInvoice extends Component {
                   <label>Ad-Ons : </label>
                 </div>
                 <div className="col-9">
-                  <input type="text" name="" id="" className="form-control" value={this.state.fdata.nav + " " + this.state.fdata.camp + " " + this.state.fdata.chSeats + " " + this.state.fdata.quant} />
+                <label style={valuecss}>{this.state.fdata.nav + " " + this.state.fdata.camp + " " + this.state.fdata.chSeats + " " + this.state.fdata.quant} </label>
                 </div>
               </div>
             </div>
@@ -227,53 +233,73 @@ class PrintInvoice extends Component {
           <br />
           <div className="row">
             <div className="col-6">
-              <label>First Name : </label>
-              <input type="text" className="form-control" name="fname" value={this.state.fdata.fname} onChange={this.myChangeHandler}></input>
+              <div className="row">
+                <div className="col-auto">
+                  <label>First Name :</label>
+                  <br /><br />
+                </div>
+                <div className="col-8">
+                <label style={valuecss}>{this.state.fdata.fname}</label>
+                </div>
+              </div>
             </div>
             <div className="col-6">
-              <label>Last Name : </label>
-              <input
-                type="text"
-                className="form-control"
-                name="lname"
-                value={this.state.fdata.lname}
-                onChange={this.myChangeHandler}
-              ></input>
+              <div className="row">
+                <div className="col-3">
+                  <label>Last Name:</label>
+                </div>
+                <div className="col-9">
+                <label style={valuecss}>{this.state.fdata.lname}</label>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="row">
+                <div className="col-3">
+                  <label>Address :</label>
+                  <br /><br />
+                </div>
+                <div className="col-8">
+                <label style={valuecss}>{this.state.fdata.address1}</label>
+                </div>
+                {/* <div className="col-4">
+                <label style={valuecss}></label>
+                </div> */}
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="row">
+                <div className="col-3">
+                  <label>User ID :</label>
+                </div>
+                <div className="col-9">
+                 <label style={valuecss}>{this.state.fdata._id} </label>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="row">
+                <div className="col-3">
+                  <label>Email :</label>
+                </div>
+                <div className="col-8">
+                <label style={valuecss}>{this.state.fdata.email}</label>
+                </div>
+              </div>
+            </div>
+            <div className="col-6">
+              <div className="row">
+                <div className="col-auto">
+                  <label>Phone Number : </label>
+                </div>
+                <div className="col-7">
+                <label style={valuecss}>{this.state.fdata.phone_number} </label>
+                </div>
+              </div>
             </div>
           </div>
           <br />
-          <label>Address 1 : </label>
-          <input
-            type="text"
-            className="form-control"
-            name="address1"
-            value={this.state.fdata.address1}
-            onChange={this.myChangeHandler}
-          ></input>
-          <br />
-
-          <div className="row">
-            <div className="col-6">
-              <label>Email : </label>
-              <input
-                type="text"
-                className="form-control"
-                name="email"
-                value={this.state.fdata.email}
-                onChange={this.myChangeHandler}
-              ></input>
-            </div>
-            <div className="col-6">
-              <label>Phone Number : </label>
-              <input
-                type="text"
-                className="form-control"
-                name="phone_number"
-                value={this.state.fdata.phone_number}
-                onChange={this.myChangeHandler}
-              ></input>
-            </div>
-          </div>
+          
           <br />
           <label>Invoice : </label>
           <table class="table">
