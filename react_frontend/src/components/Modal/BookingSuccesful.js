@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal"
 import axios from 'axios'
 
-export default class AreYouSurePop extends Component {
+export default class BookingSuccesful extends Component {
     constructor(props) {
         super(props);
         
@@ -30,25 +30,21 @@ export default class AreYouSurePop extends Component {
      size="lg"
      aria-labelledby="contained-modal-title-vcenter"
      centered
-    // style={{borderRadius: '5px'}}
-    style={{ borderRadius: '15px'  }}
    >
    {/* {console.log(this.props)} */}
      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
-       <h2 style={{color: 'white'}}>Cancle Booking:</h2>
+       <h2 style={{color: 'white'}}>Car Booking:</h2>
       </Modal.Title>
      </Modal.Header>
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <h2 align="center">Are You Sure</h2>
-     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ssIwdK.json"
+     <h2 align="center">Booking Succesful</h2>
+     <lottie-player src="https://assets2.lottiefiles.com/temp/lf20_MqU2rh.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
-                                                        loop autoplay></lottie-player><br/>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "left", width: "20%" }} onClick={this.handleBack}>Yes</button>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.handleBack}>No</button>
+                                                        loop autoplay></lottie-player>
       </div><br/><br/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>

@@ -104,10 +104,10 @@ handoverit = ()=>{
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-   
-      <Modal.Header closeButton>
+    {/* {console.log(this.props)} */}
+      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
         <Modal.Title id="contained-modal-title-vcenter">
-        <h2>Handover:</h2>
+        <h2 style={{color: 'white'}}>Handover:</h2>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>

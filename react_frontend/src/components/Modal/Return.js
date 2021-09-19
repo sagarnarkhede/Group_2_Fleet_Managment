@@ -79,9 +79,9 @@ getbtn()
      centered
    >
    {/* {console.log(this.props)} */}
-     <Modal.Header closeButton>
+     <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
-       <h2>Return Car:</h2>
+       <h2 style={{color: 'white'}}>Return Car:</h2>
       </Modal.Title>
      </Modal.Header>
      <Modal.Body onSubmit={this.mySubmitHandler}>

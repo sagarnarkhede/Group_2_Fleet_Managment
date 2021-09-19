@@ -31,6 +31,7 @@ export default class SuccesPop extends Component {
      aria-labelledby="contained-modal-title-vcenter"
      centered
    >
+   <div className="no-borderRadiusImportant" style={{border: '1px solid black',borderRadius: '5px!important'}}>
    {/* {console.log(this.props)} */}
      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
@@ -41,7 +42,7 @@ export default class SuccesPop extends Component {
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
      <h2 align="center">Cancle Succesful</h2>
-     <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_SvgCXs.json"
+     <lottie-player src="https://assets2.lottiefiles.com/temp/lf20_MqU2rh.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
                                                         loop autoplay></lottie-player>
@@ -50,7 +51,9 @@ export default class SuccesPop extends Component {
         </div>
         
      </Modal.Body>
+     </div>
    </Modal>
+   
     );
   }
 }

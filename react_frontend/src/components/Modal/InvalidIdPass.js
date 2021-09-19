@@ -41,7 +41,7 @@ export default class InvalidIdPass extends Component {
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
      <h2 align="center">Invalid Login ID/Password</h2>
-     <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_y8t1nosz.json"
+     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_YGLMlt.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px',width: "200px", height: "200px" }}
                                                         loop autoplay></lottie-player>

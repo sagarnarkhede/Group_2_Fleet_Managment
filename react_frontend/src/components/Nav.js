@@ -9,7 +9,7 @@ import FailPop from './Modal/FailPop';
 import AreYouSurePop from './Modal/AreYouSurePop';
 import InvalidBookId from './Modal/InvalidBookIdPop';
 import InvalidIdPass from './Modal/InvalidIdPass';
-//import BookingSuccesful from './Modal/BookingSuccesful';
+import BookingSuccesful from './Modal/BookingSuccesful';
 
 export default function Nav(props) {
     const [testmodalShow, setsuccessModalShow] = React.useState(false);
@@ -17,7 +17,7 @@ export default function Nav(props) {
     const [areyousuremodalShow, setareyousureModalShow] = React.useState(false);
     const [invalidbookmodalShow, setinvalidboookModalShow] = React.useState(false);
     const [invalidpassmodalShow, setinvalidpassModalShow] = React.useState(false);
-    //const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
+    const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
     const [modalShow, setModalShow] = React.useState(false);
     const [returnmodalShow, setreturnModalShow] = React.useState(false);
     const [cancellationmodalShow, setcancellationModalShow] = React.useState(false);
@@ -32,8 +32,8 @@ export default function Nav(props) {
             {
                 return(
                 <React.Fragment>
-                    {/* <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li> */}
-                    {/* <li><a className="nav-link scrollto"  onClick={() => setinvalidpassModalShow(true)}>InvalidIdPass</a></li>
+                    <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li>
+                    <li><a className="nav-link scrollto"  onClick={() => setinvalidpassModalShow(true)}>InvalidIdPass</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setinvalidboookModalShow(true)}>InvalidBookId</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setareyousureModalShow(true)}>AreYouSurePop</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setfailModalShow(true)}>FailPop</a></li>
@@ -65,7 +65,7 @@ export default function Nav(props) {
             else{
                 return (
                     <React.Fragment>
-                        {/* <li><a className="nav-link scrollto" href="/#features">Features</a></li> */}
+                        <li><a className="nav-link scrollto" href="/#features">Features</a></li>
                         <li><a className="nav-link scrollto" href="/#contact">Customer care</a></li> 
                         <li className="dropdown"><a href="/#aboutus"><span>About India Drive</span> <i className="bi bi-chevron-down"></i></a>
                             <ul>
@@ -101,7 +101,7 @@ export default function Nav(props) {
                     <FailPop show={failmodalShow} onHide={() => setfailModalShow(false)}/> 
                     <AreYouSurePop show={areyousuremodalShow} onHide={() => setareyousureModalShow(false)}/>
                     <InvalidBookId show={invalidbookmodalShow} onHide={() => setinvalidboookModalShow(false)}/> 
-                   {/* <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>   */}
+                    <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>  
                     <InvalidIdPass show={invalidpassmodalShow} onHide={() => setinvalidpassModalShow(false)}/>  
             </div>
             <nav id="navbar" className="navbar">

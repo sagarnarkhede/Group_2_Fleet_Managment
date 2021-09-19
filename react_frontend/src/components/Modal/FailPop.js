@@ -41,7 +41,7 @@ export default class FailPop extends Component {
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
      <h2 align="center">Cancle Fail</h2>
-     <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_hzc9hvfv.json"
+     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_YGLMlt.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
                                                         loop autoplay></lottie-player>
