@@ -7,7 +7,7 @@ const Cars = Schema({
     carno: { type: Number},
     cartype: {type:String},
     seat_capacity:{ type: Number},
-    fuel_level: { type: Number},
+    fuelStatus: { type: Number},
     rateperday: { type: Number},
     rateperweek: { type: Number},
     ratepermonth: { type: Number},

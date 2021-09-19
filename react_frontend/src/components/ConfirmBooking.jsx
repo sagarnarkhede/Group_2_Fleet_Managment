@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
+import Handoverdetail from "./Modal/Handoverdetail";
 
 class ConfirmBooking extends Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class ConfirmBooking extends Component {
   {
     var data = this.props.location.state;
  
-    if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking")
+    if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")
     {
       var ob = data.data;
       
@@ -197,6 +198,26 @@ class ConfirmBooking extends Component {
             </React.Fragment>
       )
     }
+    else if(this.props.location.state.url == "handover"){
+      return(
+        <React.Fragment>
+      
+      <button
+              className="btn btn-primary"
+              style={{ textAlign: "center", width: "20%" }}
+            >
+              Hand-Over
+            </button>
+            <button
+              className="btn btn-primary"
+              style={{ textAlign: "center", float: "right", width: "20%" }}
+              onClick={this.cancelBooking}
+            >
+              Back
+            </button>
+            </React.Fragment>
+      )
+    }
     else{
     return(
       <React.Fragment>
@@ -230,8 +251,10 @@ class ConfirmBooking extends Component {
     );
   }
   getForm() {
+    var handoverModel = true
     return (
       <React.Fragment>
+        {/* <Handoverdetail show={handoverModel} onHide={() =>{handoverModel = false} }/>   */}
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
           <label>Your Booking : </label>
           <br />

@@ -56,7 +56,7 @@ getbtn()
   
   if(this.state.booking_id != ""){
     console.log("bid",this.state);
-  return(<Link to={{ pathname: "/confirmbooking", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"cancelbooking"} }} >
+  return(<Link to={{ pathname: "/printInvoice", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"return"} }} >
   <button type="button" class="btn btn-primary">Search</button>
   </Link>  )}
   else{

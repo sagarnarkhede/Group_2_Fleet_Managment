@@ -3,6 +3,7 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
+import ReturnDetails from "./Modal/ReturnDetails";
 class PrintInvoice extends Component {
   constructor(props) {
     super(props);
@@ -33,11 +34,14 @@ class PrintInvoice extends Component {
           }
          }
       }
+      ob.bookingid=data.bookingid;
+      ob.clientid=data.clientid;
       console.log("ob",ob);
     return(
       this.state = {
         fdata: ob,
         send:{},
+        returnPopupShow:false
       }
     )
     }
@@ -45,31 +49,7 @@ class PrintInvoice extends Component {
  
     mySubmitHandler = (event) => {
     event.preventDefault();
-    console.log("Data In State",this.state.fdata);
-    var url = "http://localhost:5555/clients/"
-    if (this.state.fdata._id == "") {
-      console.log("new post");
-      axios.post(url, this.state.fdata)
-        .then(async response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error.message);
-        })
-    }
-    else {
-      console.log("existing put");
 
-      var id = this.state.fdata._id;
-      axios.post(url +id, this.state.fdata)
-        .then(async response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        })
-    }
-    console.log(this.state);
   };
 
   myChangeHandler = (event) => {
@@ -128,7 +108,7 @@ class PrintInvoice extends Component {
     if(this.props.location.state.url == "return"){
       return(
         <React.Fragment>
-      <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Return</button>      
+      <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({returnPopupShow:true})}>Return</button>      
       <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={(event)=>{event.preventDefault();this.props.history.goBack()}}>Back</button>
         </React.Fragment>
       )
@@ -156,6 +136,7 @@ class PrintInvoice extends Component {
     }
     return (
       <React.Fragment>
+        <ReturnDetails show={this.state.returnPopupShow} onHide={() => this.setState({returnPopupShow:false})} data={this.state.fdata}/>
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
           <label>Your Booking : </label>
           <br />
