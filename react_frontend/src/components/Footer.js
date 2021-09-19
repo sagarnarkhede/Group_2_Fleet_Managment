@@ -25,17 +25,20 @@ export default class componentName extends Component {
 
                                 <div className="col-lg-4 col-md-6 footer-links">
                                     <h4 style={{textAlign:"center"}}>Useful Links</h4>
-                                    <ul>
-                                        <li><i className="bx bx-chevron-right" ></i> <a href="/#">Services</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">About us</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Home</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Modify/Cancel Booking</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Terms of service</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Privacy policy</a></li>
+                                    <div style={{textAlign:"center"}}>
+                                    <ul style={{display: "inline-block",textAlign:"left"}}>
+                                        <li><a href="/#">Home</a></li>
+                                        <li><a href="/#">Services</a></li>
+                                        <li><a href="/#">About us</a></li>
+                                        <li><a href="/#">Modify/Cancel Booking</a></li>
+                                        <li><a href="/#">Terms of service</a></li>
+                                        <li><a href="/#">Privacy policy</a></li>
                                     </ul>
+                                    </div>
                                 </div>
-
-                               
+                                <div className="col-lg-4 col-md-6">
+                                <img src="assets/img/footer.svg" class="img-fluid" alt="" />
+                                </div>
 
 
 
