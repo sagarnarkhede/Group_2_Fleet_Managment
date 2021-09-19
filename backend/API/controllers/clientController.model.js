@@ -51,11 +51,11 @@ exports.post_client = async (req, res) => {
             handover_emp: req.body.handover_emp,
             vehical_details: {
                 cartype: req.body.cartype,
-                vehical_number: req.body.vehical_number,
+                carno: req.body.carno,
                 fuelStatus: req.body.fuelStatus,
                 carStatus: req.body.carStatus,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
-                vehical_desel_level: req.body.vehical_desel_level
+                carname: req.body.carname
             },
             invoice: {
                 invoice_number: req.body.invoice_number,
@@ -221,11 +221,11 @@ exports.post_booking = async (req, res) => {
             handover_emp: req.body.handover_emp,
             vehical_details: {
                 cartype: req.body.cartype,
-                vehical_number: req.body.vehical_number,
+                carno: req.body.carno,
                 fuelStatus: req.body.fuelStatus,
                 carStatus: req.body.carStatus,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
-                vehical_desel_level: req.body.vehical_desel_level
+                carname: req.body.carname
             },
             invoice: {
                 invoice_number: req.body.invoice_number,
@@ -456,11 +456,11 @@ exports.put_booking = async (req, res) => {
                     handover_emp: req.body.handover_emp,
                     vehical_details: {
                         cartype: req.body.cartype,
-                        vehical_number: req.body.vehical_number,
+                        carno: req.body.carno,
                         fuelStatus: req.body.fuelStatus,
                         carStatus: req.body.carStatus,
                         vehical_lastcervising_date: req.body.vehical_lastcervising_date,
-                        vehical_desel_level: req.body.vehical_desel_level
+                        carname: req.body.carname
                     },
                     invoice: {
                         invoice_number: req.body.invoice_number,
@@ -481,7 +481,7 @@ exports.put_booking = async (req, res) => {
         if (x == booking_arr.length) {
             throw new Error("invalid Booking Id");
         }
-
+console.log("client put ",client_bookings);
 
         const data = await Client.findByIdAndUpdate(req.params.clientId, client_bookings, { new: true, runValidators: true })
         res.status(200).json({

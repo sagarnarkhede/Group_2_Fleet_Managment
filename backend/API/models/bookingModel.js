@@ -16,9 +16,9 @@ const bookingSchema = Schema({
        cartype: {type: String}, 
        fuelStatus: {type: String}, 
        carStatus: {type: String}, 
-       vehical_number: {type: Number}, 
+       carno: {type: Number}, 
        vehical_lastcervising_date: {type: Date}, 
-       vehical_desel_level: {type: Number}, 
+       carname: {type: String}, 
     },
     invoice:{
         invoice_number:{type:Number},

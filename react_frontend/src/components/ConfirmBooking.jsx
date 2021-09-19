@@ -35,11 +35,14 @@ class ConfirmBooking extends Component {
           }
          }
       }
+      ob.bookingid=data?.bookingid;
+      ob.clientid=data?.clientid;
       console.log("ob",ob);
     return(
       this.state = {
         fdata: ob,
         send:{},
+        handoverPopupShow:false
       }
     )
     }
@@ -55,6 +58,7 @@ class ConfirmBooking extends Component {
  
     mySubmitHandler = (event) => {
     event.preventDefault();
+    if(!(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")){
     console.log("Data In State",this.state.fdata);
     var url = "http://localhost:5555/clients/"
     if (this.state.fdata._id == "") {
@@ -80,6 +84,7 @@ class ConfirmBooking extends Component {
         })
     }
     console.log(this.state);
+  }
   };
 
   myChangeHandler = (event) => {
@@ -205,6 +210,7 @@ class ConfirmBooking extends Component {
       <button
               className="btn btn-primary"
               style={{ textAlign: "center", width: "20%" }}
+              onClick={()=>this.setState({handoverPopupShow:true})}
             >
               Hand-Over
             </button>
@@ -251,10 +257,9 @@ class ConfirmBooking extends Component {
     );
   }
   getForm() {
-    var handoverModel = true
     return (
       <React.Fragment>
-        {/* <Handoverdetail show={handoverModel} onHide={() =>{handoverModel = false} }/>   */}
+        <Handoverdetail show={this.state.handoverPopupShow} onHide={() => this.setState({handoverPopupShow:false})} data={this.state.fdata}/>
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
           <label>Your Booking : </label>
           <br />

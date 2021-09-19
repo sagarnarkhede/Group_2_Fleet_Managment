@@ -25,18 +25,31 @@ myChangeHandler = (event) => {
     this.setState({ [event.target.name]: event.target.value });
 }
 confirmReturn = () =>{
+  var staffid = sessionStorage.getItem("staff");
+  var staffData = "";
+  
   var ob = this.state.data.bookings[0]
     ob.booking_status="Complited"
     ob.cartype=this.state.data.bookings[0].vehical_details?.cartype
+    ob.carname=this.state.data.bookings[0].vehical_details?.carname;
     ob.invoice_number=this.state.data.bookings[0].invoice?.invoice_number
     ob.amount=this.state.data.bookings[0].invoice?.amount
     ob.nav=this.state.data.bookings[0].addon?.nav
     ob.camp=this.state.data.bookings[0].addon?.camp
     ob.chSeats=this.state.data.bookings[0].addon?.chSeats
     ob.quant=this.state.data.bookings[0].addon?.quant
-    //ob.fuelStatus=this.state.fuelStatus;
-    //ob.carStatus=this.state.carStatus;
+    ob.fuelStatus=this.state.fuelStatus;
+    ob.carStatus=this.state.carStatus;
+   
 
+    var carob = {}
+    carob.cartype=this.state.data.bookings[0].vehical_details?.cartype
+    carob.fuelStatus=this.state.fuelStatus;
+    carob.carStatus=this.state.carStatus;
+    carob.carname=this.state.data.carname;
+    carob.carno=this.state.data.carno;
+    carob.seat_capacity=this.state.data.seat_capacity;
+    carob.lastservice_date=this.state.data.vehical_lastcervising_date;
 
     axios.put("http://localhost:5555/clients/"+this.state.data.clientid+"/"+this.state.data.bookingid,ob)
           .then(async response => {
@@ -46,9 +59,30 @@ confirmReturn = () =>{
           .catch(error => {
             console.log(error.message);
           })
-          // console.log("complited ob",ob);
+
+
+    axios.get("http://localhost:5555/office/"+staffid)
+          .then(async response => {
+          staffData = response.data.data;
+          console.log("staffData",staffData);
+
+            axios.put("http://localhost:5555/centers/"+staffData.centername,ob)
+                .then(async response => {
+                const centerdata = response.data.data;
+                console.log("centerdata",centerdata);
+                })
+                .catch(error => {
+                  console.log(error);
+                })
+            })
+            .catch(error => {
+              console.log(error.message);
+            }) 
+    
+          // console.log("complited carob",carob);
           // console.log("complited it",this.state);
 }
+
    render() {
      return (
         <Modal
@@ -66,7 +100,7 @@ confirmReturn = () =>{
       <Modal.Body>
       <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
       <label> Booking Confirmation Number: </label>  <lable>{this.state.data._id}</lable><br/><br/>
-      <label>Vehicle Registration Number : </label> <lable>{this.state.data.vehical_number}</lable>
+      <label>Vehicle Registration Number : </label> <lable>{this.state.data.carno}</lable>
        <br/><br/>
        <label>Car Status</label> <input type="text"  name="carStatus" onChange={this.myChangeHandler}></input><br/><br></br>
         <p style = {{display: "flex"}}>  <label>Fuel Status:</label><span>

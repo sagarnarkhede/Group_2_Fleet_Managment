@@ -22,8 +22,10 @@ export default class Return extends Component {
       event.preventDefault();
       //console.log(this.state);
     }
+    
   myChangeHandler = (event) => {
       //this.setState({ [event.target.name]: event.target.value });
+      var date = new Date()
       this.state.client_data.forEach((ele)=>{
 
         ele.bookings.forEach((x)=>{
@@ -32,7 +34,10 @@ export default class Return extends Component {
            this.setState({client_id:ele._id})
           this.setState({booking_id:x._id})
            ele.bookings=[]
+           x.dropDate=date.toISOString().slice(0, 10)
+           x.dropTime=date.getHours()+":"+date.getMinutes()
            ele.bookings.push(x)
+           
            this.setState({data:ele})
            console.log("booking",ele);
            

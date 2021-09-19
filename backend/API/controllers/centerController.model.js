@@ -164,7 +164,7 @@ exports.get_centerById = async (req, res) => {
 
 exports.put_center = async (req, res) => {
     try {
-        const center_cars = await Centers.findById(req.params.centerId)
+        const center_data = await Centers.findById(req.params.centerId)
         const cars = new Cars({
             _id: mongoose.Types.ObjectId(),
             carname: req.body.carname,
@@ -178,23 +178,23 @@ exports.put_center = async (req, res) => {
             ratepermonth: req.body.ratepermonth,
             last_servicedate: req.body.last_servicedate
         })
+        center_data.cars.push(cars)
+        // const center = new Centers({
+        //     //_id: mongoose.Types.ObjectId(),
+        //     centerid: req.body.centerid,
+        //     centername: req.body.centername,
+        //     state: req.body.state,
+        //     city: req.body.city,
+        //     zip: req.body.zip,
+        //     address: req.body.address,
+        //     telphone: req.body.telphone,
+        //     officetime: req.body.officetime,
+        //     weeklyoff: req.body.weeklyoff,
+        //     cars: [cars]
+        // })
 
-        const center = new Centers({
-            //_id: mongoose.Types.ObjectId(),
-            centerid: req.body.centerid,
-            centername: req.body.centername,
-            state: req.body.state,
-            city: req.body.city,
-            zip: req.body.zip,
-            address: req.body.address,
-            telphone: req.body.telphone,
-            officetime: req.body.officetime,
-            weeklyoff: req.body.weeklyoff,
-            cars: [cars]
-        })
-
-        console.log(center);
-        const data = await Centers.findByIdAndUpdate(req.params.centerId, center, { new: true, runValidators: true })
+        console.log("center_data",center_data);
+        const data = await Centers.findByIdAndUpdate(req.params.centerId, center_data, { new: true, runValidators: true })
         res.status(200).json({
             code: 1,
             data: data,
