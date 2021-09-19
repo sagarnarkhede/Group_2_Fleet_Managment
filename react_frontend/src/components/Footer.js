@@ -11,12 +11,12 @@ export default class componentName extends Component {
 
                                 <div className="col-lg-4 col-md-6">
                                     <div className="footer-info">
-                                        <h3>India Drive</h3>
-                                        <p className="pb-3"><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, dolores consectetur. Quisquam earum beatae sunt?</em></p>
+                                        <h3>Rapid Rental</h3>
+                                        <p className="pb-3"><em> Your satisfaction is our main aim, Enjoy your holidays with our wheels</em></p>
                                         <p>
-                                            Address:<br/> Lorem ipsum dolor sit amet.<br/><br/>
-                                            <strong>Phone:</strong> +91 1234567890<br/>
-                                            <strong>Email:</strong> myemail@gmail.com 
+                                            Address:<br/>All over India<br/><br/>
+                                            <strong>Phone:</strong> +919834302938<br/>
+                                            <strong>Email:</strong> rapidrental@gmail.com 
                                         </p>
                                         
 
@@ -26,7 +26,7 @@ export default class componentName extends Component {
                                 <div className="col-lg-4 col-md-6 footer-links">
                                     <h4 style={{textAlign:"center"}}>Useful Links</h4>
                                     <ul>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Services</a></li>
+                                        <li><i className="bx bx-chevron-right" ></i> <a href="/#">Services</a></li>
                                         <li><i className="bx bx-chevron-right"></i> <a href="/#">About us</a></li>
                                         <li><i className="bx bx-chevron-right"></i> <a href="/#">Home</a></li>
                                         <li><i className="bx bx-chevron-right"></i> <a href="/#">Modify/Cancel Booking</a></li>
@@ -35,16 +35,7 @@ export default class componentName extends Component {
                                     </ul>
                                 </div>
 
-                                <div className="col-lg-4 col-md-6 footer-links">
-                                    <h4 style={{textAlign:"center"}}>Our Services</h4>
-                                    <ul>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
-                                        <li><i className="bx bx-chevron-right"></i> <a href="/#">Lorem, ipsum.</a></li>
-                                    </ul>
-                                </div>
+                               
 
 
 

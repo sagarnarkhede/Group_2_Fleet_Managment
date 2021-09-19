@@ -148,3 +148,55 @@
     "passport_valid": "2025-04-07",
     "passport_issued_by":"Indian Govt",
     "passport_date": "2020-08-09"
+
+
+    {
+    "fname" : "samarth",
+    "mname" : "Bhushan",
+    "lname": "Patil",
+    "email": "Samarth@gmail.com",
+    "password" : "Samarth@123",
+    "phone_number" : 2307000234,
+    "mobile_number": 8900195639,
+    "driving_lic" : "four wheeler",
+    "issue_date": "2020-07-15T23:28:56.782Z",
+    "address1":"Durga  nagar Wardha",
+    "city":"Wardha",
+    "state":"maharastra",
+    "zip":11721,
+     "address2":"Durga devi mandir near park Wardha",
+   
+    "card_type":"master",
+    "card_number":"141",
+    "booking_id":12394,
+    "pickupDate": "25/08/2021",
+    "pickupTime": "11:18",
+    "dropDate": "31/8/2021",
+    "dropTime": "01:44",
+    "inhand_center":149,
+    "handover_center":471,
+    "booking_status":"confirm",
+    "inhand_emp": 713,
+    "handover_emp": 984,
+    "cartype": "first class",
+"passport_number": 795111026,
+      "passport_valid": "2027-08-31",
+      "passport_issued_by": "Indian govt",
+      "passport_date": "2020-09-29",
+      
+      "IDP": "80589010",
+      "driving_issued_by": "govt",
+      "driving_valid": "2021-09-19",
+        
+    "vehical_number": 1896, 
+    "vehical_lastcervising_date": "2021-10-12T23:28:56.782Z", 
+    "vehical_desel_level": 93,
+    "invoice_number":147,
+    "amount":2500,
+    "pyment_method":"card",
+    "nav":"Gps nav",
+    "camp":"Camping Kit",
+    "chSeats":"Child seat",
+    "quant":2
+   
+}

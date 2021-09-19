@@ -9,7 +9,7 @@ import FailPop from './Modal/FailPop';
 import AreYouSurePop from './Modal/AreYouSurePop';
 import InvalidBookId from './Modal/InvalidBookIdPop';
 import InvalidIdPass from './Modal/InvalidIdPass';
-// import BookingSuccesful from './Modal/BookingSuccesful';
+//import BookingSuccesful from './Modal/BookingSuccesful';
 
 export default function Nav(props) {
     const [testmodalShow, setsuccessModalShow] = React.useState(false);
@@ -17,7 +17,7 @@ export default function Nav(props) {
     const [areyousuremodalShow, setareyousureModalShow] = React.useState(false);
     const [invalidbookmodalShow, setinvalidboookModalShow] = React.useState(false);
     const [invalidpassmodalShow, setinvalidpassModalShow] = React.useState(false);
-    // const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
+    //const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
     const [modalShow, setModalShow] = React.useState(false);
     const [returnmodalShow, setreturnModalShow] = React.useState(false);
     const [cancellationmodalShow, setcancellationModalShow] = React.useState(false);
@@ -89,7 +89,7 @@ export default function Nav(props) {
           <header id="header" className="fixed-top d-flex align-items-center header-transparent" style={props.style}>
             <div className="container d-flex align-items-center justify-content-between">
             <div className="logo">
-                <h1><a href="index.html"><span>India Drive Logo</span></a></h1>
+                <h1><a href="index.html"><span>Rapid Rental</span></a></h1>
                 
                     <Handover  show={modalShow}
                     onHide={() => setModalShow(false)} />
@@ -101,7 +101,7 @@ export default function Nav(props) {
                     <FailPop show={failmodalShow} onHide={() => setfailModalShow(false)}/> 
                     <AreYouSurePop show={areyousuremodalShow} onHide={() => setareyousureModalShow(false)}/>
                     <InvalidBookId show={invalidbookmodalShow} onHide={() => setinvalidboookModalShow(false)}/> 
-                    {/* <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>   */}
+                   {/* <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>   */}
                     <InvalidIdPass show={invalidpassmodalShow} onHide={() => setinvalidpassModalShow(false)}/>  
             </div>
             <nav id="navbar" className="navbar">
