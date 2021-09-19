@@ -33,11 +33,11 @@ export default function Nav(props) {
                 return(
                 <React.Fragment>
                     {/* <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li> */}
-                    {/* <li><a className="nav-link scrollto"  onClick={() => setinvalidpassModalShow(true)}>InvalidIdPass</a></li>
+                    <li><a className="nav-link scrollto"  onClick={() => setinvalidpassModalShow(true)}>InvalidIdPass</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setinvalidboookModalShow(true)}>InvalidBookId</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setareyousureModalShow(true)}>AreYouSurePop</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setfailModalShow(true)}>FailPop</a></li>
-                    <li><a className="nav-link scrollto"  onClick={() => setsuccessModalShow(true)}>SuccesPop</a></li> */}
+                    <li><a className="nav-link scrollto"  onClick={() => setsuccessModalShow(true)}>SuccesPop</a></li>
                     <li><a className="nav-link scrollto" href="/staffbookcar">Booking</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setModalShow1(true)} >Modify/Cancel</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setcancellationModalShow(true)}>Cancellation</a></li>
