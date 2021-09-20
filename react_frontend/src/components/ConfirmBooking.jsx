@@ -5,7 +5,6 @@ import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import Handoverdetail from "./Modal/Handoverdetail";
 import AreYouSurePop from "./Modal/AreYouSurePop";
-import FailPop from './Modal/FailPop';
 import SuccesPop from './Modal/SuccesPop';
 class ConfirmBooking extends Component {
   constructor(props) {
@@ -15,11 +14,9 @@ class ConfirmBooking extends Component {
    this.getState();
    
   }
-
   getState()
   {
     var data = this.props.location.state;
- 
     if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")
     {
       var ob = data.data;     
@@ -27,13 +24,11 @@ class ConfirmBooking extends Component {
       for(let x in ob.bookings[0])
       {
         if(typeof ob.bookings[0][x] == "string"){
-          //console.log(ob.bookings[0][x]);
          ob[x]=ob.bookings[0][x]
         }
         else if(typeof ob.bookings[0][x] == "object"){
           for(let y in ob.bookings[0][x])
           {
-            // console.log("y",y+":"+ob.bookings[0][x][y]);
             ob[y]=ob.bookings[0][x][y]
           }
          }
@@ -52,7 +47,6 @@ class ConfirmBooking extends Component {
         handoverPopupShow:false,
         areyousuremodalShow: false,
         bookingsuccesmodalShow: false,
-        failmodalShow: false
       }
     )
     }
@@ -69,13 +63,11 @@ class ConfirmBooking extends Component {
     mySubmitHandler = (event) => {
     event.preventDefault();
     if(!(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")){
-    // console.log("Data In State",this.state.fdata);
     var url = "http://localhost:5555/clients/"
     if (this.state.fdata._id == "") {
       console.log("new post");
       axios.post(url, this.state.fdata)
         .then(async response => {
-          // console.log(response);
         })
         .catch(error => {
           console.log(error.message);
@@ -84,9 +76,7 @@ class ConfirmBooking extends Component {
     else {
       
       if(sessionStorage.getItem("modify")){
-        
-        //sessionStorage.removeItem("modify")
-        var ob = this.state.fdata
+          var ob = this.state.fdata
             ob.bookingid=sessionStorage.getItem("modify")
             console.log("modify put",ob);
             axios.put("http://localhost:5555/clients/"+this.state.fdata._id,ob)
@@ -100,18 +90,9 @@ class ConfirmBooking extends Component {
               }
       else{
         console.log("existing put",this.state);
-        var id = this.state.fdata._id;
-        // axios.post(url +id, this.state.fdata)
-        //   .then(async response => {
-        //     // console.log(response);
-        //   })
-        //   .catch(error => {
-        //     console.log(error);
-        //   })
       }
       
     }
-    // console.log(this.state);
   }
   };
 
@@ -166,9 +147,6 @@ class ConfirmBooking extends Component {
 
   }}
   cancelBooking= (event)=>{
-    // event.preventDefault();
-    
-    // if(sessionStorage.getItem("status") == "yes"){
     var ob = this.state.fdata.bookings[0]
     ob.booking_status="canceled"
     ob.cartype=this.state.fdata.bookings[0].vehical_details?.cartype
@@ -184,17 +162,14 @@ class ConfirmBooking extends Component {
           const booking = response.data.data;
           
           this.setState({bookingsuccesmodalShow:true})
-          // console.log("bookingdata",booking);
+          this.setState({areyousuremodalShow:false})
           })
           .catch(error => {
             console.log(error.message);
           })
-          // console.log("cancelstate",ob);
-        // }
   }
   getBtn()
   {
-    //console.log("d",this.props.location.state);
     if(this.props.location.state.url == "return"){
       return(
         <React.Fragment>
@@ -215,7 +190,6 @@ class ConfirmBooking extends Component {
               Cancel Booking
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
-            
             <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
         </React.Fragment>
       )
@@ -238,7 +212,6 @@ class ConfirmBooking extends Component {
               Cancel Booking
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
-            
             <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
             </React.Fragment>
       )
@@ -246,8 +219,8 @@ class ConfirmBooking extends Component {
     else if(this.props.location.state.url == "handover"){
       return(
         <React.Fragment>
-      
-      <button
+              <Handoverdetail show={this.state.handoverPopupShow} onHide={() => this.setState({handoverPopupShow:false})} data={this.state.fdata}/>
+          <button
               className="btn btn-primary"
               style={{ textAlign: "center", width: "20%" }}
               onClick={()=>this.setState({handoverPopupShow:true})}
@@ -299,7 +272,6 @@ class ConfirmBooking extends Component {
   getForm() {
     return (
       <React.Fragment>
-        <Handoverdetail show={this.state.handoverPopupShow} onHide={() => this.setState({handoverPopupShow:false})} data={this.state.fdata}/>
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{   border: "2px solid black",borderRadius: "30px",   padding: "50px", }}>
           <label>Your Booking : </label>
           <br />
