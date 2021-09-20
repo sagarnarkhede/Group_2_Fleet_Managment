@@ -90,7 +90,16 @@ handoverit = ()=>{
           .catch(error => {
             console.log(error.message);
           })
-  // console.log("clientOb",ob);
+    
+   axios.put("http://localhost:5555/centers/"+this.state.centerData1._id+"/"+this.state.selectedCar._id,this.state.selectedCar)
+        .then(async response => {
+          const car = response.data.data;
+          // console.log("bookingdata",booking);
+          })
+          .catch(error => {
+            console.log(error.message);
+          })
+  // console.log("carOb",this.state.selectedCar);
 }
    render() {
      return (

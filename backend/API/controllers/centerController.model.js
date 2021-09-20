@@ -217,30 +217,35 @@ exports.put_car = async (req, res) => {
         const center_cars = await Centers.findById(req.params.centerId)
 
         car_arr = center_cars.cars
-        for (var x = 0; x < car_arr.length; x++) {
-            if (car_arr[x]._id == req.params.carId) {
-                const car = {
-                    _id: car_arr[x]._id,
-                    carname: req.body.carname,
-                    carno: req.body.carno,
-                    cartype: req.body.cartype,
-                    seat_capacity: req.body.seat_capacity,
-                    fuelStatus: req.body.fuelStatus,
-                    carStatus: req.body.carStatus,
-                    rateperday: req.body.rateperday,
-                    rateperweek: req.body.rateperweek,
-                    ratepermonth: req.body.ratepermonth,
-                    last_servicedate: req.body.last_servicedate
-                }
-                car_arr[x] = car;
-                break;
-            }
-        }
-        if (x == car_arr.length) {
-            throw new Error("invalid Car Id");
-        }
+        // for (var x = 0; x < car_arr.length; x++) {
+        //     if (car_arr[x]._id == req.params.carId) {
+        //         const car = {
+        //             _id: car_arr[x]._id,
+        //             carname: req.body.carname,
+        //             carno: req.body.carno,
+        //             cartype: req.body.cartype,
+        //             seat_capacity: req.body.seat_capacity,
+        //             fuelStatus: req.body.fuelStatus,
+        //             carStatus: req.body.carStatus,
+        //             rateperday: req.body.rateperday,
+        //             rateperweek: req.body.rateperweek,
+        //             ratepermonth: req.body.ratepermonth,
+        //             last_servicedate: req.body.last_servicedate
+        //         }
+        //         car_arr[x] = car;
+        //         break;
+        //     }
+        // }
+        var newarr = car_arr.filter((ele)=>{
+            return ele._id != req.params.carId
+        })
+        center_cars.cars = newarr
+        
+        // if (x == car_arr.length) {
+        //     throw new Error("invalid Car Id");
+        // }
 
-
+        console.log("center_cars",center_cars);
         const data = await Centers.findByIdAndUpdate(req.params.centerId, center_cars, { new: true, runValidators: true })
         res.status(200).json({
             code: 1,
