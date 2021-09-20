@@ -34,7 +34,7 @@ class Home extends Component {
                         <div class="text-center text-lg-start">
                             <a href="http://localhost:3000/" class="btn-get-started scrollto">Get Started</a>
                         </div> */}
-                                    <br /><br />
+                                    
                                     <BookCar flag={0} />
                                     {/* {this.getBookengine} */}
                                 </div>

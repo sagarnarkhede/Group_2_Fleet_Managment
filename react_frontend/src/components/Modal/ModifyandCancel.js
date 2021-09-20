@@ -33,9 +33,10 @@ export default class ModifyandCancel extends Component {
           {
             this.setState({client_id:ele._id})
             this.setState({booking_id:x._id})
-          //  console.log("booking",ele);
+           console.log("booking",ele._id);
            ele.bookings=[]
            ele.bookings.push(x)
+          //  ele._id=this.state.client_id
            this.setState({data:ele})
            //this.setState({data.pickuptate:x.pickupdate})
           }
@@ -54,9 +55,12 @@ getbtn()
 {
   
   if(this.state.booking_id != ""){
-    console.log("bid",this.state);
-  return(<Link to={{ pathname: "/confirmbooking", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"modify"} }} >
-  <button type="button" class="btn btn-primary">Search</button>
+    
+    var mydata = this.state.data
+    mydata._id=this.state.client_id
+    console.log("bid",mydata);
+  return(<Link to={{ pathname: "/confirmbooking", state: {data: mydata,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"modify"} }} >
+  <button type="button" class="btn btn-primary" >Search</button>
   </Link>  )}
   else{
     return(<button type="button" class="btn btn-primary" onClick={()=>this.setState({invalidbookmodalShow:true})}>Search</button>)
@@ -85,18 +89,6 @@ getbtn()
      <label> Booking Confirmation Number: </label><input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
      {this.getbtn()}  
       </div><br/><br/>
-      {this.state.showButtons && <div class="form-group">
-                <button class="btn btn-primary" style = {{float: "center"}}
-                        type="submit">
-                     Modify
-                </button>
-
-                <button class="btn btn-primary" style = {{float: "right"}}
-                        type="submit" onClick={this.props.onHide} >
-                     Cancel
-                </button>
-            </div>
-   }
         </div>
         
      </Modal.Body>

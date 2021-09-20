@@ -19,7 +19,7 @@ class ConfirmBooking extends Component {
  
     if(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")
     {
-      var ob = data.data;
+      var ob = data.data;     
       
       for(let x in ob.bookings[0])
       {
@@ -37,7 +37,11 @@ class ConfirmBooking extends Component {
       }
       ob.bookingid=data?.bookingid;
       ob.clientid=data?.clientid;
-      console.log("ob",ob);
+      if(this.props.location.state.url == "modify"){
+        ob._id = this.props.location.state.clientid
+        sessionStorage.setItem("modify",this.props.location.state.bookingid)
+      }
+      // console.log("ob",ob);
     return(
       this.state = {
         fdata: ob,
@@ -59,31 +63,49 @@ class ConfirmBooking extends Component {
     mySubmitHandler = (event) => {
     event.preventDefault();
     if(!(this.props.location.state.url == "modify" || this.props.location.state?.url == "return" || this.props.location.state?.url == "cancelbooking" || this.props.location.state?.url == "handover")){
-    console.log("Data In State",this.state.fdata);
+    // console.log("Data In State",this.state.fdata);
     var url = "http://localhost:5555/clients/"
     if (this.state.fdata._id == "") {
       console.log("new post");
       axios.post(url, this.state.fdata)
         .then(async response => {
-          console.log(response);
+          // console.log(response);
         })
         .catch(error => {
           console.log(error.message);
         })
     }
     else {
-      console.log("existing put");
-
-      var id = this.state.fdata._id;
-      axios.post(url +id, this.state.fdata)
-        .then(async response => {
-          console.log(response);
-        })
-        .catch(error => {
-          console.log(error);
-        })
+      
+      if(sessionStorage.getItem("modify")){
+        
+        //sessionStorage.removeItem("modify")
+        var ob = this.state.fdata
+            ob.bookingid=sessionStorage.getItem("modify")
+            console.log("modify put",ob);
+            axios.put("http://localhost:5555/clients/"+this.state.fdata._id,ob)
+                  .then(async response => {
+                  const booking = response.data.data;
+                  console.log("bookingdata",booking);
+                  })
+                  .catch(error => {
+                    console.log(error.message);
+                  }).finally(()=>sessionStorage.removeItem("modify"))
+              }
+      else{
+        console.log("existing put",this.state);
+        var id = this.state.fdata._id;
+        // axios.post(url +id, this.state.fdata)
+        //   .then(async response => {
+        //     // console.log(response);
+        //   })
+        //   .catch(error => {
+        //     console.log(error);
+        //   })
+      }
+      
     }
-    console.log(this.state);
+    // console.log(this.state);
   }
   };
 
@@ -152,12 +174,12 @@ class ConfirmBooking extends Component {
     axios.put("http://localhost:5555/clients/"+this.props.location.state.clientid+"/"+this.props.location.state.bookingid,ob)
           .then(async response => {
           const booking = response.data.data;
-          console.log("bookingdata",booking);
+          // console.log("bookingdata",booking);
           })
           .catch(error => {
             console.log(error.message);
           })
-          console.log("cancelstate",ob);
+          // console.log("cancelstate",ob);
   }
   getBtn()
   {

@@ -40,7 +40,7 @@ confirmReturn = () =>{
     ob.quant=this.state.data.bookings[0].addon?.quant
     ob.fuelStatus=this.state.fuelStatus;
     ob.carStatus=this.state.carStatus;
-   
+    ob.carno=this.state.data.carno;
 
     var carob = {}
     carob.cartype=this.state.data.bookings[0].vehical_details?.cartype
@@ -79,8 +79,8 @@ confirmReturn = () =>{
               console.log(error.message);
             }) 
     
-          // console.log("complited carob",carob);
-          // console.log("complited it",this.state);
+          console.log("complited carob",carob);
+          console.log("complited it",this.state);
 }
 
    render() {

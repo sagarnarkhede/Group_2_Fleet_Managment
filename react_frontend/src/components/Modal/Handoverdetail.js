@@ -44,12 +44,12 @@ componentDidMount(){
   axios.get("http://localhost:5555/office/"+staffid)
           .then(async response => {
           staffData = response.data.data;
-          console.log("staffData",staffData);
+          // console.log("staffData",staffData);
             axios.get("http://localhost:5555/centers/"+staffData.centername)
                 .then(async response => {
                 centerData = response.data.data;
                 this.setState({centerData1:centerData})
-                console.log("centerdata",centerData);
+                // console.log("centerdata",centerData);
                 })
                 .catch(error => {
                   console.log(error);
@@ -66,7 +66,7 @@ getSelectcarPopup = ()=>{
   }
 }
 handoverit = ()=>{
-  console.log("fdata",this.state);
+  // console.log("fdata",this.state);
 
   var ob = this.state.data.bookings[0]
     ob.booking_status="handover"
@@ -85,12 +85,12 @@ handoverit = ()=>{
   axios.put("http://localhost:5555/clients/"+this.state.data.clientid+"/"+this.state.data.bookingid,ob)
           .then(async response => {
           const booking = response.data.data;
-          console.log("bookingdata",booking);
+          // console.log("bookingdata",booking);
           })
           .catch(error => {
             console.log(error.message);
           })
-  console.log("clientOb",ob);
+  // console.log("clientOb",ob);
 }
    render() {
      return (
@@ -113,7 +113,7 @@ handoverit = ()=>{
       <Modal.Body>
       <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
       <label> Booking Confirmation Number: </label>  <input type="text"  name="booking_id" value={this.state.data.bookingid} onChange={this.myChangeHandler}></input>  <button type="button" class="btn btn-primary" disabled>Search</button><br/><br/>
-      <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number" defaultValue={this.state.selectedCar.carno}></input> <button type="button" class="btn btn-primary" onClick={this.selectcar}>Select Car</button>
+      <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number" defaultValue={this.state.selectedCar?.carno}></input> <button type="button" class="btn btn-primary" onClick={this.selectcar}>Select Car</button>
        <br/><br/>
        <label>Car Status</label> <input type="text"  name="carStatus" onChange={this.myChangeHandler}></input><br/><br></br>
         <p style = {{display: "flex"}}>  <label>Fuel Status:</label><span>
