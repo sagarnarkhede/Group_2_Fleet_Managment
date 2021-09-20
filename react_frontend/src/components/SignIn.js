@@ -26,6 +26,7 @@ class SignIn extends Component {
                         this.props.history.push("/")
                     }
                     else{
+                        this.setState({ invalidpassmodalShow:true})
                         console.log("invalid Login details...");
                     }                
             })
@@ -44,9 +45,13 @@ class SignIn extends Component {
                         console.log("Office staff SignIn sucessfully...");
                         sessionStorage.setItem("staff",this.state.userid)
                         this.props.history.push("/")
+                    }
+                    else{
+                        this.setState({ invalidpassmodalShow:true})
                     }                
             })
             .catch(error => {
+                this.setState({ invalidpassmodalShow:true})
                 console.log(error);
             })
         }
@@ -72,7 +77,7 @@ class SignIn extends Component {
                         <br />
                         <br />
                         {/* <Link to={{ pathname: "/"}} > */}
-                        <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({ invalidpassmodalShow:true})}>Sign In</button>
+                        <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Sign In</button>
                         {/* </Link> */}
                         <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Back</button>
                     </form>

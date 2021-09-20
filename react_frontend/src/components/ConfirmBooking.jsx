@@ -5,7 +5,8 @@ import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import Handoverdetail from "./Modal/Handoverdetail";
 import AreYouSurePop from "./Modal/AreYouSurePop";
-
+import FailPop from './Modal/FailPop';
+import SuccesPop from './Modal/SuccesPop';
 class ConfirmBooking extends Component {
   constructor(props) {
     super(props);
@@ -49,7 +50,9 @@ class ConfirmBooking extends Component {
         fdata: ob,
         send:{},
         handoverPopupShow:false,
-        areyousuremodalShow: false
+        areyousuremodalShow: false,
+        bookingsuccesmodalShow: false,
+        failmodalShow: false
       }
     )
     }
@@ -163,7 +166,9 @@ class ConfirmBooking extends Component {
 
   }}
   cancelBooking= (event)=>{
-    event.preventDefault();
+    // event.preventDefault();
+    
+    // if(sessionStorage.getItem("status") == "yes"){
     var ob = this.state.fdata.bookings[0]
     ob.booking_status="canceled"
     ob.cartype=this.state.fdata.bookings[0].vehical_details?.cartype
@@ -173,16 +178,19 @@ class ConfirmBooking extends Component {
     ob.camp=this.state.fdata.bookings[0].addon?.camp
     ob.chSeats=this.state.fdata.bookings[0].addon?.chSeats
     ob.quant=this.state.fdata.bookings[0].addon?.quant
-
+      
     axios.put("http://localhost:5555/clients/"+this.props.location.state.clientid+"/"+this.props.location.state.bookingid,ob)
           .then(async response => {
           const booking = response.data.data;
+          
+          this.setState({bookingsuccesmodalShow:true})
           // console.log("bookingdata",booking);
           })
           .catch(error => {
             console.log(error.message);
           })
           // console.log("cancelstate",ob);
+        // }
   }
   getBtn()
   {
@@ -201,11 +209,14 @@ class ConfirmBooking extends Component {
      <button
               className="btn btn-primary"
               style={{ textAlign: "center", float: "center", width: "20%" }}
+              // onClick={this.cancelBooking}
               onClick={()=>this.setState({areyousuremodalShow:true})}
             >
               Cancel Booking
             </button>
-            <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})}/>
+            <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
+            
+            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
         </React.Fragment>
       )
     }
@@ -222,10 +233,13 @@ class ConfirmBooking extends Component {
             <button
               className="btn btn-primary"
               style={{ textAlign: "center", float: "right", width: "20%" }}
-              onClick={this.cancelBooking}
+              onClick={()=>this.setState({areyousuremodalShow:true})}
             >
               Cancel Booking
             </button>
+            <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
+            
+            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
             </React.Fragment>
       )
     }
@@ -243,7 +257,7 @@ class ConfirmBooking extends Component {
             <button
               className="btn btn-primary"
               style={{ textAlign: "center", float: "right", width: "20%" }}
-              onClick={this.cancelBooking}
+              
             >
               Back
             </button>

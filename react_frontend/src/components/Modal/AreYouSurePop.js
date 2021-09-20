@@ -11,8 +11,6 @@ export default class AreYouSurePop extends Component {
         
         this.state = {
            showButtons: false,
-           bookingsuccesmodalShow: false,
-           failmodalShow: false
         }
       }
      
@@ -27,9 +25,7 @@ export default class AreYouSurePop extends Component {
   render() {
     return (
       <React.Fragment>
-      <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
       <FailPop show={this.state.failmodalShow} onHide={() =>this.setState({failmodalShow:false})}/> 
-      
        <Modal
      {...this.props}
      size="lg"
@@ -52,8 +48,10 @@ export default class AreYouSurePop extends Component {
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
                                                         loop autoplay></lottie-player><br/>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "left", width: "20%" }}  onClick={()=>this.setState({bookingsuccesmodalShow:true})}>Yes</button>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={()=>this.setState({failmodalShow:true})}>No</button>
+     <button className="btn btn-primary" style={{ textAlign: "center", float: "left", width: "20%" }}  
+     onClick={this.props.cancel}
+     >Yes</button>
+     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={()=>{this.setState({failmodalShow:true})}}>No</button>
       </div><br/><br/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>
