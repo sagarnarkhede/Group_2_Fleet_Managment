@@ -145,7 +145,8 @@ export default class Location extends Component {
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"   key={u._id} onClick={() => this.handleSelect(u)}/>
                             <p class="form-check-label" for="flexRadioDefault1">
-                              <h2>{u.address} </h2>
+                              <h2>{u.centername} </h2>
+                              Address:{u.address}<br/>
                               Contact No:  {u.telphone}<br />
                               Office Time: {u.officetime}<br />
                               Weekly Off:  {u.weeklyoff}</p>

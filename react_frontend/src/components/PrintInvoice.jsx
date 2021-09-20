@@ -28,23 +28,32 @@ class PrintInvoice extends Component {
             // console.log("y",y+":"+ob.bookings[0][x][y]);
             ob[y] = ob.bookings[0][x][y]
           }
-        }
+         }
       }
-      ob.bookingid = data.bookingid;
-      ob.clientid = data.clientid;
-      // console.log("ob", ob);
-      
-      return (
-        this.state = {
-          fdata: ob,
-          send: {},
-          returnPopupShow: false
-        }
+      ob.bookingid=data.bookingid;
+      ob.clientid=data.clientid;
+      console.log("ob",ob);
+    return(
+      this.state = {
+        fdata: ob,
+        showheader:false,
+        send:{},
+        returnPopupShow:false,
+        
+      }
       )
     }
   }
-
-  mySubmitHandler = (event) => {
+    handleheader =()=>{
+      this.setState({showheader:true})
+      console.log("shubham",this.state.showheader);
+      
+    }
+    handleprint =()=>{
+      window.print();
+      console.log("shubham");
+    }
+    mySubmitHandler = (event) => {
     event.preventDefault();
 
   };
@@ -106,8 +115,14 @@ class PrintInvoice extends Component {
     if (this.props.location.state.url == "return") {
       return (
         <React.Fragment>
-          <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }} onClick={() => this.setState({ returnPopupShow: true })}>Return</button>
-          <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={(event) => { event.preventDefault(); this.props.history.goBack() }}>Back</button>
+      
+      {!this.state.showheader && <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({returnPopupShow:true})}>Return</button>}      
+     
+     
+  {!this.state.showheader && <button type="button" class="btn btn-primary"style={{ textAlign: "center", marginLeft:"220px" , width: "20%" }}  onClick={this.handleheader}>Next</button>}
+  {this.state.showheader && <button type="button" class="btn btn-primary" style={{ textAlign: "center", float:"left", width: "20%" }} onClick={this.handleprint}>Print</button>}
+
+      {<button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={(event)=>{event.preventDefault();this.props.history.goBack()}}>Back</button>}
         </React.Fragment>
       )
     }
@@ -347,13 +362,14 @@ class PrintInvoice extends Component {
     console.log("mystae",this.state)
     return (
       <div>
-        <Nav />
+        {!this.state.showheader && <Nav />}
+        {console.log(this.state.showheader,"shubham1")}
         <div className="" style={{ margin: "13vh 10%" }}>
-          <h1 className="compHeading">Return : </h1>
+         { !this.state.showheader && <h1 className="compHeading">Return : </h1>}
           <br />
           {this.getForm()}
         </div>
-        <Footer />
+        {!this.state.showheader && <Footer /> }
       </div>
     );
   }
