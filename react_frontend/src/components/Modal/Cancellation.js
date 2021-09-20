@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 import Modal from "react-bootstrap/Modal"
 import axios from 'axios'
-
+import InvalidBookId from './InvalidBookIdPop';
 export default class Cancellation extends Component {
     constructor(props) {
         super(props);
@@ -15,7 +15,8 @@ export default class Cancellation extends Component {
            booking_id:"",
            client_id: "",
            client_data: [],
-           data:{}
+           data:{},
+           invalidbookmodalShow: false
         }
       }
      
@@ -58,14 +59,15 @@ getbtn()
   <button type="button" class="btn btn-primary">Search</button>
   </Link>  )}
   else{
-    return(<button type="button" class="btn btn-primary" onClick={()=>alert("invalid")}>Search</button>)
+    return(<button type="button" class="btn btn-primary" onClick={()=>this.setState({invalidbookmodalShow:true})}>Search</button>)
   }
 
 }
 
   render() {
     return (
-      
+      <React.Fragment>
+      <InvalidBookId show={this.state.invalidbookmodalShow} onHide={() =>this.setState({invalidbookmodalShow:false})}/> 
        <Modal
      {...this.props}
      size="lg"
@@ -100,6 +102,7 @@ getbtn()
         
      </Modal.Body>
    </Modal>
+   </React.Fragment>
     );
   }
 }

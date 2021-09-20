@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import axios from "axios";
 import { Switch, Route, Link } from "react-router-dom";
 import Handoverdetail from "./Modal/Handoverdetail";
+import AreYouSurePop from "./Modal/AreYouSurePop";
 
 class ConfirmBooking extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class ConfirmBooking extends Component {
     console.log("confirmbooking info ", this.props.location.state);
     sessionStorage.removeItem("userdata"); 
    this.getState();
+   
   }
 
   getState()
@@ -46,7 +48,8 @@ class ConfirmBooking extends Component {
       this.state = {
         fdata: ob,
         send:{},
-        handoverPopupShow:false
+        handoverPopupShow:false,
+        areyousuremodalShow: false
       }
     )
     }
@@ -198,10 +201,11 @@ class ConfirmBooking extends Component {
      <button
               className="btn btn-primary"
               style={{ textAlign: "center", float: "center", width: "20%" }}
-              onClick={this.cancelBooking}
+              onClick={()=>this.setState({areyousuremodalShow:true})}
             >
               Cancel Booking
             </button>
+            <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})}/>
         </React.Fragment>
       )
     }
