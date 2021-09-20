@@ -2,18 +2,18 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const officeSchema = Schema({
     _id:Schema.Types.ObjectId,
-    fname: { type: String },
-    mname: { type: String },
-    lname: { type: String },
-    email: { type: String },
-    address: {type:String },
-    city:{type:String},
-    zip: { type: Number },
-    idproof:{type:String},
-    centername:{type:String} ,
-    username:{type:String},
+    fname: { type: String, default:null },
+    mname: { type: String ,default:null},
+    lname: { type: String ,default:null },
+    email: { type: String ,default:null},
+    address: {type:String ,default:null },
+    city:{type:String ,default:null},
+    zip: { type: Number ,default:0},
+    idproof:{type:String,default:null},
+    centername:{type:String,default:null} ,
+    username:{type:String,default:null},
 
-    password: {type: String},
+    password: {type: String,default:null},
   
   
 })

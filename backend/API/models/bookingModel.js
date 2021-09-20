@@ -2,34 +2,34 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 const bookingSchema = Schema({
     _id:Schema.Types.ObjectId,
-    booking_id: { type: Number},
-    pickupDate: { type: String }, // *
-    pickupTime: { type: String},
-    dropDate: {type: String},
-    dropTime: { type: String},
-    inhand_center: { type: String},  // *
-    handover_center: { type: String},  // *
-    booking_status: { type: String},   // *
-    inhand_emp: { type: Number},  
-    handover_emp: { type: Number},
+    booking_id: { type: Number,default:0},
+    pickupDate: { type: String,default:null }, // *
+    pickupTime: { type: String,default:null},
+    dropDate: {type: String,default:null},
+    dropTime: { type: String,default:null},
+    inhand_center: { type: String,default:null},  // *
+    handover_center: { type: String,default:null},  // *
+    booking_status: { type: String,default:null},   // *
+    inhand_emp: { type: Number,default:null},  
+    handover_emp: { type: Number,default:0},
     vehical_details: { 
-       cartype: {type: String}, 
-       fuelStatus: {type: String}, 
-       carStatus: {type: String}, 
-       carno: {type: Number}, 
-       vehical_lastcervising_date: {type: Date}, 
-       carname: {type: String}, 
+       cartype: {type: String,default:null}, 
+       fuelStatus: {type: String,default:null}, 
+       carStatus: {type: String,default:null}, 
+       carno: {type: Number,default:0}, 
+       vehical_lastcervising_date: {type: String,default:null}, 
+       carname: {type: String,default:null}, 
     },
     invoice:{
-        invoice_number:{type:Number},
-        amount:{type:Number},   // *
-        pyment_method:{type:String}
+        invoice_number:{type:Number,default:0},
+        amount:{type:Number,default:0},   // *
+        pyment_method:{type:String,default:null}
     },
     addon:{
-        nav:{type: String},
-       camp:{type: String},
-       chSeats:{type: String},
-       quant:{type: Number}
+        nav:{type: String,default:null},
+       camp:{type: String,default:null},
+       chSeats:{type: String,default:null},
+       quant:{type: Number,default:0}
     }
 })
 
