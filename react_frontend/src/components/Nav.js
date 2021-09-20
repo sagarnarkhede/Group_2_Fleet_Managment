@@ -4,11 +4,9 @@ import ModifyandCancel from '../components/Modal/ModifyandCancel'
 import { Link } from 'react-router-dom';
 import Return from './Modal/Return';
 import Cancellation from './Modal/Cancellation';
-import BookingSuccesful from './Modal/BookingSuccesful';
+
 
 export default function Nav(props) {
-    
-    const [bookingsuccesmodalShow, setbookingsuccesModalShow] = React.useState(false);
     const [modalShow, setModalShow] = React.useState(false);
     const [returnmodalShow, setreturnModalShow] = React.useState(false);
     const [cancellationmodalShow, setcancellationModalShow] = React.useState(false);
@@ -23,7 +21,6 @@ export default function Nav(props) {
             {
                 return(
                 <React.Fragment>
-                    <li><a className="nav-link scrollto"  onClick={() => setbookingsuccesModalShow(true)}>BookingSuccesful</a></li>
                     <li><a className="nav-link scrollto" href="/staffbookcar">Booking</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setModalShow1(true)} >Modify/Cancel</a></li>
                     <li><a className="nav-link scrollto"  onClick={() => setcancellationModalShow(true)}>Cancellation</a></li>
@@ -76,16 +73,14 @@ export default function Nav(props) {
             <div className="container d-flex align-items-center justify-content-between">
             <div className="logo">
                 <h1><a href="index.html"><span>Rapid Rental</span></a></h1>
-                
                     <Handover  show={modalShow}
                     onHide={() => setModalShow(false)} />
                     <ModifyandCancel  show={modalShow1}
                     onHide={() => setModalShow1(false)} />
                     <Return show={returnmodalShow} onHide={() => setreturnModalShow(false)}/>  
                     <Cancellation show={cancellationmodalShow} onHide={() => setcancellationModalShow(false)}/>  
-                    <BookingSuccesful show={bookingsuccesmodalShow} onHide={() => setbookingsuccesModalShow(false)}/>  
                     
-            </div>
+                     </div>
             <nav id="navbar" className="navbar">
                 <ul>
                 <li><a className="nav-link scrollto" href="/">Home</a></li>

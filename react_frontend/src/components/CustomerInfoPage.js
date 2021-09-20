@@ -3,6 +3,7 @@ import Nav from './Nav'
 import Footer from './Footer'
 import axios from 'axios'
 import { Link, NavLink } from 'react-router-dom';
+import InvalidIdPass from './Modal/InvalidIdPass';
 class CustomerInfoPage extends Component {
     constructor(props) {
         super(props);
@@ -37,7 +38,8 @@ class CustomerInfoPage extends Component {
             booking_status: 'booked',
             amount: '',
             invoice_number:'',
-            fullData:this.props.location.state
+            fullData:this.props.location.state,
+            invalidpassmodalShow: false
         }
     }
 
@@ -281,10 +283,12 @@ class CustomerInfoPage extends Component {
                     }
                 }
                 else {
-                    alert("invalid Id pass")
+                    this.setState({ invalidpassmodalShow:true})
+                   // alert("invalid Id pass")
                 }
             }).catch((e) => {
-                alert("invalid Id pass")
+                this.setState({ invalidpassmodalShow:true})
+                //alert("invalid Id pass")
                 console.log("e", e.message);
             })
     }
@@ -297,6 +301,7 @@ class CustomerInfoPage extends Component {
     getLogin() {
         return (
             <React.Fragment>
+                 <InvalidIdPass show={this.state.invalidpassmodalShow} onHide={() =>this.setState({invalidpassmodalShow:false})} />
                 <form className="form-group" onSubmit={this.myLoginHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                     <label >Membership No : </label>
                     <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler}></input>

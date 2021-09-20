@@ -6,6 +6,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import Handoverdetail from "./Modal/Handoverdetail";
 import AreYouSurePop from "./Modal/AreYouSurePop";
 import SuccesPop from './Modal/SuccesPop';
+import BookingSuccesful from "./Modal/BookingSuccesful";
 class ConfirmBooking extends Component {
   constructor(props) {
     super(props);
@@ -54,7 +55,8 @@ class ConfirmBooking extends Component {
       return(
         this.state = {
           fdata: data,
-          send:this.props.location.state
+          send:this.props.location.state,
+          bookingsucces1modalShow:true
         }
       )
     }
@@ -240,9 +242,10 @@ class ConfirmBooking extends Component {
     else{
     return(
       <React.Fragment>
+      <BookingSuccesful show={this.state.bookingsucces1modalShow} onHide={() =>this.setState({bookingsucces1modalShow:false})}/>
     <button
             className="btn btn-primary"
-            style={{ textAlign: "center", width: "20%" }}
+            style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({bookingsucces1modalShow:true})}
           >
             Book Now
           </button>
