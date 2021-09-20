@@ -297,7 +297,7 @@ class PrintInvoice extends Component {
               <tr>
                 <th scope="row">1</th>
                 <td>Car Rent</td>
-                <td>55</td>
+                <td>1</td>
                 <td>55</td>
                 <td>55</td>
               </tr>
