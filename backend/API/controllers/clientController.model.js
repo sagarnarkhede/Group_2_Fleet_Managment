@@ -323,7 +323,7 @@ exports.post_booking = async (req, res) => {
               <p>
               phone:- +919834302938</p>
               <p>
-              email id:- abc@gmail.com
+              email id:- rapidrental@gmail.com
               </p>
             </div>
             </body>
