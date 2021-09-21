@@ -10,17 +10,15 @@ export default class BookCar extends Component {
         this.handleBack = this.handleBack.bind(this)
         console.log("bookcar", this.props);
         this.getStates()
-        
+
     }
-    
-    
-    getStates()
-    {
-        if(this.props.location?.state?.url == "custemerinfo")
-        {
+
+
+    getStates() {
+        if (this.props.location?.state?.url == "custemerinfo") {
             var data = this.props.location.state.data?.cardetailsState?.locationState.bookingState
             // console.log(this.props.location.state.data?.cardetailsState?.locationState.bookingState);
-            return(
+            return (
                 this.state = {
                     pickupDate: data.pickupDate,
                     dropDate: data.dropDate,
@@ -35,28 +33,28 @@ export default class BookCar extends Component {
                     selectdroppAirport: data.selectdroppAirport,
                     dropcity: data.dropcity,
                     dropstate: data.dropstate,
-                    airportdata: [],  
+                    airportdata: [],
                 })
         }
-        else{
-            return(
-        this.state = {
-            pickupDate: '',
-            dropDate: '',
-            pickupTime: '',
-            dropTime: '',
-            searchpickupAirport: '',
-            selectpickupAirport: '',
-            pickupcity: '',
-            pickupstate: '',
-            returncheck: '',
-            searchdropAirport: '',
-            selectdroppAirport: '',
-            dropcity: '',
-            dropstate: '',
-            airportdata: [],  
-        })
-    }
+        else {
+            return (
+                this.state = {
+                    pickupDate: '',
+                    dropDate: '',
+                    pickupTime: '',
+                    dropTime: '',
+                    searchpickupAirport: '',
+                    selectpickupAirport: '',
+                    pickupcity: '',
+                    pickupstate: '',
+                    returncheck: '',
+                    searchdropAirport: '',
+                    selectdroppAirport: '',
+                    dropcity: '',
+                    dropstate: '',
+                    airportdata: [],
+                })
+        }
     }
     mySubmitHandler = (event) => {
         event.preventDefault();
@@ -64,34 +62,44 @@ export default class BookCar extends Component {
     }
     handleBack() {
         this.props.history.goBack()
-     }
+    }
     componentDidMount() {
         axios.get("http://localhost:5555/airport")
             .then(async response => {
                 const airport_arr = response.data.data;
-                this.setState({ airportdata: airport_arr});
+                this.setState({ airportdata: airport_arr });
 
             })
             .catch(error => {
                 console.log(error);
             })
     }
+    mydropHandler = async (e) => {
+        await this.setState({ [e.target.name]: e.target.value });
+        
 
+
+    }
     myChangeHandler = async (event) => {
         await this.setState({ [event.target.name]: event.target.value });
-        console.log(this.state)    
-        console.log(event)    
-        if(this.state.selectpickupAirport != "")
-        {
-            this.state.airportdata.forEach((ele)=>{
-                if(ele.airportno == this.state.selectpickupAirport)
-                {
-                    this.setState({searchpickupAirport:ele.airportname})
+        console.log(this.state)
+        console.log(event)
+        if (this.state.selectpickupAirport != "") {
+            this.state.airportdata.forEach((ele) => {
+                if (ele.airportno == this.state.selectpickupAirport) {
+                    this.setState({ searchpickupAirport: ele.airportname })
                     console.log(this.state.searchpickupAirport);
                 }
             })
         }
-        
+        if (this.state.selectdroppAirport != "") {
+            this.state.airportdata.forEach((ele) => {
+                if (ele.airportno == this.state.selectdroppAirport) {
+                    this.setState({ searchdropAirport: ele.airportname })
+                    console.log(this.state.searchdropAirport);
+                }
+            })
+        }
     }
     drop(params) {
         if (this.state.returncheck) {
@@ -107,7 +115,7 @@ export default class BookCar extends Component {
                             <div className="col-6">
                                 <label className="sublabel">Select AirPort no : </label>
                                 <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
-                                <option value="-1">Select Airport</option>
+                                    <option value="-1">Select Airport</option>
                                     {this.state.airportdata.map((w) => {
                                         return (
                                             <option value={w._id}>{w.airportno}</option>
@@ -123,7 +131,7 @@ export default class BookCar extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <label className="sublabel">City : </label>
-                                <input type="text" className="form-control" name="dropcity" defaultValue={this.state.dropcity}  onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control" name="dropcity" defaultValue={this.state.dropcity} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
                                 <label className="sublabel">State : </label>
@@ -147,20 +155,20 @@ export default class BookCar extends Component {
         if (this.state?.returncheck) {
             return (
                 <div className="row mt-2">
-                    <label style={{color:"rgb(255 255 255 / 80%)"}}>Select Drop Up Location : </label>
+                    <label style={{ color: "rgb(255 255 255 / 80%)" }}>Select Drop Up Location : </label>
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Search AirPort : </label>
-                                <input type="text" className="form-control" name="searchdropAirport"  onChange={this.myChangeHandler}></input>
+                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Search AirPort : </label>
+                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}>Select AirPort no : </label>
-                                <select className="form-control" name="selectdroppAirport" onChange={this.myChangeHandler}>
-                                <option value="-1">Select Airport</option>
+                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort no : </label>
+                                <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
+                                    <option value="-1">Select Airport</option>
                                     {this.state?.airportdata.map((w) => {
                                         return (
-                                            <option value={w._id}>{w.airportno}</option>
+                                            <option value={w.airportno}>{w.airportno}</option>
                                         )
 
                                     })}
@@ -172,11 +180,11 @@ export default class BookCar extends Component {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>City : </label>
+                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>City : </label>
                                 <input type="text" className="form-control" name="dropcity" onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}>State : </label>
+                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>State : </label>
                                 <input type="text" className="form-control col-3" name="dropstate" onChange={this.myChangeHandler}></input>
                             </div>
                         </div>
@@ -193,70 +201,69 @@ export default class BookCar extends Component {
         }
 
     }
-    getcontinewbtn(){
-        if(this.props.location?.state?.url == "custemerinfo")
-        {
+    getcontinewbtn() {
+        if (this.props.location?.state?.url == "custemerinfo") {
             var updatedData = this.props.location?.state.data;
             updatedData.cardetailsState.locationState.bookingState = this.state;
             //this.props.location.state.data?.cardetailsState?.locationState.bookingState
-            return(
-            <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
-                <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
-            </Link>
+            return (
+                <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
+                    <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+                </Link>
             )
         }
-        else{
-        return(
-            <Link to={{ pathname: "/location", state: this.state }} >
-                <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
-            </Link>)
-    }
+        else {
+            return (
+                <Link to={{ pathname: "/location", state: this.state }} >
+                    <button className="btn btn-primary" style={{ textAlign: "center" }}>Continue Booking</button>
+                </Link>)
+        }
     }
     render() {
 
-        if(this.props.flag == 0){
+        if (this.props.flag == 0) {
             return (
                 <div>
-                    <div className="" style={{ maxHeight: "100vh",maxWidth:"100%"}}>
+                    <div className="" style={{ maxHeight: "100vh", maxWidth: "100%" }}>
                         <form className="form-group" onSubmit={this.mySubmitHandler}>
                             <div className="row">
                                 <div className="col-6">
-                                    <label style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Select Pickup Date : </label>
+                                    <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Pickup Date : </label>
                                     <input type="date" className="form-control" name="pickupDate" onChange={this.myChangeHandler}></input>
                                 </div>
                                 <div className="col-6">
-                                    <label style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Select Drop Date : </label>
-                                    <input type="date" className="form-control" name="dropDate"  onChange={this.myChangeHandler} ></input>
+                                    <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Drop Date : </label>
+                                    <input type="date" className="form-control" name="dropDate" onChange={this.myChangeHandler} ></input>
                                 </div>
                             </div><br />
                             <div className="row mt-2">
                                 <div className="col-6">
-                                    <label style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Select Pickup Time : </label>
-                                    <input type="time" className="form-control" name="pickupTime"  onChange={this.myChangeHandler}></input>
+                                    <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Pickup Time : </label>
+                                    <input type="time" className="form-control" name="pickupTime" onChange={this.myChangeHandler}></input>
                                 </div>
                                 <div className="col-6">
-                                    <label style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Select Drop Time : </label>
+                                    <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Drop Time : </label>
                                     <input type="time" className="form-control" name="dropTime" onChange={this.myChangeHandler}></input>
                                 </div>
                             </div><br />
                             <div className="row mt-2">
-                                <label style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Select Pick Up Location : </label>
+                                <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Pick Up Location : </label>
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="col-6">
-                                            <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>Search AirPort : </label>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Search AirPort : </label>
                                             <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} onChange={this.myChangeHandler}></input>
                                         </div>
                                         <div className="col-6">
-                                            <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>Select AirPort : </label>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}>
-                                            <option value="-1" >Select Airport</option>
-                                                    {this.state?.airportdata.map((w) => {
-                                                        return (
-                                                            <option value={w.airportno}>{w.airportno}</option>
-                                                        )
-                
-                                                    })}
+                                                <option value="-1" >Select Airport</option>
+                                                {this.state?.airportdata.map((w) => {
+                                                    return (
+                                                        <option value={w.airportno}>{w.airportno}</option>
+                                                    )
+
+                                                })}
                                             </select>
                                             {/* <input type="text" className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}></input> */}
                                         </div>
@@ -265,47 +272,46 @@ export default class BookCar extends Component {
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="col-6">
-                                            <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>City : </label>
-                                            <input type="text" className="form-control" name="pickupcity"  onChange={this.myChangeHandler}></input>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>City : </label>
+                                            <input type="text" className="form-control" name="pickupcity" onChange={this.myChangeHandler}></input>
                                         </div>
                                         <div className="col-6">
-                                            <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>State : </label>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>State : </label>
                                             <input type="text" className="form-control col-3" name="pickupstate" onChange={this.myChangeHandler}></input>
                                         </div>
                                     </div>
-    
+
                                 </div>
-    
+
                             </div><br />
-                            <label style={{ fontSize: "16px",color:"rgb(255 255 255 / 80%)" }}>I May Return Car to Other Location : </label><br />
+                            <label style={{ fontSize: "16px", color: "rgb(255 255 255 / 80%)" }}>I May Return Car to Other Location : </label><br />
                             <input id="returncheck" type="checkbox" name="returncheck" onChange={
-                                ()=>{
-                                    if(this.state.returncheck != "")
-                                    {
-                                        this.setState({"returncheck":""})
+                                () => {
+                                    if (this.state.returncheck != "") {
+                                        this.setState({ "returncheck": "" })
                                     }
-                                    else{
-                                        this.setState({"returncheck":"checked"})
+                                    else {
+                                        this.setState({ "returncheck": "checked" })
                                     }
                                 }
                             }></input><br />
                             {this.homedrop()}
                             <br />
-    
+
                             <Link to={{ pathname: "/location", state: this.state }} >
                                 <button className="btn-get-started" style={{ textAlign: "center" }}>Continue Booking</button>
                             </Link>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             {/* <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}} onClick={this.handleBack} >Back</button> */}
                         </form>
                     </div>
-    
-                  
-    
+
+
+
                 </div>
             )
-       
-                    }
-        else{
+
+        }
+        else {
             return (
                 <div>
                     <Nav />
@@ -342,13 +348,13 @@ export default class BookCar extends Component {
                                         <div className="col-6">
                                             <label className="sublabel">Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" defaultValue={this.state.selectpickupAirport} onChange={this.myChangeHandler}>
-                                            <option value="-1">Select Airport</option>
-                                                    {this.state.airportdata.map((w) => {
-                                                        return (
-                                                            <option value={w._id}>{w.airportno}</option>
-                                                        )
-                
-                                                    })}
+                                                <option value="-1">Select Airport</option>
+                                                {this.state.airportdata.map((w) => {
+                                                    return (
+                                                        <option value={w._id}>{w.airportno}</option>
+                                                    )
+
+                                                })}
                                             </select>
                                             {/* <input type="text" className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}></input> */}
                                         </div>
@@ -365,35 +371,37 @@ export default class BookCar extends Component {
                                             <input type="text" className="form-control col-3" name="pickupstate" defaultValue={this.state.pickupstate} onChange={this.myChangeHandler}></input>
                                         </div>
                                     </div>
-    
+
                                 </div>
-    
+
                             </div><br />
                             <label style={{ fontSize: "16px" }}>I May Return Car to Other Location : </label><br />
                             <input id="returncheck" type="checkbox" value="checked" name="returncheck" defaultValue={this.state.returncheck} onChange={
-                                 ()=>{
-                                    if(this.state.returncheck != "")
-                                    {
-                                        this.setState({"returncheck":""})
+                                () => {
+                                    if (this.state.returncheck != "") {
+                                        this.setState({ "returncheck": "" })
                                     }
-                                    else{
-                                        this.setState({"returncheck":"checked"})
+                                    else {
+                                        this.setState({ "returncheck": "checked" })
                                     }
                                 }
-                            }></input><br />
+
+                            }>
+
+                            </input><br />
                             {this.drop()}
                             <br />
-    
+
                             {this.getcontinewbtn()}
-                            <button className="btn btn-primary" style={{ textAlign: "center", width:"20%", float:'right'}} onClick={this.handleBack} >Back</button>
+                            <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: 'right' }} onClick={this.handleBack} >Back</button>
                         </form>
                     </div>
-    
+
                     <Footer />
-    
+
                 </div>
             )
-           
+
         }
     }
 }

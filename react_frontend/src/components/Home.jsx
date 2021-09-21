@@ -24,7 +24,7 @@ class Home extends Component {
                     <div class="container">
                         <div data-aos="zoom-out">
                             <br />
-                            <h1 style={{ textAlign: "center" }}>Plane Your Journey with <span>India Drive</span></h1>
+                            <h1 style={{ textAlign: "center" }}>Plan Your Journey with <span>Rapid Rental</span></h1>
                         </div>
                         <div class="row justify-content-between" style={{ maxHeight: "80vh" }}>
                             <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
