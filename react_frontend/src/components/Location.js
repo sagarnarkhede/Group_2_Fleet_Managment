@@ -19,9 +19,11 @@ export default class Location extends Component {
       return(
         this.state = {
           bookingState:data.bookingState,
-          address: data.address,
-          selectaddress: [],
-          selectdropaddress: []
+          address: [data.selectaddress],
+          selectaddress: data.selectaddress,
+          dropaddress: [data.selectdropaddress],
+          selectdropaddress: data.selectdropaddress,
+          check:"",
                 
         }
       )
@@ -31,8 +33,10 @@ export default class Location extends Component {
         this.state = {
         bookingState:this.props.location.state,
         address: [],
-        selectaddress: [], 
-        dropaddress:[]       
+        selectaddress: {}, 
+        dropaddress:[],
+        selectdropaddress: {},
+        check:this.props.location.state.returncheck       
       })
     }
   }
@@ -48,6 +52,47 @@ export default class Location extends Component {
   }
 
   componentDidMount() {
+    if(this.props.location?.state.url == "custemerinfo"){
+      var add = [];
+      var add1 = [];
+      axios.get("http://localhost:5555/centers/")
+          .then(async response => {
+          const Locations = response.data.data;
+          Locations.forEach(async(ele)=>{
+            if(ele.centername == this.state.address[0].centername){
+              Locations.forEach(async(ele1)=>{
+                // console.log("cc",this.state.address[0].city);
+                if(ele.city == ele1.city){
+                  await add.push(ele1)
+                  this.setState({address:add})
+                }
+              })
+            }
+          })
+          Locations.forEach(async(ele)=>{
+            // console.log("qq",ele.centername);
+            if(ele.centername == this.state.dropaddress[0].centername){
+              
+              Locations.forEach(async(ele1)=>{
+                // console.log("cc",this.state.dropaddress[0].city);
+                if(ele.city == ele1.city){
+                  await add1.push(ele1)
+                  this.setState({dropaddress:add1})
+                }
+              })
+            }
+          })
+         
+          // console.log("asw",this.state);
+          })
+          .catch(error => {
+            console.log(error.message);
+          })
+          // console.log("asw",add);
+    }
+        
+    // }
+    else{
     if(this.props.location.state.searchpickupAirport != ""){
       try {
         var a = this.props.location.state.airportdata;      //database data
@@ -125,12 +170,12 @@ export default class Location extends Component {
             console.log(error.message);
           })
   }
-  }
+  }}
  handleSelect =async (data) => {
    await this.setState({
     selectaddress: data
    })
-   console.log(this.state.selectaddress, "selet")
+   console.log("selet",this.state.selectaddress )
  }
  handleSelect1 =async (data) => {
   await this.setState({
@@ -143,6 +188,13 @@ export default class Location extends Component {
   {
       var updatedData = this.props.location?.state.data;
       updatedData.cardetailsState.locationState = this.state;
+      console.log("updatedData",this.state.selectdropaddress.centername);
+      if((this.state.check != "checked") && (this.state.selectdropaddress.centername != undefined))
+      {
+        this.setState({check:"checked"})
+      }
+     
+      //this.setState({selectaddress:updatedData.cardetailsState.locationState.selectaddress});
       //this.props.location.state.data?.cardetailsState?.locationState.bookingState
       return(
       <Link to={{ pathname: "/CustomerInfoPage", state: updatedData }} >
@@ -158,7 +210,8 @@ export default class Location extends Component {
 }
 }
   render() {
-    if(this.props.location.state.returncheck != "checked"){
+    //console.log("x",this.props.location.state.returncheck);
+    if(this.state.check != "checked"){
       console.log(this.props.location.state.returncheck)
       return(
         <div>
@@ -166,10 +219,10 @@ export default class Location extends Component {
         <div className="" style={{ margin: "13vh 15%" }}>
           <h2>Select Pickup:</h2><br />
           <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
-            <h5 className="loactiontitle"> Your Loaction have matches {this.state.address.length} location, please select one</h5>
+            <h5 className="loactiontitle"> Your Loaction have matches {this.state.address?.length} location, please select one</h5>
             <div className="row">
         <div className="col-6">
-                {this.state.address.map((u) => (
+                {this.state.address?.map((u) => (
                   <div>
                     <div className="card" style={{ width: "30rem" }}>
                       <div className="card-body">
@@ -204,9 +257,11 @@ export default class Location extends Component {
         <div className="" style={{ margin: "13vh 15%" }}>
           <h2>Select Pickup/Return Location :</h2><br />
           <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
-            <h5 className="loactiontitle"> Your Loaction have matches {this.state.address.length} location, please select one</h5>
+            {/* <h5 className="loactiontitle"> Your Loaction have matches {this.state.address.length} location, please select one</h5> */}
             <div className="row">
               <div className="col-6">
+              <h5 className="loactiontitle"> Your Pickup Loaction have matches {this.state.address?.length} location, please select one</h5>
+
                 {this.state.address.map((u) => (
                   <div>
                     <div className="card" style={{ width: "30rem" }}>
@@ -227,6 +282,8 @@ export default class Location extends Component {
                 ))}
               </div> 
               <div className="col-6">
+              <h5 className="loactiontitle"> Your Drop Loaction have matches {this.state.dropaddress?.length} location, please select one</h5>
+
               {this.state.dropaddress.map((u) => (
                   <div>
                     <div className="card" style={{ width: "30rem" }}>

@@ -88,6 +88,7 @@ class ConfirmBooking extends Component {
                   .then(async response => {
                   const booking = response.data.data;
                   console.log("bookingdata",booking);
+                  this.setState({bookingsucces1modalShow:true})
                   })
                   .catch(error => {
                     console.log(error.message);

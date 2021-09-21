@@ -231,12 +231,14 @@ class CustomerInfoPage extends Component {
 
             }
         else{
+            
             var x = ""
             try {
-                x = data.cardetailsState.locationState.selectdropaddress.centername
+                x = data.cardetailsState.locationState.selectdropaddress.centername ?? data.cardetailsState.locationState.selectaddress.centername
                } catch (error) {
                 x = data.cardetailsState.locationState.selectaddress.centername  
                }
+               console.log("xx",x);
         try {
             this.setState({
                 pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
@@ -336,7 +338,7 @@ class CustomerInfoPage extends Component {
         var data = this.props.location.state;
         if(data.url == "confirmbooking")
         {
-            console.log("data:data.fullData",data.fullData);
+            console.log("data:data.fullData confirmbooking",data.data);
         return (
             <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                 <label>Your Booking : </label>

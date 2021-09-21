@@ -27,12 +27,12 @@ export default class componentName extends Component {
                                     <h4 style={{textAlign:"center"}}>Useful Links</h4>
                                     <div style={{textAlign:"center"}}>
                                     <ul style={{display: "inline-block",textAlign:"left"}}>
-                                        <li><a href="/#">Home</a></li>
-                                        <li><a href="/#">Services</a></li>
-                                        <li><a href="/#">About us</a></li>
-                                        <li><a href="/#">Modify/Cancel Booking</a></li>
-                                        <li><a href="/#">Terms of service</a></li>
-                                        <li><a href="/#">Privacy policy</a></li>
+                                        <li><a href="/">Home</a></li>
+                                        <li><a href="/#features">Features</a></li>
+                                        <li><a href="/#aboutus">About us</a></li>
+                                        <li><a href="/#contact">Customer Care</a></li>
+                                        <li><a href="/signup">SignUp</a></li>
+                                        {/* <li><a href="/#"></a></li> */}
                                     </ul>
                                     </div>
                                 </div>
