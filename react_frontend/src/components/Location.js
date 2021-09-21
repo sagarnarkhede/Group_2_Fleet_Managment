@@ -139,14 +139,14 @@ export default class Location extends Component {
               <div className="col-6">
                 {this.state.address.map((u) => (
                   <div>
-                    <div className="card" style={{ width: "40rem" }}>
+                    <div className="card" style={{ width: "30rem" }}>
                       <div className="card-body">
                         <p>
                           <div class="form-check">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"   key={u._id} onClick={() => this.handleSelect(u)}/>
                             <p class="form-check-label" for="flexRadioDefault1">
                               <h2>{u.centername} </h2>
-                              Address:{u.address}<br/>
+                              Address:{u.address},{u.city},{u.state}<br/>
                               Contact No:  {u.telphone}<br />
                               Office Time: {u.officetime}<br />
                               Weekly Off:  {u.weeklyoff}</p>
@@ -156,6 +156,10 @@ export default class Location extends Component {
                   </div>
                 ))}
               </div> 
+              <div className="col-6">
+
+                {/* for rahul */}
+              </div>
             </div> <br /><br />
             {this.getcontinewbtn()}
             <button className="btn btn-primary" style={{ textAlign: "center", width: "20%", float: "right" }} onClick={this.handleBack} >Back</button><br /><br />
