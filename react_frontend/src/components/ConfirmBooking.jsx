@@ -151,8 +151,19 @@ class ConfirmBooking extends Component {
           telphone: data.telphone,
           weeklyoff: data.weeklyoff,
           zip: data.zip
+        },
+        selectdropaddress:{
+          address: data.handover_center,
+          cars:  [],
+          centerid: data.centerid,
+          centername: data.handover_center,
+          city: data.city,
+          officetime: data.officetime,
+          state: data.state,
+          telphone: data.telphone,
+          weeklyoff: data.weeklyoff,
+          zip: data.zip
         }
-
       }
     }
     this.setState({send:data})
