@@ -129,10 +129,10 @@ exports.post_client = async (req, res) => {
             <div class="container">
               <p>Hello,</p>
               <p>
-               mr. ${data.fname} ${data.lname},
+               Mr/Ms. ${data.fname} ${data.lname},
               </p> 
               </br>
-              <p>your Booking Number is: ${data.bookings[0]._id}</ p>           
+              <p>Your Booking Number is: ${data.bookings[0]._id}</ p>           
               <table class="table">
                 <thead>
                   <tr>
@@ -174,9 +174,7 @@ exports.post_client = async (req, res) => {
               <p>Happy jouney !!</pr>
               <h4>Custmer Contact:-  </h4>
               <p>
-              phone:- +919834302938</p>
-              <p>
-              email id:- rapidrental@gmail.com
+              email id:- rapidrental123@gmail.com
               </p>
             </div>
             </body>
@@ -243,92 +241,90 @@ exports.post_clientonly = async (req, res) => {
             error: null
         })
         
-        // // Send Mail code
-        // const nodemailer = require('nodemailer');
-        // var user= process.env.AUTHSENDERMAIL;
-        // var pass= process.env.AUTHSENDERPASS
-        // var transporter = nodemailer.createTransport({
-        //     service: 'gmail',
-        //     auth: {
-        //         user: user,
-        //         pass: pass
-        //     }
-        // });
+        // Send Mail code
+        const nodemailer = require('nodemailer');
+        var user= process.env.AUTHSENDERMAIL;
+        var pass= process.env.AUTHSENDERPASS
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: user,
+                pass: pass
+            }
+        });
 
-        // var mailOptions = {
-        //     from: user,
-        //     to: data.email,
-        //     subject: 'Booking Confirm',
-        //     html: `
-        //     <!DOCTYPE html>
-        //     <html lang="en">
-        //     <body>
-        //     <h1>Welcome To Rapid Rental!!</h1>
-        //     <div class="container">
-        //       <p>Hello,</p>
-        //       <p>
-        //        mr. ${data.fname} ${data.lname},
-        //       </p> 
-        //       </br>
-        //       <p>your Booking Number is: ${data.bookings[0]._id}</ p>           
-        //       <table class="table">
-        //         <thead>
-        //           <tr>
-        //             <th>Your Booking Detail are : </th>
-        //           </tr>
-        //         </thead>
-        //         </br>
-        //         <tbody>
-        //           <tr>
-        //             <td>Pick up Date :</td>
-        //             <td>${data.bookings[0].pickupDate}</td>
-        //           </tr>
+        var mailOptions = {
+            from: user,
+            to: data.email,
+            subject: 'Booking Confirm',
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <body>
+            <h1>Welcome To Rapid Rental!!</h1>
+            <div class="container">
+              <p>Hello,</p>
+              <p>
+               Mr/Ms. ${data.fname} ${data.lname},
+              </p> 
+              </br>
+              <p>Your Booking Number is: ${data.bookings[0]._id}</ p>           
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Your Booking Detail are : </th>
+                  </tr>
+                </thead>
+                </br>
+                <tbody>
+                  <tr>
+                    <td>Pick up Date :</td>
+                    <td>${data.bookings[0].pickupDate}</td>
+                  </tr>
                  
-        //           <tr>
-        //             <td>Pick up Time : </td>
-        //             <td>${data.bookings[0].pickupTime}</td>
-        //           </tr>
-        //           <tr>
-        //             <td>Drop Date :</td>
-        //             <td>${data.bookings[0].dropDate}</td>
-        //           </tr>
-        //           <tr>
-        //             <td>Pick up Time : </td>
-        //             <td>${data.bookings[0].dropTime}</td>
-        //           </tr>
-        //            <tr>
-        //             <td>Center no : </td>
-        //             <td>${data.bookings[0].inhand_center}</td>
-        //           </tr> <tr>
-        //             <td>Booking Status : </td>
-        //             <td>${data.bookings[0].booking_status}</td>
-        //           </tr>
-        //            <tr>
-        //             <td>Total Amount :  </td>
-        //             <td>${data.bookings[0].invoice.amount}</td>
-        //           </tr>
-        //         </tbody>
-        //       </table>
-        //       <p>Happy jouney !!</pr>
-        //       <h4>Custmer Contact:-  </h4>
-        //       <p>
-        //       phone:- +919834302938</p>
-        //       <p>
-        //       email id:- rapidrental@gmail.com
-        //       </p>
-        //     </div>
-        //     </body>
-        //     </html>
-        //     `
-        // };
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${data.bookings[0].pickupTime}</td>
+                  </tr>
+                  <tr>
+                    <td>Drop Date :</td>
+                    <td>${data.bookings[0].dropDate}</td>
+                  </tr>
+                  <tr>
+                    <td>Pick up Time : </td>
+                    <td>${data.bookings[0].dropTime}</td>
+                  </tr>
+                   <tr>
+                    <td>Center no : </td>
+                    <td>${data.bookings[0].inhand_center}</td>
+                  </tr> <tr>
+                    <td>Booking Status : </td>
+                    <td>${data.bookings[0].booking_status}</td>
+                  </tr>
+                   <tr>
+                    <td>Total Amount :  </td>
+                    <td>${data.bookings[0].invoice.amount}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Happy jouney !!</pr>
+              <h4>Custmer Contact:-  </h4>
+              <p>
+              email id:- rapidrental@gmail.com
+              </p>
+            </div>
+            </body>
+            </html>
+            `
+        };
 
-        // transporter.sendMail(mailOptions, function (error, info) {
-        //     if (error) {
-        //         console.log(error);
-        //     } else {
-        //         console.log('Email sent sucessfully: ' + info.response);
-        //     }
-        // });
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent sucessfully: ' + info.response);
+            }
+        });
 
     }
     catch (err) {
