@@ -72,6 +72,7 @@ class ConfirmBooking extends Component {
       console.log("new post");
       axios.post(url, this.state.fdata)
         .then(async response => {
+          this.setState({bookingsucces1modalShow:true})
         })
         .catch(error => {
           console.log(error.message);
@@ -94,6 +95,15 @@ class ConfirmBooking extends Component {
               }
       else{
         console.log("existing put",this.state);
+        var id = this.state.fdata._id;
+        axios.post(url + id,this.state.fdata)
+          .then(async response => {
+            this.setState({bookingsucces1modalShow:true})
+            // console.log(response);
+          })
+          .catch(error => {
+            console.log(error);
+          })
       }
       
     }
@@ -151,7 +161,7 @@ class ConfirmBooking extends Component {
 
   }}
   cancelBooking= (event)=>{
-    var ob = this.state.fdata.bookings[0]
+    var ob = this.state.fdata?.bookings[0]
     ob.booking_status="canceled"
     ob.cartype=this.state.fdata.bookings[0].vehical_details?.cartype
     ob.invoice_number=this.state.fdata.bookings[0].invoice?.invoice_number
@@ -174,6 +184,7 @@ class ConfirmBooking extends Component {
             console.log(error.message);
           })
   }
+ 
   getBtn()
   {
     if(this.props.location.state.url == "return"){
@@ -251,7 +262,7 @@ class ConfirmBooking extends Component {
       <BookingSuccesful show={this.state.bookingsucces1modalShow} onHide={() =>this.setState({bookingsucces1modalShow:false})}/>
     <button
             className="btn btn-primary"
-            style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({bookingsucces1modalShow:true})}
+            style={{ textAlign: "center", width: "20%" }} 
           >
             Book Now
           </button>

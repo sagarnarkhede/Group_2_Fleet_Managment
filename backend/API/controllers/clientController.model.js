@@ -51,7 +51,7 @@ exports.post_client = async (req, res) => {
             handover_emp: req.body.handover_emp,
             vehical_details: {
                 cartype: req.body.cartype,
-                carno: req.body.carno,
+                carno: req.body.carno ?? null,
                 fuelStatus: req.body.fuelStatus,
                 carStatus: req.body.carStatus,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
@@ -95,7 +95,7 @@ exports.post_client = async (req, res) => {
             passport_date: req.body.passport_date,
             bookings: [booking]
         })
-        console.log(client);
+        console.log("mynull",client);
         const data = await client.save()
 
         res.status(201).json({
@@ -204,7 +204,144 @@ exports.post_client = async (req, res) => {
     }
 
 }
+exports.post_clientonly = async (req, res) => {
+    try {
+       
+        const client = new Client({
+            _id: mongoose.Types.ObjectId(),
+            fname: req.body.fname,
+            lname: req.body.lname,
+            email: req.body.email,
+            date_of_birth: req.body.date_of_birth,
+            password: req.body.password,
+            phone_number: req.body.phone_number,
+            mobile_number: req.body.mobile_number,
+            address1: req.body.address1,
+            address2: req.body.address2,
+            city: req.body.city,
+            state: req.body.state,
+            zip: req.body.zip,
+            card_type: req.body.card_type,
+            card_number: req.body.card_number,
+            driving_lic: req.body.driving_lic,
+            IDP: req.body.IDP,
+            driving_issued_by: req.body.driving_issued_by,
+            driving_valid: req.body.driving_valid,
+            passport_number: req.body.passport_number,
+            passport_valid: req.body.passport_valid,
+            passport_issued_by: req.body.passport_issued_by,
+            passport_date: req.body.passport_date,
+            bookings: []
+        })
+        console.log("client only",client);
+        const data = await client.save()
 
+        res.status(201).json({
+            code: 1,
+            data: data,
+            message: null,
+            error: null
+        })
+        
+        // // Send Mail code
+        // const nodemailer = require('nodemailer');
+        // var user= process.env.AUTHSENDERMAIL;
+        // var pass= process.env.AUTHSENDERPASS
+        // var transporter = nodemailer.createTransport({
+        //     service: 'gmail',
+        //     auth: {
+        //         user: user,
+        //         pass: pass
+        //     }
+        // });
+
+        // var mailOptions = {
+        //     from: user,
+        //     to: data.email,
+        //     subject: 'Booking Confirm',
+        //     html: `
+        //     <!DOCTYPE html>
+        //     <html lang="en">
+        //     <body>
+        //     <h1>Welcome To Rapid Rental!!</h1>
+        //     <div class="container">
+        //       <p>Hello,</p>
+        //       <p>
+        //        mr. ${data.fname} ${data.lname},
+        //       </p> 
+        //       </br>
+        //       <p>your Booking Number is: ${data.bookings[0]._id}</ p>           
+        //       <table class="table">
+        //         <thead>
+        //           <tr>
+        //             <th>Your Booking Detail are : </th>
+        //           </tr>
+        //         </thead>
+        //         </br>
+        //         <tbody>
+        //           <tr>
+        //             <td>Pick up Date :</td>
+        //             <td>${data.bookings[0].pickupDate}</td>
+        //           </tr>
+                 
+        //           <tr>
+        //             <td>Pick up Time : </td>
+        //             <td>${data.bookings[0].pickupTime}</td>
+        //           </tr>
+        //           <tr>
+        //             <td>Drop Date :</td>
+        //             <td>${data.bookings[0].dropDate}</td>
+        //           </tr>
+        //           <tr>
+        //             <td>Pick up Time : </td>
+        //             <td>${data.bookings[0].dropTime}</td>
+        //           </tr>
+        //            <tr>
+        //             <td>Center no : </td>
+        //             <td>${data.bookings[0].inhand_center}</td>
+        //           </tr> <tr>
+        //             <td>Booking Status : </td>
+        //             <td>${data.bookings[0].booking_status}</td>
+        //           </tr>
+        //            <tr>
+        //             <td>Total Amount :  </td>
+        //             <td>${data.bookings[0].invoice.amount}</td>
+        //           </tr>
+        //         </tbody>
+        //       </table>
+        //       <p>Happy jouney !!</pr>
+        //       <h4>Custmer Contact:-  </h4>
+        //       <p>
+        //       phone:- +919834302938</p>
+        //       <p>
+        //       email id:- rapidrental@gmail.com
+        //       </p>
+        //     </div>
+        //     </body>
+        //     </html>
+        //     `
+        // };
+
+        // transporter.sendMail(mailOptions, function (error, info) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         console.log('Email sent sucessfully: ' + info.response);
+        //     }
+        // });
+
+    }
+    catch (err) {
+        res.status(500).json({
+            code: 0,
+            data: null,
+            message: "somthing went wrong.",
+            error: err
+        })
+
+    }
+
+}
 exports.post_booking = async (req, res) => {
     try {
         const booking = new Booking({
@@ -218,10 +355,10 @@ exports.post_booking = async (req, res) => {
             handover_center: req.body.handover_center,
             booking_status: req.body.booking_status,
             inhand_emp: req.body.inhand_emp,
-            handover_emp: req.body.handover_emp,
+            handover_emp: req.body.handover_emp ?? null,
             vehical_details: {
                 cartype: req.body.cartype,
-                carno: req.body.carno,
+                carno: req.body.carno ?? null,
                 fuelStatus: req.body.fuelStatus,
                 carStatus: req.body.carStatus,
                 vehical_lastcervising_date: req.body.vehical_lastcervising_date,
@@ -239,7 +376,7 @@ exports.post_booking = async (req, res) => {
                 quant: req.body.quant
             }
         })
-        console.log("booking", booking);
+        console.log("booking n", req.body.handover_emp);
         const data = await Client.findById(req.params.clientId)
         data.bookings.push(booking)
         console.log("data", data.bookings);
@@ -463,7 +600,7 @@ exports.put_client = async (req, res) => {
             passport_date: req.body.passport_date,
             bookings: client_bookings.bookings
         })
-        console.log(client);
+        console.log("abc",client);
         const data = await Client.findByIdAndUpdate(req.params.clientId, client, { new: true, runValidators: true })
         res.status(200).json({
             code: 1,
