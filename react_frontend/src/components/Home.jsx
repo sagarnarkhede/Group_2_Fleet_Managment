@@ -315,13 +315,13 @@ class Home extends Component {
 
                                         <ul>
                                             <li>
-                                                <h4>$12.00<span> / Day</span></h4>
+                                                <h4>₹300.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$79.00<span> / Week</span></h4>
+                                                <h4>₹2100.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$310.00<span> / Month</span></h4>
+                                                <h4>₹9400.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -335,13 +335,13 @@ class Home extends Component {
                                         <h3>Compact Cars</h3>
                                         <ul>
                                             <li>
-                                                <h4>$18.00<span> / Day</span></h4>
+                                                <h4>₹320.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$120.00<span> / Week</span></h4>
+                                                <h4>₹2240.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$500.00<span> / Month</span></h4>
+                                                <h4>₹9500.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -355,13 +355,13 @@ class Home extends Component {
                                         <h3>Intermediate</h3>
                                         <ul>
                                             <li>
-                                                <h4>$25.00<span> / Day</span></h4>
+                                                <h4>₹400.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$150.00<span> / Week</span></h4>
+                                                <h4>₹2800.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$600.00<span> / Month</span></h4>
+                                                <h4>₹9800.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -382,13 +382,13 @@ class Home extends Component {
                                         <h3>Sedan</h3>
                                         <ul>
                                             <li>
-                                                <h4>$30.00<span> / Day</span></h4>
+                                                <h4>₹440.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$180.00<span> / Week</span></h4>
+                                                <h4>₹3200.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$640.00<span> / Month</span></h4>
+                                                <h4>₹10200.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -402,13 +402,13 @@ class Home extends Component {
                                         <h3>SUV</h3>
                                         <ul>
                                             <li>
-                                                <h4>$55.00<span> / Day</span></h4>
+                                                <h4>₹500.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$230.00<span> / Week</span></h4>
+                                                <h4>₹3400.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$700.00<span> / Month</span></h4>
+                                                <h4>₹10600.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
