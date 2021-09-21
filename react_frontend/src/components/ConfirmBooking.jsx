@@ -313,7 +313,7 @@ class ConfirmBooking extends Component {
             <div className="col-6">
               <div className="row">
                 <div className="col-3">
-                  <label>Reture :</label>
+                  <label>Return :</label>
                   <br /><br />
                 </div>
                 <div className="col-4">
