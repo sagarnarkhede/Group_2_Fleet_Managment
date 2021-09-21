@@ -3,6 +3,7 @@ import React, { Component } from 'react';
  import axios from 'axios'
  import Modal from "react-bootstrap/Modal"
 import SelectCar from './SelectCar';
+import HandoverSuccess from './HandoverSuccess';
   
  export default class Handoverdetail extends Component {
   constructor(props) {
@@ -14,7 +15,8 @@ import SelectCar from './SelectCar';
        centerData1:"",
        carStatus:"",
        fuelStatus:"",
-       selectcarPopupShow:false
+       selectcarPopupShow:false,
+       handoversuccessmodalShow:false
     }
   }
 //   myButtonHandler = () => {
@@ -86,6 +88,7 @@ handoverit = ()=>{
           .then(async response => {
           const booking = response.data.data;
           // console.log("bookingdata",booking);
+          this.setState({handoversuccessmodalShow:true})
           })
           .catch(error => {
             console.log(error.message);
@@ -99,11 +102,15 @@ handoverit = ()=>{
           .catch(error => {
             console.log(error.message);
           })
+          
   // console.log("carOb",this.state.selectedCar);
 }
+
+
    render() {
      return (
        <React.Fragment>
+       <HandoverSuccess show={this.state.handoversuccessmodalShow} onHide={() =>this.setState({handoversuccessmodalShow:false})}/> 
           {/* {console.log("this.state",this.state)} */}
          {this.getSelectcarPopup()}
       
