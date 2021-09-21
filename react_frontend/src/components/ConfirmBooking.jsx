@@ -7,6 +7,7 @@ import Handoverdetail from "./Modal/Handoverdetail";
 import AreYouSurePop from "./Modal/AreYouSurePop";
 import SuccesPop from './Modal/SuccesPop';
 import BookingSuccesful from "./Modal/BookingSuccesful";
+import FailPop from "./Modal/FailPop";
 class ConfirmBooking extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +48,8 @@ class ConfirmBooking extends Component {
         send:{},
         handoverPopupShow:false,
         areyousuremodalShow: false,
-        bookingsuccesmodalShow: false,
+        bookingsuccesmodalShow: false
+        
       }
     )
     }
@@ -56,7 +58,7 @@ class ConfirmBooking extends Component {
         this.state = {
           fdata: data,
           send:this.props.location.state,
-          bookingsucces1modalShow:true
+          bookingsucces1modalShow:false
         }
       )
     }
@@ -165,8 +167,10 @@ class ConfirmBooking extends Component {
           
           this.setState({bookingsuccesmodalShow:true})
           this.setState({areyousuremodalShow:false})
+         
           })
           .catch(error => {
+            
             console.log(error.message);
           })
   }
@@ -193,6 +197,7 @@ class ConfirmBooking extends Component {
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
             <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
+            
         </React.Fragment>
       )
     }
@@ -215,6 +220,7 @@ class ConfirmBooking extends Component {
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
             <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
+            
             </React.Fragment>
       )
     }

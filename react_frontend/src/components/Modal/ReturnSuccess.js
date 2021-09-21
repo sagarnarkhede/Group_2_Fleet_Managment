@@ -3,14 +3,14 @@ import {   Button } from 'bootstrap'
 import { Link, NavLink } from 'react-router-dom';
 import Modal from "react-bootstrap/Modal"
 import axios from 'axios'
-import FailPop from './FailPop';
-import SuccesPop from './SuccesPop';
-export default class AreYouSurePop extends Component {
+
+export default class ReturnSuccess extends Component {
     constructor(props) {
         super(props);
         
         this.state = {
            showButtons: false,
+        
         }
       }
      
@@ -21,44 +21,43 @@ export default class AreYouSurePop extends Component {
   myChangeHandler = (event) => {
       this.setState({ [event.target.name]: event.target.value });
   }
+  closepopup = ()=>{
+    this.props.print();
+    this.props.close()
+  }
 
   render() {
     return (
-      <React.Fragment>
-      <FailPop show={this.state.failmodalShow} onHide={() =>this.setState({failmodalShow:false})}/> 
+      
        <Modal
      {...this.props}
      size="lg"
      aria-labelledby="contained-modal-title-vcenter"
      centered
-    // style={{borderRadius: '5px'}}
-    style={{ borderRadius: '15px'  }}
    >
+   <div className="no-borderRadiusImportant" style={{border: '1px solid black',borderRadius: '5px!important'}}>
    {/* {console.log(this.props)} */}
      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
-       <h2 style={{color: 'white'}}>Cancel Booking:</h2>
+       <h2 style={{color: 'white'}}> Car Return:</h2>
       </Modal.Title>
      </Modal.Header>
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <h2 align="center">Are You Sure</h2>
-     <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_ssIwdK.json"
+     <h2 align="center">Return Succesful</h2>
+     <lottie-player src="https://assets2.lottiefiles.com/temp/lf20_MqU2rh.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
-                                                        loop autoplay></lottie-player><br/>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "left", width: "20%" }}  
-     onClick={this.props.cancel}
-     >Yes</button>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={()=>{this.setState({failmodalShow:true})}}>No</button>
+                                                        loop autoplay></lottie-player>
       </div><br/><br/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>
-        
+        <button type="button" class="btn btn-primary"style={{ textAlign: "center", marginLeft:"300px" , width: "20%" }}  onClick={this.closepopup}>Print Invoice</button>
      </Modal.Body>
+     </div>
    </Modal>
-   </React.Fragment>
+   
     );
   }
 }

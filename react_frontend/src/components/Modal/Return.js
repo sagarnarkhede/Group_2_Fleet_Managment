@@ -62,10 +62,10 @@ getbtn()
   if(this.state.booking_id != ""){
     console.log("bid",this.state);
   return(<Link to={{ pathname: "/printInvoice", state: {data: this.state.data,bookingid:this.state.booking_id,clientid:this.state.client_id,url:"return"} }} >
-  <button type="button" class="btn btn-primary">Search</button>
+  <button type="button" class="btn btn-primary" style={{marginLeft: '300px'}}>Search</button>
   </Link>  )}
   else{
-    return(<button type="button" class="btn btn-primary" onClick={()=>alert("invalid")}>Search</button>)
+    return(<button type="button" class="btn btn-primary" style={{marginLeft: '300px'}} onClick={()=>alert("invalid")}>Search</button>)
   }
 
 }
@@ -87,8 +87,8 @@ getbtn()
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <label> Booking Confirmation Number: </label><input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
-     {this.getbtn()}
+     <label style={{marginLeft: '50px'}}> Booking Confirmation Number: </label>   <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
+     <br/><br/><br/>{this.getbtn()}
       </div><br/><br/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>

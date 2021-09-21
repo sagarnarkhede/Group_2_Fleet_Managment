@@ -34,13 +34,13 @@ export default class FailPop extends Component {
    {/* {console.log(this.props)} */}
      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
-       <h2 style={{color: 'white'}}>Cancle Booking:</h2>
+       <h2 style={{color: 'white'}}>Cancel Booking:</h2>
       </Modal.Title>
      </Modal.Header>
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <h2 align="center">Cancle Fail</h2>
+     <h2 align="center">Cancel Fail</h2>
      <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_YGLMlt.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}

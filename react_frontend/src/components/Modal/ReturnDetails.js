@@ -2,6 +2,7 @@ import React, { Component } from 'react';
  import {   Button } from 'bootstrap'
  import axios from 'axios'
  import Modal from "react-bootstrap/Modal"
+import ReturnSuccess from './ReturnSuccess';
   
  export default class ReturnDetails extends Component {
   constructor(props) {
@@ -13,7 +14,8 @@ import React, { Component } from 'react';
        booking_id:"",
        carStatus:"",
        fuelStatus:"",
-       data:this.props.data
+       data:this.props.data,
+       returnsuccessmodalShow:false
     }
   }
   
@@ -81,10 +83,18 @@ confirmReturn = () =>{
     
           console.log("complited carob",carob);
           console.log("complited it",this.state);
+          this.setState({returnsuccessmodalShow:true})
 }
+closepopup = ()=>{
+  this.setState({returnsuccessmodalShow:false})
+  this.props.close()
+}
+
 
    render() {
      return (
+       <React.Fragment>
+       <ReturnSuccess show={this.state.returnsuccessmodalShow} onHide={() =>this.setState({returnsuccessmodalShow:false})} print={this.props.print} close={this.closepopup}/> 
         <Modal
       {...this.props}
       size="lg"
@@ -142,6 +152,7 @@ confirmReturn = () =>{
       
       </Modal.Footer>
     </Modal>
+     </React.Fragment>
      );
    }
  }

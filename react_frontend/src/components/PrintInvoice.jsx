@@ -44,7 +44,12 @@ class PrintInvoice extends Component {
       )
     }
   }
+  closepopup = ()=>{
+    this.setState({returnPopupShow:false})
+  }
+
     handleheader =()=>{
+      
       this.setState({showheader:true})
       console.log("shubham",this.state.showheader);
       
@@ -119,7 +124,7 @@ class PrintInvoice extends Component {
       {!this.state.showheader && <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }} onClick={()=>this.setState({returnPopupShow:true})}>Return</button>}      
      
      
-  {!this.state.showheader && <button type="button" class="btn btn-primary"style={{ textAlign: "center", marginLeft:"220px" , width: "20%" }}  onClick={this.handleheader}>Next</button>}
+  {/* {!this.state.showheader && <button type="button" class="btn btn-primary"style={{ textAlign: "center", marginLeft:"220px" , width: "20%" }}  onClick={this.handleheader}>Next</button>} */}
   {this.state.showheader && <button type="button" class="btn btn-primary" style={{ textAlign: "center", float:"left", width: "20%" }} onClick={this.handleprint}>Print</button>}
 
       {<button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={(event)=>{event.preventDefault();this.props.history.goBack()}}>Back</button>}
@@ -157,7 +162,7 @@ class PrintInvoice extends Component {
     return (
 
       <React.Fragment>
-        <ReturnDetails show={this.state.returnPopupShow} onHide={() => this.setState({ returnPopupShow: false })} data={this.state.fdata} />
+        <ReturnDetails show={this.state.returnPopupShow} onHide={() => this.setState({ returnPopupShow: false })} print={this.handleheader} data={this.state.fdata} close={this.closepopup}/>
         <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", }}>
           <label>Your Booking : </label>
           <br />
