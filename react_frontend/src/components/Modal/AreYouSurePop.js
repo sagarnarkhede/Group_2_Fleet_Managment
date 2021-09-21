@@ -8,7 +8,7 @@ import SuccesPop from './SuccesPop';
 export default class AreYouSurePop extends Component {
     constructor(props) {
         super(props);
-        
+        // console.log("r u s",this.props);
         this.state = {
            showButtons: false,
         }
@@ -21,7 +21,10 @@ export default class AreYouSurePop extends Component {
   myChangeHandler = (event) => {
       this.setState({ [event.target.name]: event.target.value });
   }
-
+closepopup = ()=>{
+  this.props.onHide()
+  this.setState({failmodalShow:true})
+}
   render() {
     return (
       <React.Fragment>
@@ -51,7 +54,7 @@ export default class AreYouSurePop extends Component {
      <button className="btn btn-primary" style={{ textAlign: "center", float: "left", width: "20%" }}  
      onClick={this.props.cancel}
      >Yes</button>
-     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={()=>{this.setState({failmodalShow:true})}}>No</button>
+     <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }} onClick={this.closepopup}>No</button>
       </div><br/><br/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>

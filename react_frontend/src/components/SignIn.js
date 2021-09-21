@@ -67,7 +67,7 @@ class SignIn extends Component {
             <InvalidIdPass show={this.state.invalidpassmodalShow} onHide={() =>this.setState({invalidpassmodalShow:false})} />
             <div>
                 <Nav />
-                <div className="" style={{ margin: "13vh 15%" }}>
+                <div className="" style={{ margin: "13vh 30%" }}>
                     <h2>Login : </h2><br />
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                         <label >UserId : </label>

@@ -203,13 +203,19 @@ class CustomerInfoPage extends Component {
                             }
                         }
                     }
+                    var x = ""
+                    try {
+                        x = data.data.fullData.cardetailsState.locationState.selectdropaddress.centername
+                       } catch (error) {
+                        x = data.data.fullData.cardetailsState.locationState.selectaddress.centername  
+                       }
                     sessionStorage.setItem("userdata",JSON.stringify(data.data))
                     this.setState({
                         pickupDate: data.data.fullData.cardetailsState.locationState.bookingState.pickupDate,
                         dropDate: data.data.fullData.cardetailsState.locationState.bookingState.dropDate,
                         pickupTime: data.data.fullData.cardetailsState.locationState.bookingState.pickupTime,
                         dropTime: data.data.fullData.cardetailsState.locationState.bookingState.dropTime,
-                        handover_center: data.data.fullData.cardetailsState.locationState.selectaddress.centername,
+                        handover_center: x,
                         inhand_center: data.data.fullData.cardetailsState.locationState.selectaddress.centername,
                         selectaddress: data.data.fullData.cardetailsState.locationState.selectaddress.address,
                         cartype: data.data.fullData.cardetailsState.cartype,
@@ -225,13 +231,21 @@ class CustomerInfoPage extends Component {
 
             }
         else{
+            
+            var x = ""
+            try {
+                x = data.cardetailsState.locationState.selectdropaddress.centername ?? data.cardetailsState.locationState.selectaddress.centername
+               } catch (error) {
+                x = data.cardetailsState.locationState.selectaddress.centername  
+               }
+               console.log("xx",x);
         try {
             this.setState({
                 pickupDate: data.cardetailsState.locationState.bookingState.pickupDate,
                 dropDate: data.cardetailsState.locationState.bookingState.dropDate,
                 pickupTime: data.cardetailsState.locationState.bookingState.pickupTime,
                 dropTime: data.cardetailsState.locationState.bookingState.dropTime,
-                handover_center: data.cardetailsState.locationState.selectaddress.centername,
+                handover_center: x,
                 inhand_center: data.cardetailsState.locationState.selectaddress.centername,
                 selectaddress: data.cardetailsState.locationState.selectaddress.address,
                 cartype: data.cardetailsState.cartype,
@@ -324,7 +338,7 @@ class CustomerInfoPage extends Component {
         var data = this.props.location.state;
         if(data.url == "confirmbooking")
         {
-            console.log("data:data.fullData",data.fullData);
+            console.log("data:data.fullData confirmbooking",data.data);
         return (
             <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                 <label>Your Booking : </label>

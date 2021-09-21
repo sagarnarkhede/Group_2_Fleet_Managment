@@ -118,9 +118,9 @@ export class CarDetails extends Component {
                                     <th scope="row">1</th>
                                     <td>Small car</td>
                                     <td>Chevrolet Aveo or similar</td>
-                                    <td>$12.00</td>
-                                    <td>$79.00</td>
-                                    <td>$310.00</td>
+                                    <td>₹300.00</td>
+                                    <td>₹2100.00</td>
+                                    <td>₹9400.00</td>
                                     {/* <td onClick={this.myChangeHandler("Small Cars")}>N.A</td> */}
                                     <td><button id="smallcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"small car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
@@ -128,36 +128,36 @@ export class CarDetails extends Component {
                                 <th scope="row">2</th>
                                     <td>Compact Car</td>
                                     <td>Chevrolet Cobalt or similar</td>
-                                    <td>$18.00</td>
-                                    <td>$120.00</td>
-                                    <td>$500.00</td>
+                                    <td>₹320.00</td>
+                                    <td>₹2240.00</td>
+                                    <td>₹9500.00</td>
                                     <td><button id="compcar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"compact car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
                                     <td>Intermediate Car</td>
                                     <td>Pontiac G-6 or similar</td>
-                                    <td>$99.99</td>
-                                    <td>$999.99</td>
-                                    <td>$999.9</td>
+                                    <td>₹400.00</td>
+                                    <td>₹2800.00</td>
+                                    <td>₹9800.00</td>
                                     <td><button  id="intercar"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"intermediate car" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
                                     <td>Sedan</td>
                                     <td>Chevrolet Monte Carlo or similar</td>
-                                    <td>$20.00</td>
-                                    <td>$99.00</td>
-                                    <td>$210.00</td>
+                                    <td>₹440.00</td>
+                                    <td>₹3200.00</td>
+                                    <td>₹10200.00</td>
                                     <td><button id="sedan"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"sedan" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
                                     <td>SUV</td>
                                     <td>Honda CRV or similar</td>
-                                    <td>$15.00</td>
-                                    <td>$400.00</td>
-                                    <td>$510.00</td>
+                                    <td>₹500.00</td>
+                                    <td>₹3400.00</td>
+                                    <td>₹10600.00</td>
                                     <td><button id="suv"  className="btn btn-primary" onClick={ async() => { await this.setState({cartype:"SUV" }); console.log(this.state)}} >select</button></td>
                                 </tr>
                             </tbody>

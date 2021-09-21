@@ -297,103 +297,7 @@ class Home extends Component {
 
 
 
-        <!-- ======= Team Section ======= --> */}
-                    <section id="team" class="team">
-                        <div class="container">
-
-                            <div class="section-title" data-aos="fade-up">
-                                <h2>Team</h2>
-                                <p>Our Great Team</p>
-                            </div>
-
-                            <div class="row" data-aos="fade-left">
-
-                                <div class="col-lg-auto col-md-6" style={{ maxWidth: "20%" }}>
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                        <div class="pic"><img src="assets/img/team/sagar.jpg" class="img-fluid" alt="" /></div>
-                                        <div class="member-info">
-                                            <h4>Sagar S Narkhede</h4>
-                                            <span>Full Stack Developer</span>
-                                            <div class="social">
-                                                <a href=""><i class="bi bi-twitter"></i></a>
-                                                <a href=""><i class="bi bi-facebook"></i></a>
-                                                <a href=""><i class="bi bi-instagram"></i></a>
-                                                <a href=""><i class="bi bi-linkedin"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-auto col-md-6 mt-5 mt-md-0" style={{ maxWidth: "20%" }}>
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="200">
-                                        <div class="pic"><img src="assets/img/team/sagar.jpg" class="img-fluid" alt="" /></div>
-                                        <div class="member-info">
-                                            <h4>Sagar S Narkhede</h4>
-                                            <span>Full Stack Developer</span>
-                                            <div class="social">
-                                                <a href=""><i class="bi bi-twitter"></i></a>
-                                                <a href=""><i class="bi bi-facebook"></i></a>
-                                                <a href=""><i class="bi bi-instagram"></i></a>
-                                                <a href=""><i class="bi bi-linkedin"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-auto col-md-6 mt-5 mt-lg-0" style={{ maxWidth: "20%" }}>
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="300">
-                                        <div class="pic"><img src="assets/img/team/sagar.jpg" class="img-fluid" alt="" /></div>
-                                        <div class="member-info">
-                                            <h4>Sagar S Narkhede</h4>
-                                            <span>Full Stack Developer</span>
-                                            <div class="social">
-                                                <a href=""><i class="bi bi-twitter"></i></a>
-                                                <a href=""><i class="bi bi-facebook"></i></a>
-                                                <a href=""><i class="bi bi-instagram"></i></a>
-                                                <a href=""><i class="bi bi-linkedin"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-auto col-md-6 mt-5 mt-lg-0" style={{ maxWidth: "20%" }}>
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                                        <div class="pic"><img src="assets/img/team/sagar.jpg" class="img-fluid" alt="" /></div>
-                                        <div class="member-info">
-                                            <h4>Sagar S Narkhede</h4>
-                                            <span>Full Stack Developer</span>
-                                            <div class="social">
-                                                <a href=""><i class="bi bi-twitter"></i></a>
-                                                <a href=""><i class="bi bi-facebook"></i></a>
-                                                <a href=""><i class="bi bi-instagram"></i></a>
-                                                <a href=""><i class="bi bi-linkedin"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-auto col-md-6 mt-5 mt-lg-0" style={{ maxWidth: "20%" }}>
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="400">
-                                        <div class="pic"><img src="assets/img/team/sagar.jpg" class="img-fluid" alt="" /></div>
-                                        <div class="member-info">
-                                            <h4>Sagar S Narkhede</h4>
-                                            <span>Full Stack Developer</span>
-                                            <div class="social">
-                                                <a href=""><i class="bi bi-twitter"></i></a>
-                                                <a href=""><i class="bi bi-facebook"></i></a>
-                                                <a href=""><i class="bi bi-instagram"></i></a>
-                                                <a href=""><i class="bi bi-linkedin"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </section>
-                    {/* <!-- End Team Section -->
-
+      
         <!-- ======= Pricing Section ======= --> */}
                     <section id="pricing" class="pricing">
                         <div class="container">
@@ -411,13 +315,13 @@ class Home extends Component {
 
                                         <ul>
                                             <li>
-                                                <h4>$12.00<span> / Day</span></h4>
+                                                <h4>₹300.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$79.00<span> / Week</span></h4>
+                                                <h4>₹2100.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$310.00<span> / Month</span></h4>
+                                                <h4>₹9400.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -431,13 +335,13 @@ class Home extends Component {
                                         <h3>Compact Cars</h3>
                                         <ul>
                                             <li>
-                                                <h4>$18.00<span> / Day</span></h4>
+                                                <h4>₹320.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$120.00<span> / Week</span></h4>
+                                                <h4>₹2240.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$500.00<span> / Month</span></h4>
+                                                <h4>₹9500.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -451,13 +355,13 @@ class Home extends Component {
                                         <h3>Intermediate</h3>
                                         <ul>
                                             <li>
-                                                <h4>$25.00<span> / Day</span></h4>
+                                                <h4>₹400.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$150.00<span> / Week</span></h4>
+                                                <h4>₹2800.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$600.00<span> / Month</span></h4>
+                                                <h4>₹9800.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -478,13 +382,13 @@ class Home extends Component {
                                         <h3>Sedan</h3>
                                         <ul>
                                             <li>
-                                                <h4>$30.00<span> / Day</span></h4>
+                                                <h4>₹440.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$180.00<span> / Week</span></h4>
+                                                <h4>₹3200.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$640.00<span> / Month</span></h4>
+                                                <h4>₹10200.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
@@ -498,13 +402,13 @@ class Home extends Component {
                                         <h3>SUV</h3>
                                         <ul>
                                             <li>
-                                                <h4>$55.00<span> / Day</span></h4>
+                                                <h4>₹500.00<span> / Day</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$230.00<span> / Week</span></h4>
+                                                <h4>₹3400.00<span> / Week</span></h4>
                                             </li>
                                             <li>
-                                                <h4>$700.00<span> / Month</span></h4>
+                                                <h4>₹10600.00<span> / Month</span></h4>
                                             </li>
                                         </ul>
                                         <div class="btn-wrap">
