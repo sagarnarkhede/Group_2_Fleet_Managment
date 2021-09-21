@@ -105,8 +105,7 @@ export default class Location extends Component {
       }
     // console.log("Array", a.length);
     for (var x = 0; x < a?.length; x++) {
-      var m =a[x].airportname;
-      if (m == b) {
+      if (a[x].airportname == b) {
         // console.log("nearest Center Array :", a[x].nearestcenter.length);
         for (var y = 0; y < a[x].nearestcenter?.length; y++) {
           var p = a[x].nearestcenter[y];
@@ -126,8 +125,7 @@ export default class Location extends Component {
       }
     }
     for (var x = 0; x < a?.length; x++) {
-      var n = a[x].airportname;
-      if (n == c) {
+      if (a[x].airportname == c) {
         // console.log("nearest Center Array :", a[x].nearestcenter.length);
         for (var y = 0; y < a[x].nearestcenter?.length; y++) {
           var p = a[x].nearestcenter[y];
