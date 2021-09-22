@@ -234,7 +234,7 @@ class Home extends Component {
                         <div class="container">
                             <div class="section-title" data-aos="fade-up">
                                 <h2>About Us</h2>
-                                <p>Lorem ipsum dolor sit amet.</p>
+                                <p></p>
                             </div>
                             <div class="row content">
                                 <div class="col-md-4 mt-5" data-aos="fade-right">
@@ -543,19 +543,19 @@ class Home extends Component {
                                         <div class="address">
                                             <i class="bi bi-geo-alt"></i>
                                             <h4>Location:</h4>
-                                            <p>Ayodhya Tal. Dist. Jalgaon Maharastra 425100</p>
+                                            <p>Ayodhya Nagar, Near Aditya Park Mumbai</p>
                                         </div>
 
                                         <div class="email">
                                             <i class="bi bi-envelope"></i>
                                             <h4>Email:</h4>
-                                            <p>sagarnarkhede03@gmail.com</p>
+                                            <p>rapidrental@gmail.com</p>
                                         </div>
 
                                         <div class="phone">
                                             <i class="bi bi-phone"></i>
                                             <h4>Call:</h4>
-                                            <p>+91 7350352115</p>
+                                            <p>+91 1234567899</p>
                                         </div>
 
                                     </div>
