@@ -158,7 +158,7 @@ export default class Location extends Component {
           const Locations = response.data.data;
           //console.log("add",Locations);
           Locations.forEach(async(ele)=>{
-            if(ele.city == a){
+            if(ele.city.toLowerCase() == a.toLowerCase()){
               await add.push(ele)
               this.setState({address:add})
               console.log("add",add);
@@ -175,7 +175,7 @@ export default class Location extends Component {
    await this.setState({
     selectaddress: data
    })
-   console.log("selet",this.state.selectaddress )
+  //  console.log("selet",this.state.selectaddress )
  }
  handleSelect1 =async (data) => {
   await this.setState({

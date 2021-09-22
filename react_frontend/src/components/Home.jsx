@@ -564,7 +564,7 @@ class Home extends Component {
 
                                 <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="200">
 
-                                    <form method="POST" role="form"
+                                    <form action="http://localhost:5555/contact_us" method="POST" role="form"
                                         class="php-email-form">
                                         <div class="row">
                                             <div class="col-md-6 form-group">
