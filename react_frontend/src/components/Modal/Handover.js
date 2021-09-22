@@ -84,8 +84,21 @@ getbtn()
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <label style={{marginLeft:'50px'}}> Booking Confirmation Number : </label>   <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
-     <br/><br/><br/>{this.getbtn()}
+     <div className="row">
+         <div className="col-2"></div>
+         <div className="col-8"><label style={{textAlign:"center"}}>Enter Your Booking Confirmation Number </label> </div>
+         <div className="col-2"></div>
+       </div><br/>
+       <div className="row">
+         <div className="col-4"></div>
+         <div className="col-5"><input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    </div>
+         <div className="col-3"></div>
+       </div><br/>
+       <div className="row">
+         <div className="col-3"></div>
+         <div className="col-">{this.getbtn()}</div>
+         <div className="col-3"></div>
+       </div>
       </div><br/><br/>
       {this.state.showButtons && <div class="form-group">
                 <button class="btn btn-primary" style = {{float: "center"}}

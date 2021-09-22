@@ -15,8 +15,8 @@ export default class componentName extends Component {
                                         <p className="pb-3"><em> Your satisfaction is our main aim, Enjoy your holidays with our wheels</em></p>
                                         <p>
                                             Address:<br/>All over India<br/><br/>
-                                            <strong>Phone:</strong> +919834302938<br/>
-                                            <strong>Email:</strong> rapidrental@gmail.com 
+                                            <strong>Phone:</strong> +91 1234567899<br/>
+                                            <strong>Email:</strong> rapidrental123@gmail.com 
                                         </p>
                                         
 
