@@ -108,11 +108,14 @@ export default class BookCar extends Component {
                     <label>Select Drop Up Location : </label>
                     <div className="col-6">
                         <div className="row">
-                            <div className="col-6">
+                            <div className="col-5">
                                 <label className="sublabel">Search AirPort : </label>
                                 <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
                             </div>
-                            <div className="col-6">
+                            <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{marginTop:"20px"}}>OR</label>
+                            </div>
+                            <div className="col-5">
                                 <label className="sublabel">Select AirPort no : </label>
                                 <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
                                     <option value="-1">Select Airport</option>
@@ -124,6 +127,9 @@ export default class BookCar extends Component {
                                     })}
 
                                 </select>
+                            </div>
+                            <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{marginTop:"20px"}}>OR</label>
                             </div>
                         </div>
                     </div>
@@ -158,11 +164,14 @@ export default class BookCar extends Component {
                     <label style={{ color: "rgb(255 255 255 / 80%)" }}>Select Drop Up Location : </label>
                     <div className="col-6">
                         <div className="row">
-                            <div className="col-6">
-                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Search AirPort : </label>
+                            <div className="col-5">
+                                <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Search AirPort : </label>
                                 <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} required placeholder={"Enter Airport Name "} onChange={this.myChangeHandler}></input>
                             </div>
-                            <div className="col-6">
+                            <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{ color: "rgb(255 255 255 / 80%)", marginTop:"20px"}}>OR</label>
+                            </div>
+                            <div className="col-5">
                                 <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort no : </label>
                                 <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
                                     <option value="-1">Select Airport</option>
@@ -174,6 +183,9 @@ export default class BookCar extends Component {
                                     })}
 
                                 </select>
+                            </div>
+                            <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{ color: "rgb(255 255 255 / 80%)", marginTop:"20px"}}>OR</label>
                             </div>
                         </div>
                     </div>
@@ -250,11 +262,15 @@ export default class BookCar extends Component {
                                 <label style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Select Pick Up Location : </label>
                                 <div className="col-6">
                                     <div className="row">
-                                        <div className="col-6">
+                                        <div className="col-5">
                                             <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Search AirPort : </label>
                                             <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} required placeholder={"Enter Airport Name"}  onChange={this.myChangeHandler}></input>
+                                            
+                                        </div> 
+                                        <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{ color: "rgb(255 255 255 / 80%)", marginTop:"20px"}}>OR</label>
                                         </div>
-                                        <div className="col-6">
+                                        <div className="col-5">
                                             <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}>
                                                 <option value="-1" >Select Airport</option>
@@ -267,10 +283,14 @@ export default class BookCar extends Component {
                                             </select>
                                             {/* <input type="text" className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}></input> */}
                                         </div>
+                                        <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{ color: "rgb(255 255 255 / 80%)", marginTop:"20px"}}>OR</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="col-6">
                                     <div className="row">
+                                    
                                         <div className="col-6">
                                             <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }} >City : </label>
                                             <input type="text" className="form-control" name="pickupcity" placeholder={"Enter City"}  onChange={this.myChangeHandler}></input>
@@ -341,11 +361,14 @@ export default class BookCar extends Component {
                                 <label>Select Pick Up Location : </label>
                                 <div className="col-6">
                                     <div className="row">
-                                        <div className="col-6">
+                                        <div className="col-5">
                                             <label className="sublabel">Search AirPort : </label>
                                             <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} onChange={this.myChangeHandler}></input>
                                         </div>
-                                        <div className="col-6">
+                                        <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{marginTop:"20px"}}>OR</label>
+                                        </div>
+                                        <div className="col-5">
                                             <label className="sublabel">Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" defaultValue={this.state.selectpickupAirport} onChange={this.myChangeHandler}>
                                                 <option value="-1">Select Airport</option>
@@ -358,6 +381,9 @@ export default class BookCar extends Component {
                                             </select>
                                             {/* <input type="text" className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler}></input> */}
                                         </div>
+                                        <div className="col-1" style={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                                        <label className="sublabel " style={{ marginTop:"20px"}}>OR</label>
+                            </div>
                                     </div>
                                 </div>
                                 <div className="col-6">

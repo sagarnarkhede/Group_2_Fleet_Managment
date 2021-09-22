@@ -41,7 +41,7 @@ export default class SuccesPop extends Component {
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
-     <h2 align="center">Cancel Succesful</h2>
+     <h2 align="center">Cancel Successful</h2>
      <lottie-player src="https://assets2.lottiefiles.com/temp/lf20_MqU2rh.json"
                                                         
                                                         background="transparent" speed="1.5" style={{marginLeft: '210px', width: "200px", height: "200px" }}
