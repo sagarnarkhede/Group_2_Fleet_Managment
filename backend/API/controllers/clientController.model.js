@@ -240,6 +240,72 @@ exports.post_clientonly = async (req, res) => {
             message: null,
             error: null
         })
+        // // Send Mail code
+        const nodemailer = require('nodemailer');
+        var user= process.env.AUTHSENDERMAIL;
+        var pass= process.env.AUTHSENDERPASS
+        var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: user,
+                pass: pass
+            }
+        });
+
+        var mailOptions = {
+            from: user,
+            to: data.email,
+            subject: 'Successfully Register With Rapid Rental..',
+            html: `
+            <!DOCTYPE html>
+            <html lang="en">
+            <body>
+            <h1>Welcome To Rapid Rental!!</h1>
+            <div class="container">
+              <p>Hello,</p>
+              <p>
+               Mr/Ms. ${data.fname} ${data.lname},
+              </p> 
+              </br>
+              <p>You have Register is Sucessfully..</ p>           
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Your Registration Details are : </th>
+                  </tr>
+                </thead>
+                </br>
+                <tbody>
+                  <tr>
+                    <td>User Id :</td>
+                    <td>${data._id}</td>
+                  </tr>
+                 
+                  <tr>
+                    <td>Password : </td>
+                    <td>${data.password}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>Book your car and enjoy jouney !!</pr>
+              <h4>Custmer Contact:-  </h4>
+              <p>
+              email id:- rapidrental123@gmail.com
+              </p>
+            </div>
+            </body>
+            </html>
+            `
+        };
+
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log('Email sent sucessfully: ' + info.response);
+            }
+        });
+
 
     }
     catch (err) {
