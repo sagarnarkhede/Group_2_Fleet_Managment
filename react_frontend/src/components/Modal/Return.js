@@ -95,6 +95,7 @@ getbtn()
      <label style={{marginLeft: '50px'}}> Booking Confirmation Number: </label>   <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
      <br/><br/><br/>{this.getbtn()}
       </div><br/><br/>
+      <img src="assets/img/return.svg" class="img-fluid" alt=""  width="300" height="200" style={{marginLeft: '220px'}}/>
       {/* <button type="button" class="btn btn-primary" onClick={()=>console.log(this.state)}>Search</button> */}
         </div>
         

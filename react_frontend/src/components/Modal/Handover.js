@@ -99,6 +99,7 @@ getbtn()
                 </button>
             </div>
    }
+   <img src="assets/img/handover.svg" class="img-fluid" alt=""  width="300" height="200" style={{marginLeft: '220px'}}/>
         </div>
         
      </Modal.Body>
