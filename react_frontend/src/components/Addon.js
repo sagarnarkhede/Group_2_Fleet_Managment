@@ -6,8 +6,8 @@ class Addon extends Component {
   constructor(props) {
     super(props);
     console.log("addon", this.props);
-    this.state={
-      quant : ''
+    this.state = {
+      quant: ''
     }
     this.handleDropdownChange = this.handleDropdownChange.bind(this);
     this.handleBack = this.handleBack.bind(this)
@@ -86,7 +86,7 @@ class Addon extends Component {
                   <input type="checkbox" id="1" name="nav" value="B" onClick={async () => { await this.setState({ nav: "GPS Navigation System" }); console.log(this.state) }}></input> <label for="1"> GPS Navigation System</label>
                 </div>
                 <div class="col-8">
-                  &#36;10.00 /day
+                  &#8377;10.00 /day
                 </div>
               </div>
               <div class="row">
@@ -94,7 +94,7 @@ class Addon extends Component {
                   <input type="checkbox" id="1" name="camp" value="B" onClick={async () => { await this.setState({ camp: "Camping Kit" }); console.log(this.state) }}></input> <label for="1"> Camping Kit</label>
                 </div>
                 <div class="col-8">
-                  &#36;30.00 /day
+                  &#8377;30.00 /day
                 </div>
               </div>
               <div class="row">
@@ -102,7 +102,7 @@ class Addon extends Component {
                   <input type="checkbox" id="1" name="chSeats" value="B" onClick={async () => { await this.setState({ chSeats: "Child Seats" }); console.log(this.state) }}></input> <label for="1"> Child Seats</label>
                 </div>
                 <div class="col-8">
-                  &#36;15.00 /day
+                  &#8377;15.00 /day
                 </div>
               </div>
               <div class="row">
@@ -110,13 +110,13 @@ class Addon extends Component {
                   <label>Please enter no. of seats </label>
                 </div>
                 <div class="col-8">
-                    <select id="dropdown" onChange={this.handleDropdownChange}>
-                      <option value="0">0</option>
-                      <option value="1">1</option>
-                      <option value="2">2</option>
-                      <option value="3">3</option>
-                      <option value="4">4</option>
-                    </select>
+                  <select id="dropdown" onChange={this.handleDropdownChange}>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                  </select>
                 </div>
               </div>
             </div>
