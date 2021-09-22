@@ -131,6 +131,13 @@ exports.post_client = async (req, res) => {
               <p>
                Mr/Ms. ${data.fname} ${data.lname},
               </p> 
+              <p>
+               User Id: ${data._id},
+              </p> 
+              <p>
+               Password: ${data.password},
+              </p> 
+
               </br>
               <p>Your Booking Number is: ${data.bookings[0]._id}</ p>           
               <table class="table">
@@ -266,6 +273,7 @@ exports.post_clientonly = async (req, res) => {
               <p>
                Mr/Ms. ${data.fname} ${data.lname},
               </p> 
+              
               </br>
               <p>You have Register is Sucessfully..</ p>           
               <table class="table">
@@ -390,7 +398,13 @@ exports.post_booking = async (req, res) => {
             <div class="container">
               <p>Hello,</p>
               <p>
-               mr. ${data.fname} ${data.lname},
+              Mr/Ms. ${data.fname} ${data.lname},
+              </p> 
+              <p>
+               User Id: ${data._id},
+              </p> 
+              <p>
+               Password: ${data.password},
               </p> 
               </br>
               <p>your Booking Number is: ${booking._id}</ p>           
