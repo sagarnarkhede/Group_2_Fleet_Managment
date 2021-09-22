@@ -390,28 +390,28 @@ class CustomerInfoPage extends Component {
                     <div className="row">
                         <div className="col-6">
                             <label >First Name : </label>
-                            <input type="text" className="form-control" name="fname" defaultValue={this.state.fname} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="fname" defaultValue={this.state.fname} required placeholder={"Enter Your First Name"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>Last Name : </label>
-                            <input type="text" className="form-control" name="lname" defaultValue={this.state.lname} onChange={this.myChangeHandler} ></input>
+                            <input type="text" className="form-control" name="lname" defaultValue={this.state.lname} required placeholder={"Enter Your Last Name"}  onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
                     <label>Address 1 : </label>
-                    <input type="text" className="form-control" name="address1" defaultValue={this.state.address1} onChange={this.myChangeHandler} ></input>
+                    <input type="text" className="form-control" name="address1" defaultValue={this.state.address1} required placeholder={"Enter Your Address"} onChange={this.myChangeHandler} ></input>
                     <br />
                     <label>Address 2: </label>
-                    <input type="text" className="form-control" name="address2" defaultValue={this.state.address2} onChange={this.myChangeHandler} ></input>
+                    <input type="text" className="form-control" name="address2" defaultValue={this.state.address2} required placeholder={"Enter Your Address"} onChange={this.myChangeHandler} ></input>
                     <br />
 
                     <div className="row">
                         <div className="col-6">
                             <label >Email : </label>
-                            <input type="text" className="form-control" name="email" defaultValue={this.state.email} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="email" defaultValue={this.state.email} required placeholder={"Enter Your E-mail Id"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>password : </label>
-                            <input type="text" className="form-control" name="password" defaultValue={this.state.password} onChange={this.myChangeHandler} ></input>
+                            <label>Password : </label>
+                            <input type="password" className="form-control" name="password" defaultValue={this.state.password} required placeholder={"Enter Your Passward"} onChange={this.myChangeHandler} ></input>
                         </div>
 
                     </div><br />
@@ -419,62 +419,62 @@ class CustomerInfoPage extends Component {
                     <div className="row">
                         <div className="col-6">
                             <label >Phone Number : </label>
-                            <input type="text" className="form-control" name="phone_number" defaultValue={this.state.phone_number} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="phone_number" defaultValue={this.state.phone_number} placeholder={"Enter Your Phone Number"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>Cell : </label>
-                            <input type="text" className="form-control" name="mobile_number" defaultValue={this.state.mobile_number} onChange={this.myChangeHandler} ></input>
+                            <label>Mobile : </label>
+                            <input type="text" className="form-control" name="mobile_number" defaultValue={this.state.mobile_number} required placeholder={"Enter Your Mobile Number"} onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
                             <label>Date of Birth : </label>
-                            <input type="date" className="form-control" name="date_of_birth" defaultValue={this.state.date_of_birth} onChange={this.myChangeHandler} ></input>
+                            <input type="date" className="form-control" name="date_of_birth" defaultValue={this.state.date_of_birth} required onChange={this.myChangeHandler} ></input>
                         </div>
                         <div className="col-6">
                             <label>Zip Code : </label>
-                            <input type="number" className="form-control" name="zip" defaultValue={this.state.zip} onChange={this.myChangeHandler} ></input>
+                            <input type="number" className="form-control" name="zip" defaultValue={this.state.zip} required placeholder={"Enter Your Zip Code"} onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
                             <label >City : </label>
-                            <input type="text" className="form-control" name="city" defaultValue={this.state.city} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="city" defaultValue={this.state.city} required placeholder={"Enter Your City"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>State : </label>
-                            <input type="text" className="form-control" name="state" defaultValue={this.state.state} onChange={this.myChangeHandler} ></input>
+                            <input type="text" className="form-control" name="state" defaultValue={this.state.state} required placeholder={"Enter Your State"}onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
                             <label >Card Type : </label>
-                            <input type="text" className="form-control" name="card_type" defaultValue={this.state.card_type} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="card_type" defaultValue={this.state.card_type} placeholder={"Enter Your Type of Card"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>Card Number : </label>
-                            <input type="text" className="form-control" name="card_number" defaultValue={this.state.card_number} onChange={this.myChangeHandler} ></input>
+                            <input type="text" className="form-control" name="card_number" defaultValue={this.state.card_number} placeholder={"Enter Your Card Number"}  onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
                             <label >Local Driving Lic : </label>
-                            <input type="text" className="form-control" name="driving_lic" defaultValue={this.state.driving_lic} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="driving_lic" defaultValue={this.state.driving_lic} required placeholder={"Enter Your Driving License Type"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>IDP# : </label>
-                            <input type="text" className="form-control" name="IDP" defaultValue={this.state.IDP} onChange={this.myChangeHandler} ></input>
+                            <input type="text" className="form-control" name="IDP" defaultValue={this.state.IDP} required placeholder={"Enter Your Driving License Number"}  onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
-                            <label >Issuer By : </label>
-                            <input type="text" className="form-control" name="driving_issued_by" defaultValue={this.state.driving_issued_by} onChange={this.myChangeHandler}></input>
+                            <label >Issued By : </label>
+                            <input type="text" className="form-control" name="driving_issued_by" defaultValue={this.state.driving_issued_by} required placeholder={"Your Driving License Issued By"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>Valid Upto : </label>
@@ -485,7 +485,7 @@ class CustomerInfoPage extends Component {
                     <div className="row">
                         <div className="col-6">
                             <label >Passport No : </label>
-                            <input type="text" className="form-control" name="passport_number" defaultValue={this.state.passport_number} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="passport_number" defaultValue={this.state.passport_number} placeholder={"Enter Your Passport Number"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>Valid Upto : </label>
@@ -496,7 +496,7 @@ class CustomerInfoPage extends Component {
                     <div className="row">
                         <div className="col-6">
                             <label >Issued By : </label>
-                            <input type="text" className="form-control" name="passport_issued_by" defaultValue={this.state.passport_issued_by} onChange={this.myChangeHandler}></input>
+                            <input type="text" className="form-control" name="passport_issued_by" defaultValue={this.state.passport_issued_by} placeholder={"Your Passport Issued By"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
                             <label>Date : </label>

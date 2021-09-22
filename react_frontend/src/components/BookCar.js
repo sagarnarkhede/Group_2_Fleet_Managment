@@ -160,7 +160,7 @@ export default class BookCar extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)", fontSize: "18px", fontWeight: 500 }}>Search AirPort : </label>
-                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} required placeholder={"Enter Airport Name "} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
                                 <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort no : </label>
@@ -181,11 +181,11 @@ export default class BookCar extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>City : </label>
-                                <input type="text" className="form-control" name="dropcity" onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control" name="dropcity" placeholder={"Enter City"} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
                                 <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>State : </label>
-                                <input type="text" className="form-control col-3" name="dropstate" onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control col-3" name="dropstate" placeholder={"Enter State"}  onChange={this.myChangeHandler}></input>
                             </div>
                         </div>
 
@@ -252,7 +252,7 @@ export default class BookCar extends Component {
                                     <div className="row">
                                         <div className="col-6">
                                             <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Search AirPort : </label>
-                                            <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} onChange={this.myChangeHandler}></input>
+                                            <input type="text" className="form-control" name="searchpickupAirport" defaultValue={this.state.searchpickupAirport} required placeholder={"Enter Airport Name"}  onChange={this.myChangeHandler}></input>
                                         </div>
                                         <div className="col-6">
                                             <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>Select AirPort : </label>
@@ -272,12 +272,12 @@ export default class BookCar extends Component {
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="col-6">
-                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>City : </label>
-                                            <input type="text" className="form-control" name="pickupcity" onChange={this.myChangeHandler}></input>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }} >City : </label>
+                                            <input type="text" className="form-control" name="pickupcity" placeholder={"Enter City"}  onChange={this.myChangeHandler}></input>
                                         </div>
                                         <div className="col-6">
-                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }}>State : </label>
-                                            <input type="text" className="form-control col-3" name="pickupstate" onChange={this.myChangeHandler}></input>
+                                            <label className="sublabel" style={{ color: "rgb(255 255 255 / 80%)" }} >State : </label>
+                                            <input type="text" className="form-control col-3" name="pickupstate" placeholder={"Enter State"}  onChange={this.myChangeHandler}></input>
                                         </div>
                                     </div>
 

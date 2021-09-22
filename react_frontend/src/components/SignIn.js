@@ -11,8 +11,11 @@ class SignIn extends Component {
             userid : '',
             password: '',
             invalidpassmodalShow: false
+            
         }
     }
+    
+   
     mySubmitHandler = async (event) => {
         let flag = 0;
         event.preventDefault();
@@ -56,6 +59,7 @@ class SignIn extends Component {
             })
         }
     }
+    
 
     myChangeHandler = (event) => {
         this.setState({ [event.target.name]: event.target.value });
@@ -71,9 +75,9 @@ class SignIn extends Component {
                     <h2>Login : </h2><br />
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                         <label >UserId : </label>
-                        <input type="text" className="form-control" name="userid" onChange={this.myChangeHandler}></input>
+                        <input type="text" className="form-control" name="userid" required placeholder={"Enter Your User Id"} onChange={this.myChangeHandler}></input>
                         <label>password : </label>
-                        <input type="text" className="form-control" name="password" onChange={this.myChangeHandler} ></input>
+                        <input type="password" className="form-control" name="password" id = "myInput" required placeholder={"Enter Your Password"} onChange={this.myChangeHandler} ></input>
                         <br />
                         <br />
                         {/* <Link to={{ pathname: "/"}} > */}
