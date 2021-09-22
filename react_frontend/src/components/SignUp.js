@@ -94,7 +94,7 @@ export default class componentName extends Component {
                                 <input type="text" className="form-control" name="email" required placeholder={"Enter Your E-mail Id"} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label>password : </label>
+                                <label>Password : </label>
                                 <input type="password" className="form-control" name="password" required placeholder={"Enter Your Password"} onChange={this.myChangeHandler} ></input>
                             </div>
                            

@@ -320,7 +320,7 @@ class CustomerInfoPage extends Component {
                     <label >Membership No : </label>
                     <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler} required placeholder={"User Id"}></input>
                     <label>Password : </label>
-                    <input type="text" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Password"}></input>
+                    <input type="password" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Password"}></input>
                     <br />
                     {/* <p>Forget Password</p>
                     <br /> */}

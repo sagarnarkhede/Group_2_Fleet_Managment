@@ -76,7 +76,7 @@ class SignIn extends Component {
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                         <label >UserId : </label>
                         <input type="text" className="form-control" name="userid" required placeholder={"Enter Your User Id"} onChange={this.myChangeHandler}></input>
-                        <label>password : </label>
+                        <label>Password : </label>
                         <input type="password" className="form-control" name="password" id = "myInput" required placeholder={"Enter Your Password"} onChange={this.myChangeHandler} ></input>
                         <br />
                         <br />
