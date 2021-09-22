@@ -58,12 +58,9 @@ export default function Nav(props) {
                             </ul>
                         </li>
                         <li><a className="nav-link scrollto" href="/signup">Sign up</a></li>
-
                         <li><a className="nav-link scrollto" href="/signin">Log In</a></li>
-                        
                     </React.Fragment>
                 )
-                
             }
     }
 
@@ -79,15 +76,11 @@ export default function Nav(props) {
                     onHide={() => setModalShow1(false)} />
                     <Return show={returnmodalShow} onHide={() => setreturnModalShow(false)}/>  
                     <Cancellation show={cancellationmodalShow} onHide={() => setcancellationModalShow(false)}/>  
-                    
                      </div>
             <nav id="navbar" className="navbar">
                 <ul>
                 <li><a className="nav-link scrollto" href="/">Home</a></li>
-
-                    
                     {isLogin()}
-                    {/* {isUserLogin()} */}
                 </ul>
                 <i className="bi bi-list mobile-nav-toggle"></i>
             </nav>
