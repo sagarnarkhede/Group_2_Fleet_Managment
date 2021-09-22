@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
 import {Switch,Route,Link} from "react-router-dom";
+import axios from "axios";
+import RegisterSuccess from "./Modal/RegisterSuccess";
+import RegisterFail from "./Modal/RegisterFail";
 
 export default class componentName extends Component {
      constructor(props) {
@@ -30,6 +33,8 @@ export default class componentName extends Component {
         passport_valid: '',
         passport_issued_by: '',
         passport_date: '',
+        sucessmodalShow: false,
+        failmodalShow: false
        
     }
       }
@@ -39,7 +44,14 @@ export default class componentName extends Component {
      }
       mySubmitHandler = (event) => {
           let ob =localStorage.getItem("data")
-        //   console.log(JSON.parse(ob));
+          axios.post("http://localhost:5555/clients/clientonly/", this.state)
+          .then(async response => {
+              this.setState({sucessmodalShow:true})
+          })
+          .catch(error => {
+            console.log(error.message);
+            this.setState({failmodalShow:true})
+          })
           
         event.preventDefault();
         console.log(this.state);
@@ -54,6 +66,8 @@ export default class componentName extends Component {
         return (
             <div>
                 <Nav />
+                <RegisterSuccess show={this.state.sucessmodalShow} onHide={() => this.setState({sucessmodalShow:false})}/>
+                <RegisterFail show={this.state.failmodalShow} onHide={() => this.setState({failmodalShow:false})}/>
                 <div className="" style={{ margin: "13vh 15%" }}>
                     <h2>Register Yourself : </h2><br/>
                     <form className="form-group" onSubmit={this.mySubmitHandler} style={{border: "2px solid black",borderRadius: "30px",  padding: "50px"}}>
@@ -174,9 +188,9 @@ export default class componentName extends Component {
                             </div>
                         </div><br />
 
-                        <Link to={{ pathname: "/",state:this.state}} >
+                        {/* <Link to={{ pathname: "/",state:this.state}} > */}
                         <button className="btn btn-primary" style={{ textAlign: "center", width:"20%"}}>Register</button>
-                        </Link>
+                        {/* </Link> */}
                         <button className="btn btn-primary" style={{ textAlign: "center", float:"right" ,width:"20%"}} onClick={this.handleBack}>Back</button>
                     </form>
                 </div>

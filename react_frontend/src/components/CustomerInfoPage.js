@@ -318,9 +318,9 @@ class CustomerInfoPage extends Component {
                  <InvalidIdPass show={this.state.invalidpassmodalShow} onHide={() =>this.setState({invalidpassmodalShow:false})} />
                 <form className="form-group" onSubmit={this.myLoginHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                     <label >Membership No : </label>
-                    <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler}></input>
-                    <label>password : </label>
-                    <input type="text" className="form-control" name="loginpassword" onChange={this.myChangeHandler} ></input>
+                    <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler} required placeholder={"User Id"}></input>
+                    <label>Password : </label>
+                    <input type="text" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Password"}></input>
                     <br />
                     {/* <p>Forget Password</p>
                     <br /> */}
