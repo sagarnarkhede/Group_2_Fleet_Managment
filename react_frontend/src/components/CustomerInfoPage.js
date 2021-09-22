@@ -317,10 +317,10 @@ class CustomerInfoPage extends Component {
             <React.Fragment>
                  <InvalidIdPass show={this.state.invalidpassmodalShow} onHide={() =>this.setState({invalidpassmodalShow:false})} />
                 <form className="form-group" onSubmit={this.myLoginHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
-                    <label >Membership No : </label>
-                    <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler} required placeholder={"User Id"}></input>
-                    <label>Password : </label>
-                    <input type="password" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Password"}></input>
+                    <label ><span style={{color:"red"}}>*</span>Membership No : </label>
+                    <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler} required placeholder={" Enter Your User Id"}></input>
+                    <label><span style={{color:"red"}}>*</span>Password : </label>
+                    <input type="password" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Enter Your Password"}></input>
                     <br />
                     {/* <p>Forget Password</p>
                     <br /> */}
@@ -389,28 +389,28 @@ class CustomerInfoPage extends Component {
                 <form className="form-group" onSubmit={this.mySubmitHandler} style={{ border: "2px solid black", borderRadius: "30px", padding: "50px" }}>
                     <div className="row">
                         <div className="col-6">
-                            <label >First Name : </label>
+                            <label ><span style={{color:"red"}}>*</span>First Name : </label>
                             <input type="text" className="form-control" name="fname" defaultValue={this.state.fname} required placeholder={"Enter Your First Name"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>Last Name : </label>
+                            <label><span style={{color:"red"}}>*</span>Last Name : </label>
                             <input type="text" className="form-control" name="lname" defaultValue={this.state.lname} required placeholder={"Enter Your Last Name"}  onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
-                    <label>Address 1 : </label>
+                    <label><span style={{color:"red"}}>*</span>Address 1 : </label>
                     <input type="text" className="form-control" name="address1" defaultValue={this.state.address1} required placeholder={"Enter Your Address"} onChange={this.myChangeHandler} ></input>
                     <br />
                     <label>Address 2: </label>
-                    <input type="text" className="form-control" name="address2" defaultValue={this.state.address2} required placeholder={"Enter Your Address"} onChange={this.myChangeHandler} ></input>
+                    <input type="text" className="form-control" name="address2" defaultValue={this.state.address2}  placeholder={"Enter Your Address"} onChange={this.myChangeHandler} ></input>
                     <br />
 
                     <div className="row">
                         <div className="col-6">
-                            <label >Email : </label>
+                            <label ><span style={{color:"red"}}>*</span> Email : </label>
                             <input type="text" className="form-control" name="email" defaultValue={this.state.email} required placeholder={"Enter Your E-mail Id"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>Password : </label>
+                            <label><span style={{color:"red"}}>*</span> Password : </label>
                             <input type="password" className="form-control" name="password" defaultValue={this.state.password} required placeholder={"Enter Your Passward"} onChange={this.myChangeHandler} ></input>
                         </div>
 
@@ -422,29 +422,29 @@ class CustomerInfoPage extends Component {
                             <input type="text" className="form-control" name="phone_number" defaultValue={this.state.phone_number} placeholder={"Enter Your Phone Number"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>Mobile : </label>
+                            <label><span style={{color:"red"}}>*</span>Mobile : </label>
                             <input type="text" className="form-control" name="mobile_number" defaultValue={this.state.mobile_number} required placeholder={"Enter Your Mobile Number"} onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
-                            <label>Date of Birth : </label>
+                            <label> <span style={{color:"red"}}>*</span>Date of Birth : </label>
                             <input type="date" className="form-control" name="date_of_birth" defaultValue={this.state.date_of_birth} required onChange={this.myChangeHandler} ></input>
                         </div>
                         <div className="col-6">
-                            <label>Zip Code : </label>
+                            <label><span style={{color:"red"}}>*</span>Zip Code : </label>
                             <input type="number" className="form-control" name="zip" defaultValue={this.state.zip} required placeholder={"Enter Your Zip Code"} onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
-                            <label >City : </label>
+                            <label ><span style={{color:"red"}}>*</span>City : </label>
                             <input type="text" className="form-control" name="city" defaultValue={this.state.city} required placeholder={"Enter Your City"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>State : </label>
+                            <label><span style={{color:"red"}}>*</span>State : </label>
                             <input type="text" className="form-control" name="state" defaultValue={this.state.state} required placeholder={"Enter Your State"}onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
@@ -462,23 +462,23 @@ class CustomerInfoPage extends Component {
 
                     <div className="row">
                         <div className="col-6">
-                            <label >Local Driving Lic : </label>
+                            <label ><span style={{color:"red"}}>*</span>Local Driving Lic : </label>
                             <input type="text" className="form-control" name="driving_lic" defaultValue={this.state.driving_lic} required placeholder={"Enter Your Driving License Type"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>IDP# : </label>
+                            <label><span style={{color:"red"}}>*</span>IDP# : </label>
                             <input type="text" className="form-control" name="IDP" defaultValue={this.state.IDP} required placeholder={"Enter Your Driving License Number"}  onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 
                     <div className="row">
                         <div className="col-6">
-                            <label >Issued By : </label>
+                            <label ><span style={{color:"red"}}>*</span>Issued By : </label>
                             <input type="text" className="form-control" name="driving_issued_by" defaultValue={this.state.driving_issued_by} required placeholder={"Your Driving License Issued By"} onChange={this.myChangeHandler}></input>
                         </div>
                         <div className="col-6">
-                            <label>Valid Upto : </label>
-                            <input type="date" className="form-control" name="driving_valid" defaultValue={this.state.driving_valid} onChange={this.myChangeHandler} ></input>
+                            <label><span style={{color:"red"}}>*</span>Valid Upto : </label>
+                            <input type="date" className="form-control" name="driving_valid" defaultValue={this.state.driving_valid} required onChange={this.myChangeHandler} ></input>
                         </div>
                     </div><br />
 

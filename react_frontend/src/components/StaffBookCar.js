@@ -58,12 +58,12 @@ export default class StaffBookCar extends Component {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel">Search AirPort : </label>
-                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
+                                <label className="sublabel"><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                <input type="text" className="form-control" name="searchdropAirport" required placeholder={"Enter Airport name"} defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel">Select AirPort no : </label>
-                                <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
+                                <label className="sublabel"><span style={{color:"red"}}>*</span>Select AirPort : </label>
+                                <select className="form-control" name="selectdroppAirport" required defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
                                 <option value="-1">Select Airport</option>
                                     {this.state.airportdata.map((w) => {
                                         return (
@@ -78,11 +78,11 @@ export default class StaffBookCar extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <label className="sublabel">City : </label>
-                                <input type="text" className="form-control" name="dropcity" defaultValue={this.state.dropcity}  onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control" name="dropcity" defaultValue={this.state.dropcity} placeholder={"Enter City"}  onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
                                 <label className="sublabel">State : </label>
-                                <input type="text" className="form-control col-3" name="dropstate" defaultValue={this.state.dropstate} onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control col-3" name="dropstate" defaultValue={this.state.dropstate} placeholder={"Enter State"} onChange={this.myChangeHandler}></input>
                             </div>
                         </div>
                     </div>
@@ -104,12 +104,12 @@ export default class StaffBookCar extends Component {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Search AirPort : </label>
-                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
+                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport}required placeholder={"Enter Airport Name"} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}>Select AirPort no : </label>
-                                <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
+                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}><span style={{color:"red"}}>*</span>Select AirPort no : </label>
+                                <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} required onChange={this.myChangeHandler}>
                                 <option value="-1">Select Airport</option>
                                     {this.state.airportdata.map((w) => {
                                         return (
@@ -124,11 +124,11 @@ export default class StaffBookCar extends Component {
                         <div className="row">
                             <div className="col-6">
                                 <label className="sublabel" style={{color:"rgb(255 255 255 / 80%)"}}>City : </label>
-                                <input type="text" className="form-control" name="dropcity" defaultValue={this.state.dropcity} onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control" name="dropcity" placeholder={"Enter City"} defaultValue={this.state.dropcity} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
                                 <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}>State : </label>
-                                <input type="text" className="form-control col-3" name="dropstate" defaultValue={this.state.dropstate} onChange={this.myChangeHandler}></input>
+                                <input type="text" className="form-control col-3" name="dropstate" placeholder={"Enter State"} defaultValue={this.state.dropstate} onChange={this.myChangeHandler}></input>
                             </div>
                         </div>
 
@@ -155,12 +155,12 @@ export default class StaffBookCar extends Component {
                         <form className="form-group" onSubmit={this.mySubmitHandler}>
                             <div className="row">
                                 <div className="col-6">
-                                    <label >Select Pickup Date : </label>
-                                    <input type="date" className="form-control" name="pickupDate" value = {this.state.pickupDate} disabled></input>
+                                    <label ><span style={{color:"red"}}>*</span>Select Pickup Date : </label>
+                                    <input type="date" className="form-control" name="pickupDate" required value = {this.state.pickupDate} disabled></input>
                                 </div>
                                 <div className="col-6">
-                                    <label>Select Drop Date : </label>
-                                    <input type="date" className="form-control" name="dropDate" onChange={this.myChangeHandler} ></input>
+                                    <label><span style={{color:"red"}}>*</span>Select Drop Date : </label>
+                                    <input type="date" className="form-control" name="dropDate" required onChange={this.myChangeHandler} ></input>
                                 </div>
                             </div><br />
                             <div className="row mt-2">
@@ -178,12 +178,12 @@ export default class StaffBookCar extends Component {
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="col-6">
-                                            <label className="sublabel">Search AirPort : </label>
-                                            <input type="text" className="form-control" name="searchpickupAirport" onChange={this.myChangeHandler} disabled></input>
+                                            <label className="sublabel"><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                            <input type="text" className="form-control" name="searchpickupAirport" required placeholder={"Enter Airport Name"} onChange={this.myChangeHandler} disabled></input>
                                         </div>
                                         <div className="col-6">
-                                            <label className="sublabel">Select AirPort : </label>
-                                            <select className="form-control" name="selectpickupAirport" onChange={this.myChangeHandler} disabled>
+                                            <label className="sublabel"><span style={{color:"red"}}>*</span>Select AirPort : </label>
+                                            <select className="form-control" name="selectpickupAirport" required onChange={this.myChangeHandler} disabled>
                                             <option value="-1">Select Airport</option>
                                                     {this.state.airportdata.map((w) => {
                                                         return (
@@ -200,11 +200,11 @@ export default class StaffBookCar extends Component {
                                     <div className="row">
                                         <div className="col-6">
                                             <label className="sublabel">City : </label>
-                                            <input type="text" className="form-control" name="pickupcity" onChange={this.myChangeHandler} disabled></input>
+                                            <input type="text" className="form-control" name="pickupcity" placeholder={"Enter City"} onChange={this.myChangeHandler} disabled></input>
                                         </div>
                                         <div className="col-6">
                                             <label className="sublabel">State : </label>
-                                            <input type="text" className="form-control col-3" name="pickupstate" onChange={this.myChangeHandler} disabled></input>
+                                            <input type="text" className="form-control col-3" name="pickupstate" placeholder={"Enter State"} onChange={this.myChangeHandler} disabled></input>
                                         </div>
                                     </div>
     
