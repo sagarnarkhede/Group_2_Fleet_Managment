@@ -123,12 +123,12 @@ handoverit = ()=>{
     {/* {console.log(this.props)} */}
       <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
         <Modal.Title id="contained-modal-title-vcenter">
-        <h2 style={{color: 'white'}}>Handover:</h2>
+        <h2 style={{color: 'white'}}>Handover</h2>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
-      <label> Booking Confirmation Number: </label>  <input type="text"  name="booking_id" value={this.state.data.bookingid} onChange={this.myChangeHandler}></input>  <button type="button" class="btn btn-primary" disabled>Search</button><br/><br/>
+      <label> Booking Confirmation Number : </label>  <input type="text"  name="booking_id" value={this.state.data.bookingid} onChange={this.myChangeHandler}></input>  <button type="button" class="btn btn-primary" disabled>Search</button><br/><br/>
       <label>Vehicle Registration Number</label> <input type="text"  name="Vehicle Registration Number" defaultValue={this.state.selectedCar?.carno}></input> <button type="button" class="btn btn-primary" onClick={this.selectcar}>Select Car</button>
        <br/><br/>
        <label>Car Status</label> <input type="text"  name="carStatus" onChange={this.myChangeHandler}></input><br/><br></br>

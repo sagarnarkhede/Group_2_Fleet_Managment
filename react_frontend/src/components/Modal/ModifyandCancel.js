@@ -80,14 +80,14 @@ getbtn()
    {/* {console.log(this.props)} */}
      <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
        <Modal.Title id="contained-modal-title-vcenter">
-       <h2 style={{color: 'white'}}>ModifyandCancel:</h2>
+       <h2 style={{color: 'white'}}>ModifyandCancel</h2>
       </Modal.Title>
      </Modal.Header>
      <Modal.Body onSubmit={this.mySubmitHandler}>
      <div  style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
      <div class="text-left">
      
-     <label style={{marginLeft: '50px'}}> Booking Confirmation Number: </label>  <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
+     <label style={{marginLeft: '50px'}}> Booking Confirmation Number : </label>  <input type="text"  name="booking_id" onChange={this.myChangeHandler}></input>    
      <br/><br/><br/>{this.getbtn()}  
      
       </div><br/><br/>

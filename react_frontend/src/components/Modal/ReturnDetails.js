@@ -105,12 +105,12 @@ closepopup = ()=>{
     {/* {console.log(this.props)} */}
       <Modal.Header closeButton style={{backgroundColor: 'darkblue'}}>
         <Modal.Title id="contained-modal-title-vcenter">
-        <h2 style={{color: 'white'}}>Return:</h2>
+        <h2 style={{color: 'white'}}>Return</h2>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <div style={{ border: "2px solid black", borderRadius: "30px", padding: "50px", textAlign: "left" }}>
-      <label> Booking Confirmation Number: </label>  <lable>{this.state.data._id}</lable><br/><br/>
+      <label> Booking Confirmation Number : </label>  <lable>{this.state.data._id}</lable><br/><br/>
       <label>Vehicle Registration Number : </label> <lable>{this.state.data.carno}</lable>
        <br/><br/>
        <label>Car Status</label> <input type="text"  name="carStatus" onChange={this.myChangeHandler}></input><br/><br></br>
