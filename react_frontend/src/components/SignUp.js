@@ -66,7 +66,7 @@ export default class componentName extends Component {
         return (
             <div>
                 <Nav />
-                <RegisterSuccess show={this.state.sucessmodalShow} onHide={() => this.setState({sucessmodalShow:false})}/>
+                <RegisterSuccess show={this.state.sucessmodalShow} onHide={() => {this.setState({sucessmodalShow:false});window.location = '/';}}/>
                 <RegisterFail show={this.state.failmodalShow} onHide={() => this.setState({failmodalShow:false})}/>
                 <div className="" style={{ margin: "13vh 15%" }}>
                     <h2>Register Yourself : </h2><br/>

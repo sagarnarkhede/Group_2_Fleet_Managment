@@ -73,6 +73,7 @@ class ConfirmBooking extends Component {
       axios.post(url, this.state.fdata)
         .then(async response => {
           this.setState({bookingsucces1modalShow:true})
+    
         })
         .catch(error => {
           console.log(error.message);
@@ -89,6 +90,7 @@ class ConfirmBooking extends Component {
                   const booking = response.data.data;
                   console.log("bookingdata",booking);
                   this.setState({bookingsucces1modalShow:true})
+                  
                   })
                   .catch(error => {
                     console.log(error.message);
@@ -100,7 +102,6 @@ class ConfirmBooking extends Component {
         axios.post(url + id,this.state.fdata)
           .then(async response => {
             this.setState({bookingsucces1modalShow:true})
-            // console.log(response);
           })
           .catch(error => {
             console.log(error);
@@ -189,7 +190,7 @@ class ConfirmBooking extends Component {
           
           this.setState({bookingsuccesmodalShow:true})
           this.setState({areyousuremodalShow:false})
-         
+        
           })
           .catch(error => {
             
@@ -219,7 +220,7 @@ class ConfirmBooking extends Component {
               Cancel Booking
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
-            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
+            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>{this.setState({bookingsuccesmodalShow:false});window.location = '/';}}/> 
             
         </React.Fragment>
       )
@@ -242,7 +243,7 @@ class ConfirmBooking extends Component {
               Cancel Booking
             </button>
             <AreYouSurePop show={this.state.areyousuremodalShow} onHide={() =>this.setState({areyousuremodalShow:false})} cancel={this.cancelBooking}/>
-            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>this.setState({bookingsuccesmodalShow:false})}/> 
+            <SuccesPop show={this.state.bookingsuccesmodalShow} onHide={() =>{this.setState({bookingsuccesmodalShow:false});window.location = '/';}}/> 
             
             </React.Fragment>
       )
@@ -271,7 +272,7 @@ class ConfirmBooking extends Component {
     else{
     return(
       <React.Fragment>
-      <BookingSuccesful show={this.state.bookingsucces1modalShow} onHide={() =>this.setState({bookingsucces1modalShow:false})}/>
+      <BookingSuccesful show={this.state.bookingsucces1modalShow} onHide={() =>{this.setState({bookingsucces1modalShow:false});window.location = '/';}}/>
     <button
             className="btn btn-primary"
             style={{ textAlign: "center", width: "20%" }} 

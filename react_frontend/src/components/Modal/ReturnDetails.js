@@ -81,9 +81,10 @@ confirmReturn = () =>{
               console.log(error.message);
             }) 
     
-          console.log("complited carob",carob);
-          console.log("complited it",this.state);
+          // console.log("complited carob",carob);
+          // console.log("complited it",this.state);
           this.setState({returnsuccessmodalShow:true})
+          
 }
 closepopup = ()=>{
   this.setState({returnsuccessmodalShow:false})
@@ -94,7 +95,7 @@ closepopup = ()=>{
    render() {
      return (
        <React.Fragment>
-       <ReturnSuccess show={this.state.returnsuccessmodalShow} onHide={() =>this.setState({returnsuccessmodalShow:false})} print={this.props.print} close={this.closepopup}/> 
+       <ReturnSuccess show={this.state.returnsuccessmodalShow} onHide={() =>{this.setState({returnsuccessmodalShow:false});window.location = '/';}} print={this.props.print} close={this.closepopup}/> 
         <Modal
       {...this.props}
       size="lg"

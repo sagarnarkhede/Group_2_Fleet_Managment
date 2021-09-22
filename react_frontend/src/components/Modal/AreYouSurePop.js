@@ -24,11 +24,12 @@ export default class AreYouSurePop extends Component {
 closepopup = ()=>{
   this.props.onHide()
   this.setState({failmodalShow:true})
+   
 }
   render() {
     return (
       <React.Fragment>
-      <FailPop show={this.state.failmodalShow} onHide={() =>this.setState({failmodalShow:false})}/> 
+      <FailPop show={this.state.failmodalShow} onHide={() =>{this.setState({failmodalShow:false});window.location = '/';}}/> 
        <Modal
      {...this.props}
      size="lg"

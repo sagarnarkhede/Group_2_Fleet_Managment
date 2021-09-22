@@ -110,7 +110,7 @@ handoverit = ()=>{
    render() {
      return (
        <React.Fragment>
-       <HandoverSuccess show={this.state.handoversuccessmodalShow} onHide={() =>this.setState({handoversuccessmodalShow:false})}/> 
+       <HandoverSuccess show={this.state.handoversuccessmodalShow} onHide={() =>{this.setState({handoversuccessmodalShow:false});window.location = '/';}}/> 
           {/* {console.log("this.state",this.state)} */}
          {this.getSelectcarPopup()}
       

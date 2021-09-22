@@ -4,13 +4,15 @@ import Footer from './Footer'
 import axios from 'axios'
 import { Link, NavLink } from 'react-router-dom';
 import InvalidIdPass from './Modal/InvalidIdPass';
+import Testing from './Modal/Testing';
 class SignIn extends Component {
     constructor(props) {
         super(props);
         this.state = {
             userid : '',
             password: '',
-            invalidpassmodalShow: false
+            invalidpassmodalShow: false,
+            testingmodalShow: true,
             
         }
     }
@@ -68,7 +70,9 @@ class SignIn extends Component {
     render() {
         return (
             <React.Fragment>
+                
             <InvalidIdPass show={this.state.invalidpassmodalShow} onHide={() =>this.setState({invalidpassmodalShow:false})} />
+            <Testing show={this.state.testingmodalShow} onHide={() =>this.setState({testingmodalShow:false})} />
             <div>
                 <Nav />
                 <div className="" style={{ margin: "13vh 30%" }}>
@@ -83,7 +87,10 @@ class SignIn extends Component {
                         {/* <Link to={{ pathname: "/"}} > */}
                         <button className="btn btn-primary" style={{ textAlign: "center", width: "20%" }}>Sign In</button>
                         {/* </Link> */}
-                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "20%" }}>Back</button>
+                        <button className="btn btn-primary" style={{ textAlign: "center", float: "right", width: "30%" }} 
+                        onClick={(e)=>{e.preventDefault();this.setState({testingmodalShow:true})}}
+                        // onClick={(e)=>{e.preventDefault();window.location = '/'}}
+                        >Testing Data</button>
                     </form>
                 </div>
                 <Footer />
