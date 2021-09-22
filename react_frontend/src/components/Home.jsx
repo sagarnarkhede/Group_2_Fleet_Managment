@@ -151,7 +151,7 @@ class Home extends Component {
                                                     </lottie-player>
                                                 </div>
                                                 <h3>Rent by the Hour, Day, Week, or Month</h3>
-                                                <p>you could have our rental service anytime on an hourly basis, on a weekly or monthly basis...</p>
+                                                <p>You could have our rental service anytime on an hourly basis, on a weekly or monthly basis...</p>
                                                 {/* <a href="" data-target="#servicemodel2" class="read-more"
                                                     data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
@@ -166,7 +166,7 @@ class Home extends Component {
                                                     </lottie-player>
                                                 </div>
                                                 <h3>Located in Your Neighbourhood or Near Your Office</h3>
-                                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. At, soluta!</p>
+                                                <p>You can find the nearest location where you could be booking your car  and thier we are available with veriety of cars ...</p>
                                                 {/* <a href="" data-target="#servicemodel3" class="read-more"
                                                     data-toggle="modal"><span>Read More</span> <i class="bi bi-arrow-right"></i></a> */}
                                             </div>
