@@ -311,7 +311,15 @@ class CustomerInfoPage extends Component {
         this.setState({ [event.target.name]: event.target.value });
 
     }
-
+    myFunction =()=> {
+        var x = document.getElementById("myInput");
+        console.log("x",x);
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
     getLogin() {
         return (
             <React.Fragment>
@@ -320,7 +328,9 @@ class CustomerInfoPage extends Component {
                     <label ><span style={{color:"red"}}>*</span>Membership No : </label>
                     <input type="text" className="form-control" name="membershipno" onChange={this.myChangeHandler} required placeholder={" Enter Your User Id"}></input>
                     <label><span style={{color:"red"}}>*</span>Password : </label>
-                    <input type="password" className="form-control" name="loginpassword" onChange={this.myChangeHandler} required placeholder={"Enter Your Password"}></input>
+                    <input type="password" className="form-control" name="loginpassword" id = "myInput" onChange={this.myChangeHandler} required placeholder={"Enter Your Password"}></input>
+                    <input type="checkbox" onClick={this.myFunction} />  Show Password
+
                     <br />
                     {/* <p>Forget Password</p>
                     <br /> */}

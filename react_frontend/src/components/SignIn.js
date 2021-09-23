@@ -67,6 +67,16 @@ class SignIn extends Component {
         this.setState({ [event.target.name]: event.target.value });
     }
 
+     myFunction =()=> {
+        var x = document.getElementById("myInput");
+        console.log("x",x);
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+
     render() {
         return (
             <React.Fragment>
@@ -82,6 +92,7 @@ class SignIn extends Component {
                         <input type="text" className="form-control" name="userid" required placeholder={"Enter Your User Id"} onChange={this.myChangeHandler}></input>
                         <label><span style={{color:"red"}}>*</span>Password : </label>
                         <input type="password" className="form-control" name="password" id = "myInput" required placeholder={"Enter Your Password"} onChange={this.myChangeHandler} ></input>
+                        <input type="checkbox" onClick={this.myFunction} />  Show Password
                         <br />
                         <br />
                         {/* <Link to={{ pathname: "/"}} > */}
