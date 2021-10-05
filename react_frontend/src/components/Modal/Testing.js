@@ -44,11 +44,11 @@ export default class Testing extends Component {
        <br/>
      <h3 align="center">Client LogIn Details : </h3>
      <p className="mb-0" align="center"> User Id : 612665386b949b076c55fea0</p>
-     <p align="center">Password : Tushar@123</p>
+     <p align="center">Password : SagarClient@123</p>
      <br/>
      <h3 align="center">Admin LogIn Details : </h3>
      <p align="center" className="mb-0"> User Id : 6122937a55e1572fa8095e93</p>
-     <p align="center">Password : 1234</p>
+     <p align="center">Password : SagarStaff@123</p>
      
       </div>
         </div>

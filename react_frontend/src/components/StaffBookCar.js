@@ -58,11 +58,11 @@ export default class StaffBookCar extends Component {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel"><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                <label className="sublabel">Search AirPort : </label>
                                 <input type="text" className="form-control" name="searchdropAirport" required placeholder={"Enter Airport name"} defaultValue={this.state.searchdropAirport} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel"><span style={{color:"red"}}>*</span>Select AirPort : </label>
+                                <label className="sublabel">Select AirPort : </label>
                                 <select className="form-control" name="selectdroppAirport" required defaultValue={this.state.selectdroppAirport} onChange={this.myChangeHandler}>
                                 <option value="-1">Select Airport</option>
                                     {this.state.airportdata.map((w) => {
@@ -104,11 +104,11 @@ export default class StaffBookCar extends Component {
                     <div className="col-6">
                         <div className="row">
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)",fontSize:"18px", fontWeight:500}}>Search AirPort : </label>
                                 <input type="text" className="form-control" name="searchdropAirport" defaultValue={this.state.searchdropAirport}required placeholder={"Enter Airport Name"} onChange={this.myChangeHandler}></input>
                             </div>
                             <div className="col-6">
-                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}><span style={{color:"red"}}>*</span>Select AirPort no : </label>
+                                <label className="sublabel"  style={{color:"rgb(255 255 255 / 80%)"}}>Select AirPort no : </label>
                                 <select className="form-control" name="selectdroppAirport" defaultValue={this.state.selectdroppAirport} required onChange={this.myChangeHandler}>
                                 <option value="-1">Select Airport</option>
                                     {this.state.airportdata.map((w) => {
@@ -174,15 +174,15 @@ export default class StaffBookCar extends Component {
                                 </div>
                             </div><br />
                             <div className="row mt-2">
-                                <label>Select Pick Up Location : </label>
+                                <label><span style={{color:"red"}}>*</span> Select Pick Up Location : </label>
                                 <div className="col-6">
                                     <div className="row">
                                         <div className="col-6">
-                                            <label className="sublabel"><span style={{color:"red"}}>*</span>Search AirPort : </label>
+                                            <label className="sublabel">Search AirPort : </label>
                                             <input type="text" className="form-control" name="searchpickupAirport" required placeholder={"Enter Airport Name"} onChange={this.myChangeHandler} disabled></input>
                                         </div>
                                         <div className="col-6">
-                                            <label className="sublabel"><span style={{color:"red"}}>*</span>Select AirPort : </label>
+                                            <label className="sublabel">Select AirPort : </label>
                                             <select className="form-control" name="selectpickupAirport" required onChange={this.myChangeHandler} disabled>
                                             <option value="-1">Select Airport</option>
                                                     {this.state.airportdata.map((w) => {

@@ -71,7 +71,7 @@ export default class Location extends Component {
           })
           Locations.forEach(async(ele)=>{
             // console.log("qq",ele.centername);
-            if(ele.centername == this.state.dropaddress[0].centername){
+            if(ele.centername == this.state.dropaddress[0]?.centername){
               
               Locations.forEach(async(ele1)=>{
                 // console.log("cc",this.state.dropaddress[0].city);
@@ -188,8 +188,8 @@ export default class Location extends Component {
   {
       var updatedData = this.props.location?.state.data;
       updatedData.cardetailsState.locationState = this.state;
-      console.log("updatedData",this.state.selectdropaddress.centername);
-      if((this.state.check != "checked") && (this.state.selectdropaddress.centername != undefined))
+      // console.log("updatedData",this.state.selectdropaddress.centername);
+      if((this.state.check != "checked") && (this.state.selectdropaddress?.centername != undefined))
       {
         this.setState({check:"checked"})
       }
